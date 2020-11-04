@@ -1086,9 +1086,12 @@ a {
   }
 }
 .cid-sfdwAqiUI3 {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
   background-color: #b5d1b8;
+}
+.cid-sfdwAqiUI3 .row {
+  flex-direction: row-reverse;
 }
 .cid-sfdwAqiUI3 .row {
   align-items: center;
@@ -1108,7 +1111,7 @@ a {
   text-align: left;
 }
 .cid-sfjMrl3chI {
-  padding-top: 0rem;
+  padding-top: 2rem;
   padding-bottom: 1rem;
   background-color: #232323;
 }
