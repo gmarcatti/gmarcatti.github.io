@@ -1,4 +1,9 @@
-# vetor
+Código Estruturas de dados 1
+================
+
+## Vetor
+
+``` r
 x <- c(10.4, 5.6, 3.1, 6.4, 21.7) # numérico
 x
 print(x)
@@ -14,8 +19,11 @@ z <- c(10.4, 44, 12.4, "carro")
 z
 z[1]
 z[1] + 4 # erro
+```
 
-# Matriz
+## Matriz
+
+``` r
 B <- matrix(c(2, 4, 3, 1, 5, 7), nrow = 3)
 B2 <- matrix(c(2, 4, 3, 1, 5, 7), nrow = 3, byrow = TRUE)
 t(B)
@@ -25,16 +33,19 @@ D <- matrix(c(6, 2), nrow = 1)
 rbind(B, D)
 A <- matrix(c(2, 4, 3, 1, 5, 10), nrow = 2, byrow = TRUE)
 A
-A[1, 2] # primeiro linha e segundo coluna
+A[1, 1] # primeiro linha e segundo coluna
 A[2, ]
 A[ ,3]
 A[ , 2:3]
 A[ , c(1, 3)]
 A %*% B
 MA <- matrix(c(1, 3, 2, 5, 6 ,8, 2:11), nrow = 4)
-solve(MA)
+solve(MA) # inverso de uma matriz
+```
 
-# lista
+## Lista
+
+``` r
 lista <- list(nome = "canela", n_fustes = 3, 
               dap_fustes = c(12.5, 14, 5))
 
@@ -49,8 +60,12 @@ lista$dap_fustes[2:3]
 lista$dap_fustes[-3]
 lista[[3]]
 lista[[3]][2]
+```
 
-# data.frame ou tibble
+## data.frame ou tibble
+
+``` r
+# install.packages("readxl")
 library(readxl)
 dados <- read_excel("G:/Meu Drive/Drive/Aulas/Algoritmos/Aulas2020_1remoto/dados/dados.xlsx")
 dados
@@ -81,12 +96,16 @@ summary(lm_geral)
 
 plot(dados$idade, dados$volume)
 abline(lm_geral, col = "red")
+```
 
-# identificar quantidade de ajustes (repetições)
+## Loop em uma data.frame ou tibble
+
+``` r
+# 1. identificar quantidade de ajustes (repetições)
 uni_gen <- unique(dados$genotipo)
 N <- length(uni_gen)
 
-# Estrutura tibble para receber parametros do modelo
+# 2. Estrutura tibble (em "branco") para receber parametros do modelo
 # genetico, b0, b1
 # install.packages("tibble")
 require(tibble)
@@ -113,3 +132,4 @@ for (i in 1:N) {
 }
 coefs
 print(coefs, n = N)
+```
