@@ -1,0 +1,230 @@
+body {
+    font-family: 'Jost', sans-serif;
+    font-size: 1.25em; 
+    word-spacing: 150%;
+    line-height: 150%;
+}
+
+h1, h2 {
+    font-family: 'Asap', sans-serif;
+    word-spacing: 150%;
+    line-height: 150%;
+}
+
+
+nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #232323;
+    padding: 10px;
+}
+
+nav > a {
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 32px;
+    color: #2C974B;
+}
+
+nav img{
+    width: 75px;
+    vertical-align: middle;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    width: 100%;    
+    color:#2C974B;
+}
+
+nav ul li {
+    text-align: center;
+    width: 100%;
+    color:#2C974B;
+}
+
+nav ul li a {
+    display: inline-block;
+    padding: 5px 0;
+    width: 100%;
+    text-decoration: none;
+    color:#2C974B;
+}
+
+.botao {
+    color: #2C974B;
+    text-decoration: none;
+    padding: 2px 2px;
+    background-color: #FFFFFF;
+    border-radius: 2px;
+    border: 5px solid #2C974B;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("../img/fundo_header.jpg");
+    background-size: cover;
+    color: #000000;
+    text-align: center;
+    padding: 20px;
+}
+
+header h1{
+    margin-bottom: 10px;
+}
+header h2{
+    margin-top: 0px;
+}
+
+#sobre {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+#sobre div {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    /*text-align: center; 
+    margin-top: 10px; */
+}
+
+#sobre div h2{
+    align-items: right;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#sobre div p{
+    align-items: right;
+    text-align: left;
+    padding: 0px;
+    margin-top: 0px;
+}
+
+#sobre div img {
+    align-items: left; 
+    /* width: 60%; */
+    margin-top: 20px;
+}
+
+
+#sobre div a:link, a:visited {
+    color: #2C974B;
+    font-weight: bold;
+    text-decoration: none; 
+}
+#sobre div a:hover, a:active {
+    color: #2C974B;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#texto_contato {
+    text-align: center;
+    padding: 10px;
+    background-color: #232323;
+    color: #2C974B;
+}
+
+#contato {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#contato div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#contato div img {
+    width: 42px;
+    height: 42px;
+    margin-top: 30px;
+}
+
+#contato div p {
+    margin:0;
+    padding:0;
+}
+
+#contato a {
+    text-decoration: none;
+    color: #2C974B;
+}
+
+footer {
+    text-align: center;
+    padding: 1px;
+    background-color: #232323;
+    color: #2C974B;
+    font-size: 0.5em; 
+}
+
+footer a {
+    text-decoration: none;
+    color: #2C974B;
+}
+
+
+@media screen and (min-width: 768px) {
+    nav {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    nav ul {
+        flex-direction: row;
+        width: 45%;
+    }
+
+    header {
+        height: 300px;
+        height: 30vh;
+        justify-content: center;
+    }
+
+    #sobre {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        max-width: 1300px;
+        margin: 0 auto;
+    }
+
+    #sobre div{
+        flex-grow: 1;
+        flex-basis: 150px;
+        padding: 0 10px;
+    }
+    
+    #contato {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+
+    #contato div {
+        flex-grow: 1;
+        flex-basis: 150px;
+        padding: 0 10px;
+    }
+
+}
