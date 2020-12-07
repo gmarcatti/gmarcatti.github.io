@@ -212,6 +212,11 @@ footer a {
         flex-basis: 150px;
         padding: 0 10px;
     }
+
+    #sobre div img{
+        max-width: 80%;
+        height: auto;
+    }
     
     #contato {
         flex-direction: row;
