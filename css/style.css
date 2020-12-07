@@ -59,10 +59,11 @@ nav ul li a {
 .botao {
     color: #2C974B;
     text-decoration: none;
-    padding: 2px 2px;
+    padding: 2px 5px;
     background-color: #FFFFFF;
     border-radius: 2px;
     border: 5px solid #2C974B;
+    width: 100px;
 }
 
 header {
