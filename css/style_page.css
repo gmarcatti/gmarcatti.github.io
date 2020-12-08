@@ -1,21 +1,20 @@
-
-
 body {
     font-family: 'Jost', sans-serif;
-    font-size: 1.25em;  
+    font-size: 1.25em;
     word-spacing: 150%;
     line-height: 150%;
+    background-color: #f1f1f1;
+    color: #000000;
 }
 
 h1, h2 {
     font-family: 'Asap', sans-serif;
-    word-spacing: 150%; 
-    line-height: 150%; 
+    word-spacing: 150%;
+    line-height: 150%;
 }
 
-body {
-    background-color: #f1f1f1;
-    color: #000000;
+h3 {
+    color: #808080;
 }
 
 nav {
@@ -23,17 +22,16 @@ nav {
     flex-direction: column;
     align-items: center;
     background-color: #232323;
-    padding: 10px;
 }
 
-nav > a {
+nav a {
     text-decoration: none;
-    font-weight: 800;
-    font-size: 32px;
+    /* font-weight: 800; */
+    /* font-size: 1.75em;  */
     color: #2C974B;
 }
 
-nav img{
+nav img {
     width: 75px;
     vertical-align: middle;
 }
@@ -43,15 +41,15 @@ nav ul {
     flex-direction: column;
     align-items: center;
     list-style: none;
-    padding: 0;
-    width: 100%;    
-    color:#2C974B;
+    /* padding: 0; */
+    width: 100%;
+    color: #2C974B;
 }
 
 nav ul li {
     text-align: center;
     width: 100%;
-    color:#2C974B;
+    color: #2C974B;
 }
 
 nav ul li a {
@@ -59,18 +57,18 @@ nav ul li a {
     padding: 5px 0;
     width: 100%;
     text-decoration: none;
-    color:#2C974B;
+    color: #2C974B;
 }
 
-.botao_menu { 
+.botao_menu {
     color: #000000;
     text-decoration: none;
     padding: 10px 5px;
-    background-color:#2C974B;
+    background-color: #2C974B;
     border-radius: 2px;
     border: 2px solid #2C974B;
     box-shadow: 0 4px 2px -2px rgb(59, 59, 59);
-    width: 90%;
+    width: 75%;
 }
 
 header {
@@ -79,11 +77,39 @@ header {
     align-items: center;
     background-image: url("../img/fundo_header.jpg");
     background-size: cover;
-    color: #000000;
+    color: #f1f1f1;
     text-align: center;
-    padding: 10px;
-    font-size: 1.25em; 
+    padding: 20px;
+    font-size: 1.25em;
 }
+
+#apresentar {
+    /* background-color:#3b3b40; */
+    height:100%;
+    margin:0;
+    padding:10px;
+    text-align:center;
+}
+#apresentar img {
+    padding:0;
+    margin:20px; 
+    width:45%;
+    max-width:300px;   
+    vertical-align:top;
+}
+#apresentar p {
+    width:65%;
+    /* min-width:350px; */
+    display:inline-block;
+ 
+    padding:0px;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+    /* color:white; */
+    text-align: left;
+    white-space: pre-line;
+}
+
 
 .container {
     margin-left: auto;
@@ -129,9 +155,11 @@ header {
 
 #divisor {
     text-align: center;
-    padding: 10px;
-    background-color: #232323;
-    color: #2C974B;
+    padding: 2px;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 1.25em;
+    box-shadow: 0px 2px 5px 2px #888;
 }
 
 #contato {
@@ -155,8 +183,8 @@ header {
 }
 
 #contato div p {
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
 }
 
 #contato a {
@@ -169,7 +197,7 @@ footer {
     padding: 1px;
     background-color: #232323;
     color: #2C974B;
-    font-size: 0.5em; 
+    font-size: 0.5em;
 }
 
 footer a {
@@ -182,16 +210,28 @@ footer a {
         flex-direction: row;
         justify-content: space-around;
     }
-
     nav ul {
         flex-direction: row;
         width: 45%;
     }
-
     header {
         height: 100px;
         height: 10vh;
         justify-content: center;
+    }
+
+    #apresentar {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        max-width: 1300px;
+        margin: 0 auto;
+    }
+
+    #apresentar div{
+        flex-grow: 1;
+        flex-basis: 150px;
+        padding: 0 10px;
     }
 
     .card__image {
@@ -210,15 +250,13 @@ footer a {
         max-width: 1300px;
         margin: 0 auto;
     }
-
     #contato div {
         flex-grow: 1;
         flex-basis: 150px;
         padding: 0 10px;
     }
+
 }
-
-
 
 .botao {
     top: 0;
@@ -228,73 +266,73 @@ footer a {
     display: inline-block;
     padding: 10px 15px;
     background-color: #2C974B;
-    
     color: #000000;
-    
     box-shadow: -6px 6px 0 #404040;
     text-decoration: none;
 }
+
 .botao:hover {
-      top: 1px;
-      left: -1px;
-      box-shadow: -1px 1px 0 #404040;
-}
-.botao::after {
-        top: 1px;
-        left: -2px;
-        width: 4px;
-        height:4px;
-}
-      
-.botao::before {
-        bottom: -2px;
-        right: 1px;
-        width: 4px;
-        height: 4px;
+    top: 1px;
+    left: -1px;
+    box-shadow: -1px 1px 0 #404040;
 }
 
-    
 .botao::after {
-      transition: all .15s linear 0s;
-      content: '';
-      position: absolute;
-      top: 2px;
-      left: -4px;
-      width: 8px;
-      height: 8px;
-      background-color: #404040;
-      transform: rotate(45deg);
-      z-index: -1;
-      
-}
-    
-.botao::before {
-      transition: all .15s linear 0s;
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      right: 2px;
-      width: 8px;
-      height: 8px;
-      background-color: #404040;
-      transform: rotate(45deg);
-      z-index: -1;
+    top: 1px;
+    left: -2px;
+    width: 4px;
+    height: 4px;
 }
 
-  
-  a.botao { position: relative; }
-  
-  a:active.botao {
+.botao::before {
+    bottom: -2px;
+    right: 1px;
+    width: 4px;
+    height: 4px;
+}
+
+.botao::after {
+    transition: all .15s linear 0s;
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: -4px;
+    width: 8px;
+    height: 8px;
+    background-color: #404040;
+    transform: rotate(45deg);
+    z-index: -1;
+}
+
+.botao::before {
+    transition: all .15s linear 0s;
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    right: 2px;
+    width: 8px;
+    height: 8px;
+    background-color: #404040;
+    transform: rotate(45deg);
+    z-index: -1;
+}
+
+a.botao {
+    position: relative;
+}
+
+a:active.botao {
     top: 6px;
     left: -6px;
     box-shadow: none;
-  }
-    a:active.botao:before {
-      bottom: 1px;
-      right: 1px;
-    }
-    
-    a:active.botao:after {
-      top: 1px;
-      left: 1px;
-    }
+}
+
+a:active.botao:before {
+    bottom: 1px;
+    right: 1px;
+}
+
+a:active.botao:after {
+    top: 1px;
+    left: 1px;
+}
