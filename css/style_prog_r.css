@@ -94,6 +94,7 @@ header {
 
 .grid {
     display: grid;
+    position: relative;
     grid-column-gap: 24px;
     grid-row-gap: 24px;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
