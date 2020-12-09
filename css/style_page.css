@@ -1,3 +1,11 @@
+html, body {
+    width: 100%;
+    /* height: 100%; */
+    padding: 0px;
+    margin: 0px;
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'Jost', sans-serif;
     font-size: 1.25em;
@@ -85,7 +93,7 @@ header {
 
 #apresentar {
     /* background-color:#3b3b40; */
-    height:100%;
+    /* height:100%; */
     margin:0;
     padding:10px;
     text-align:center;
@@ -93,12 +101,12 @@ header {
 #apresentar img {
     padding:0;
     margin:20px; 
-    width:45%;
+    /* width:45%; */
     max-width:300px;   
     vertical-align:top;
 }
 #apresentar p {
-    width:65%;
+    width:75%;
     /* min-width:350px; */
     display:inline-block;
  
@@ -219,7 +227,7 @@ footer a {
         height: 10vh;
         justify-content: center;
     }
-
+/*  
     #apresentar {
         flex-direction: row;
         flex-wrap: wrap;
@@ -233,7 +241,7 @@ footer a {
         flex-basis: 150px;
         padding: 0 10px;
     }
-
+*/
     .card__image {
         /* width: 75%; */
         flex-direction: row;
