@@ -8,21 +8,32 @@ html, body {
 
 body {
     font-family: 'Jost', sans-serif;
-    font-size: 1.25em;
-    word-spacing: 150%;
-    line-height: 150%;
+    font-size: 1.20em;
+    word-spacing: 125%;
+    line-height: 125%;
     background-color: #f1f1f1;
     color: #000000;
 }
 
 h1, h2 {
     font-family: 'Asap', sans-serif;
-    word-spacing: 150%;
-    line-height: 150%;
+    word-spacing: 125%;
+    line-height: 125%;
 }
 
 h3 {
     color: #808080;
+}
+
+h3.rotulo_sub {
+    margin: 15px 0 10px;
+    font-size: 1.5em;
+    line-height: 1.3;
+    font-weight: 700;
+    font-style: normal;
+    text-decoration: none;
+    color: #000000;
+    border-bottom: 5px solid #7a0000;
 }
 
 nav {
@@ -81,43 +92,66 @@ nav ul li a {
 
 header {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    align-items: middle;
     background-image: url("../img/fundo_header.jpg");
     background-size: cover;
     color: #f1f1f1;
-    text-align: center;
     padding: 20px;
     font-size: 1.25em;
 }
 
+#header_img img {
+    width: 42px;
+    height: 42px;
+    margin-left: 10px;
+}
+
 #apresentar {
-    /* background-color:#3b3b40; */
     /* height:100%; */
-    margin:0;
-    padding:10px;
-    text-align:center;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
 }
+
 #apresentar img {
-    padding:0;
-    margin:20px; 
-    /* width:45%; */
-    max-width:300px;   
-    vertical-align:top;
+    padding: 0;
+    margin: 20px;
+    max-width: 250px;
+    vertical-align: top;
 }
+
 #apresentar p {
-    width:75%;
-    /* min-width:350px; */
-    display:inline-block;
- 
-    padding:0px;
-    -moz-box-sizing:border-box;
-    box-sizing:border-box;
-    /* color:white; */
+    width: 79%;
+    display: inline-block;
+    padding: 0px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    align-items: center;
     text-align: left;
     white-space: pre-line;
 }
 
+.lista div {
+    margin-bottom: 10px;
+}
+
+.lista div span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #000;
+    color: #fff;
+}
+
+.video iframe {
+    max-width: 100%;
+    min-height: 100%;
+}
 
 .container {
     margin-left: auto;
@@ -144,6 +178,18 @@ header {
     padding: 20px;
 }
 
+.card_semana {
+    /* align-items: center; */
+    background-color: #fff;
+    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    /* display: flex; */
+    margin: 20px;
+    padding: 20px;
+    flex-direction: column;
+    /* padding: 20px; */
+}
+
 .card__image {
     /* background-color: #ddd; */
     display: block;
@@ -161,12 +207,36 @@ header {
     margin-top: auto;
 }
 
+.link_texto:link {
+    color: #2C974B;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.link_texto:visited {
+    color: #2C974B;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.link_texto:hover {
+    color: #2C974B;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.link_texto:hover {
+    color: #2C974B;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
 #divisor {
     text-align: center;
-    padding: 2px;
+    padding: 1px;
     background-color: #ffffff;
     color: #000000;
-    font-size: 1.25em;
+    font-size: 1.2em;
     box-shadow: 0px 2px 5px 2px #888;
 }
 
@@ -181,13 +251,13 @@ header {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 #contato div img {
     width: 42px;
     height: 42px;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 #contato div p {
@@ -227,21 +297,6 @@ footer a {
         height: 10vh;
         justify-content: center;
     }
-/*  
-    #apresentar {
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: flex-start;
-        max-width: 1300px;
-        margin: 0 auto;
-    }
-
-    #apresentar div{
-        flex-grow: 1;
-        flex-basis: 150px;
-        padding: 0 10px;
-    }
-*/
     .card__image {
         /* width: 75%; */
         flex-direction: row;
@@ -250,7 +305,6 @@ footer a {
         max-width: 1300px;
         margin: 0 auto;
     }
-
     #contato {
         flex-direction: row;
         flex-wrap: wrap;
@@ -263,7 +317,6 @@ footer a {
         flex-basis: 150px;
         padding: 0 10px;
     }
-
 }
 
 .botao {
