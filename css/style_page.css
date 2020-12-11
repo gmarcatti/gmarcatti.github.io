@@ -134,6 +134,21 @@ header {
     white-space: pre-line;
 }
 
+.previous_next {
+    display: flex;
+    justify-content: center;
+}
+
+.previous_next img {
+    /* flex: 10%; */
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
 .lista div {
     margin-bottom: 10px;
 }
