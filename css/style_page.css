@@ -106,8 +106,10 @@ header {
 #header_img img {
     width: 36px;
     height: 36px;
-    margin-left: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
+
 
 #apresentar {
     /* height:100%; */
@@ -133,6 +135,67 @@ header {
     text-align: left;
     white-space: pre-line;
 }
+
+/* .container_img_text {
+    position: relative;
+    width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.container_img_text .img_text{
+    position: relative;
+    max-width: 800px;
+    background-color: #333;
+    margin: 10px;
+    padding: 15px;
+    display: flex;
+}
+
+.container_img_text .img_text .img_{
+    max-width: 300px;
+    flex: 0 0 300px;
+}
+
+.container_img_text .img_text .img_ img{
+    max-width: 100%;
+}
+
+.container_img_text .img_text ._text{
+    margin-left: 20px;
+}
+ */
+
+
+
+.img_text {
+    padding: 20px;
+    margin: 20px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.img_text ._text{
+    padding-left: 20px;
+ }  
+
+img_text .img_{
+    width: 250px;
+    flex: 0 0 250px;
+}
+
+.img_text .img_ img{
+    max-width: 100%;
+}
+
+
 
 .previous_next {
     display: flex;
@@ -194,6 +257,10 @@ header {
     padding: 20px;
 }
 
+.card:hover {
+    box-shadow: 0 10px 15px 10px rgba(0, 0, 0, 0.1);
+}
+
 .card_semana {
     /* align-items: center; */
     background-color: #fff;
@@ -212,6 +279,15 @@ header {
     object-fit: cover;
     width: 100%;
 }
+
+.curso__image {
+    /* background-color: #ddd; */
+    display: block;
+    object-fit: cover;
+    width: auto;
+    height: 200px;
+}
+
 
 .card__button {
     color: #000000;
@@ -291,13 +367,9 @@ footer {
     padding: 1px;
     background-color: #232323;
     color: #2C974B;
-    font-size: 0.5em;
+    font-size: 0.5em; 
 }
 
-footer a {
-    text-decoration: none;
-    color: #2C974B;
-}
 
 @media screen and (min-width: 768px) {
     nav {

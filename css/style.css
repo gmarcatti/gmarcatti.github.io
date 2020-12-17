@@ -190,11 +190,6 @@ footer {
     font-size: 0.5em; 
 }
 
-footer a {
-    text-decoration: none;
-    color: #2C974B;
-}
-
 
 @media screen and (min-width: 768px) {
     nav {
