@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<meta name="author" content="Gustavo Eduardo Marcatti" />
+
+
+<title>SEMANA 09 - Estruturas de dados. Indexação. Loop em data.frame (tibble) - P2 - Atividade B09</title>
+
+<script>// Hide empty <a> tag within highlighted CodeBlock for screen reader accessibility (see https://github.com/jgm/pandoc/issues/6352#issuecomment-626106786) -->
+// v0.0.1
+// Written by JooYoung Seo (jooyoung@psu.edu) and Atsushi Yasumoto on June 1st, 2020.
+
+document.addEventListener('DOMContentLoaded', function() {
+  const codeList = document.getElementsByClassName("sourceCode");
+  for (var i = 0; i < codeList.length; i++) {
+    var linkList = codeList[i].getElementsByTagName('a');
+    for (var j = 0; j < linkList.length; j++) {
+      if (linkList[j].innerHTML === "") {
+        linkList[j].setAttribute('aria-hidden', 'true');
+      }
+    }
+  }
+});
+</script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+      code.sourceCode > span { display: inline-block; line-height: 1.25; }
+  code.sourceCode > span { color: inherit; text-decoration: inherit; }
+  code.sourceCode > span:empty { height: 1.2em; }
+  .sourceCode { overflow: visible; }
+  code.sourceCode { white-space: pre; position: relative; }
+  div.sourceCode { margin: 1em 0; }
+  pre.sourceCode { margin: 0; }
+  @media screen {
+  div.sourceCode { overflow: auto; }
+  }
+  @media print {
+  code.sourceCode { white-space: pre-wrap; }
+  code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+  }
+  pre.numberSource code
+    { counter-reset: source-line 0; }
+  pre.numberSource code > span
+    { position: relative; left: -4em; counter-increment: source-line; }
+  pre.numberSource code > span > a:first-child::before
+    { content: counter(source-line);
+      position: relative; left: -1em; text-align: right; vertical-align: baseline;
+      border: none; display: inline-block;
+      -webkit-touch-callout: none; -webkit-user-select: none;
+      -khtml-user-select: none; -moz-user-select: none;
+      -ms-user-select: none; user-select: none;
+      padding: 0 4px; width: 4em;
+      color: #aaaaaa;
+    }
+  pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+  div.sourceCode
+    {   }
+  @media screen {
+  code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+  }
+  code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+  code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+  code span.at { color: #7d9029; } /* Attribute */
+  code span.bn { color: #40a070; } /* BaseN */
+  code span.bu { } /* BuiltIn */
+  code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+  code span.ch { color: #4070a0; } /* Char */
+  code span.cn { color: #880000; } /* Constant */
+  code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+  code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+  code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+  code span.dt { color: #902000; } /* DataType */
+  code span.dv { color: #40a070; } /* DecVal */
+  code span.er { color: #ff0000; font-weight: bold; } /* Error */
+  code span.ex { } /* Extension */
+  code span.fl { color: #40a070; } /* Float */
+  code span.fu { color: #06287e; } /* Function */
+  code span.im { } /* Import */
+  code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+  code span.op { color: #666666; } /* Operator */
+  code span.ot { color: #007020; } /* Other */
+  code span.pp { color: #bc7a00; } /* Preprocessor */
+  code span.sc { color: #4070a0; } /* SpecialChar */
+  code span.ss { color: #bb6688; } /* SpecialString */
+  code span.st { color: #4070a0; } /* String */
+  code span.va { color: #19177c; } /* Variable */
+  code span.vs { color: #4070a0; } /* VerbatimString */
+  code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 16px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 24px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">SEMANA 09 - Estruturas de dados. Indexação. Loop em data.frame (tibble) - P2 - Atividade B09</h1>
+<h4 class="author">Gustavo Eduardo Marcatti</h4>
+
+
+
+<div id="determinar-a-idade-técnica-de-corte-para-cada-grupo-de-materiais-genéticos" class="section level5">
+<h5>Determinar a idade técnica de corte para cada grupo de materiais genéticos</h5>
+<p>idade técnica de corte para cada grupo de materiais genéticos</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">library</span>(readxl)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">library</span>(tibble)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">library</span>(minpack.lm)</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># 1. Importar a base de dados</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co"># 2. Atribuir classe para cada material genético</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="co">#--------- Estrutura padrão -----------------------#</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="co"># 3. Identificar e quantificar as classes de interesse</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="co"># 4. Como executar o procedimento e como acessar os resultados</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="co"># 5. Criar uma data.frame (ou tibble) para receber os resultados</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="co"># 6. Executar o processo de repetição (loop)</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="co">#     6.1. Filtrar a classe de interesse</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="co">#     6.2. Executar os procedimentos necessários (muda bastante)</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="co">#     6.3. Acesso os resultados</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="co">#     6.4. Modificar a data.frame, gerada em (5), para receber os resultados</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a></span>
+<span id="cb1-16"><a href="#cb1-16"></a></span>
+<span id="cb1-17"><a href="#cb1-17"></a><span class="co"># 1. Importar a base de dados</span></span>
+<span id="cb1-18"><a href="#cb1-18"></a><span class="co">##-------- Ler arquivo hospedado na internet --------------##</span></span>
+<span id="cb1-19"><a href="#cb1-19"></a><span class="kw">library</span>(httr)</span>
+<span id="cb1-20"><a href="#cb1-20"></a>url &lt;-<span class="st"> &quot;https://gmarcatti.github.io/dados/dados.xlsx&quot;</span></span>
+<span id="cb1-21"><a href="#cb1-21"></a><span class="kw">GET</span>(url, <span class="kw">write_disk</span>(arq &lt;-<span class="st"> </span><span class="kw">tempfile</span>(<span class="dt">fileext =</span> <span class="st">&quot;.xlsx&quot;</span>)))</span>
+<span id="cb1-22"><a href="#cb1-22"></a>dados &lt;-<span class="st"> </span><span class="kw">read_excel</span>(arq)</span>
+<span id="cb1-23"><a href="#cb1-23"></a><span class="co"># dados &lt;- read_excel(&quot;C:/dados/dados.xlsx&quot;) # se o arquivo estiver no pc</span></span>
+<span id="cb1-24"><a href="#cb1-24"></a>dados</span>
+<span id="cb1-25"><a href="#cb1-25"></a></span>
+<span id="cb1-26"><a href="#cb1-26"></a><span class="co"># 2. Atribuir classe para cada material genético</span></span>
+<span id="cb1-27"><a href="#cb1-27"></a>prod &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;G20&quot;</span>, <span class="st">&quot;G22&quot;</span>, <span class="st">&quot;G4&quot;</span>, <span class="st">&quot;G3&quot;</span>, <span class="st">&quot;G2&quot;</span>, <span class="st">&quot;G24&quot;</span>, <span class="st">&quot;G7&quot;</span>, <span class="st">&quot;G18&quot;</span>)</span>
+<span id="cb1-28"><a href="#cb1-28"></a>inter &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;G5&quot;</span>, <span class="st">&quot;G12&quot;</span>, <span class="st">&quot;G9&quot;</span>, <span class="st">&quot;G21&quot;</span>, <span class="st">&quot;G14&quot;</span>, <span class="st">&quot;G11&quot;</span>, <span class="st">&quot;G8&quot;</span>, <span class="st">&quot;G6&quot;</span>)</span>
+<span id="cb1-29"><a href="#cb1-29"></a>resis &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;G1&quot;</span>, <span class="st">&quot;G16&quot;</span>, <span class="st">&quot;G23&quot;</span>, <span class="st">&quot;G15&quot;</span>, <span class="st">&quot;G13&quot;</span>, <span class="st">&quot;G10&quot;</span>, <span class="st">&quot;G19&quot;</span>, <span class="st">&quot;G17&quot;</span>)</span>
+<span id="cb1-30"><a href="#cb1-30"></a></span>
+<span id="cb1-31"><a href="#cb1-31"></a>dados<span class="op">$</span>classe_gen &lt;-<span class="st"> &quot;&quot;</span></span>
+<span id="cb1-32"><a href="#cb1-32"></a>dados[dados<span class="op">$</span>genotipo <span class="op">%in%</span><span class="st"> </span>prod, <span class="st">&quot;classe_gen&quot;</span>] <span class="co"># filtrar</span></span>
+<span id="cb1-33"><a href="#cb1-33"></a>dados[dados<span class="op">$</span>genotipo <span class="op">%in%</span><span class="st"> </span>prod, <span class="st">&quot;classe_gen&quot;</span>] &lt;-<span class="st"> &quot;Produtivo&quot;</span> <span class="co"># filtrar e modificar</span></span>
+<span id="cb1-34"><a href="#cb1-34"></a>dados[dados<span class="op">$</span>genotipo <span class="op">%in%</span><span class="st"> </span>inter, <span class="st">&quot;classe_gen&quot;</span>] &lt;-<span class="st"> &quot;Intermediario&quot;</span> <span class="co"># filtrar e modificar</span></span>
+<span id="cb1-35"><a href="#cb1-35"></a>dados[dados<span class="op">$</span>genotipo <span class="op">%in%</span><span class="st"> </span>resis, <span class="st">&quot;classe_gen&quot;</span>] &lt;-<span class="st"> &quot;Resistente&quot;</span> <span class="co"># filtrar e modificar</span></span>
+<span id="cb1-36"><a href="#cb1-36"></a>dados</span>
+<span id="cb1-37"><a href="#cb1-37"></a><span class="co">#--------- Estrutura padrão -----------------------#</span></span>
+<span id="cb1-38"><a href="#cb1-38"></a><span class="co"># 3. Identificar e quantificar as classes de interesse</span></span>
+<span id="cb1-39"><a href="#cb1-39"></a>uni_classe &lt;-<span class="st"> </span><span class="kw">unique</span>(dados<span class="op">$</span>classe_gen)</span>
+<span id="cb1-40"><a href="#cb1-40"></a>N &lt;-<span class="st"> </span><span class="kw">length</span>(uni_classe)</span>
+<span id="cb1-41"><a href="#cb1-41"></a><span class="co"># 4. Como executar o procedimento e como acessar os resultados</span></span>
+<span id="cb1-42"><a href="#cb1-42"></a>nls_geral &lt;-<span class="st"> </span><span class="kw">nlsLM</span>(volume <span class="op">~</span><span class="st"> </span><span class="kw">exp</span>(b0 <span class="op">-</span><span class="st"> </span>b1 <span class="op">/</span><span class="st"> </span>idade), dados,</span>
+<span id="cb1-43"><a href="#cb1-43"></a>                   <span class="dt">start =</span> <span class="kw">list</span>(<span class="dt">b0 =</span> <span class="dv">1</span>, <span class="dt">b1 =</span> <span class="dv">1</span>))</span>
+<span id="cb1-44"><a href="#cb1-44"></a><span class="kw">summary</span>(nls_geral)</span>
+<span id="cb1-45"><a href="#cb1-45"></a><span class="kw">plot</span>(dados<span class="op">$</span>idade, dados<span class="op">$</span>volume, <span class="dt">xlab =</span> <span class="st">&quot;Idade (anos)&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Volume (m³/ha)&quot;</span>)</span>
+<span id="cb1-46"><a href="#cb1-46"></a><span class="kw">str</span>(<span class="kw">summary</span>(nls_geral))</span>
+<span id="cb1-47"><a href="#cb1-47"></a><span class="kw">summary</span>(nls_geral)<span class="op">$</span>coefficients[, <span class="dv">1</span>]</span>
+<span id="cb1-48"><a href="#cb1-48"></a>coef_geral &lt;-<span class="st"> </span><span class="kw">coef</span>(nls_geral)</span>
+<span id="cb1-49"><a href="#cb1-49"></a>coef_geral[[<span class="st">&quot;b0&quot;</span>]]</span>
+<span id="cb1-50"><a href="#cb1-50"></a>coef_geral[[<span class="st">&quot;b1&quot;</span>]]</span>
+<span id="cb1-51"><a href="#cb1-51"></a><span class="kw">curve</span>(<span class="kw">exp</span>(coef_geral[[<span class="st">&quot;b0&quot;</span>]] <span class="op">-</span><span class="st"> </span>coef_geral[[<span class="st">&quot;b1&quot;</span>]] <span class="op">/</span><span class="st"> </span>x),</span>
+<span id="cb1-52"><a href="#cb1-52"></a>      <span class="dt">from =</span> <span class="dv">1</span>, <span class="dt">to =</span> <span class="dv">8</span>, <span class="dt">add =</span> <span class="ot">TRUE</span>, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb1-53"><a href="#cb1-53"></a>idade_vetor &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">8</span>, <span class="fl">0.1</span>)</span>
+<span id="cb1-54"><a href="#cb1-54"></a>volume_vetor &lt;-<span class="st"> </span><span class="kw">predict</span>(nls_geral, <span class="kw">tibble</span>(<span class="dt">idade =</span> idade_vetor))</span>
+<span id="cb1-55"><a href="#cb1-55"></a>ima_vetor &lt;-<span class="st"> </span>volume_vetor <span class="op">/</span><span class="st"> </span>idade_vetor</span>
+<span id="cb1-56"><a href="#cb1-56"></a><span class="kw">max</span>(ima_vetor)</span>
+<span id="cb1-57"><a href="#cb1-57"></a>ind_max &lt;-<span class="st"> </span><span class="kw">which.max</span>(ima_vetor)</span>
+<span id="cb1-58"><a href="#cb1-58"></a>ima_vetor[<span class="dv">28</span>]</span>
+<span id="cb1-59"><a href="#cb1-59"></a>ima_vetor[ind_max]</span>
+<span id="cb1-60"><a href="#cb1-60"></a>id_tecnica &lt;-<span class="st"> </span>idade_vetor[<span class="dv">28</span>]</span>
+<span id="cb1-61"><a href="#cb1-61"></a>idade_vetor[<span class="dv">61</span>]</span>
+<span id="cb1-62"><a href="#cb1-62"></a>ima_vetor[<span class="dv">61</span>]</span>
+<span id="cb1-63"><a href="#cb1-63"></a>ima_vetor[idade_vetor <span class="op">==</span><span class="st"> </span><span class="fl">7.0</span>]</span>
+<span id="cb1-64"><a href="#cb1-64"></a>volume_vetor[<span class="dv">61</span>]</span>
+<span id="cb1-65"><a href="#cb1-65"></a>volume_vetor[idade_vetor <span class="op">==</span><span class="st"> </span><span class="fl">7.0</span>]</span>
+<span id="cb1-66"><a href="#cb1-66"></a><span class="co"># 5. Criar uma data.frame (ou tibble) para receber os resultados</span></span>
+<span id="cb1-67"><a href="#cb1-67"></a>gen_dados &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">classe_gen =</span> <span class="kw">character</span>(N),</span>
+<span id="cb1-68"><a href="#cb1-68"></a>                    <span class="dt">id_tec =</span> <span class="kw">numeric</span>(N),</span>
+<span id="cb1-69"><a href="#cb1-69"></a>                    <span class="dt">ima_max =</span> <span class="kw">numeric</span>(N),</span>
+<span id="cb1-70"><a href="#cb1-70"></a>                    <span class="dt">ima7 =</span> <span class="kw">numeric</span>(N),</span>
+<span id="cb1-71"><a href="#cb1-71"></a>                    <span class="dt">prod7 =</span> <span class="kw">numeric</span>(N))</span>
+<span id="cb1-72"><a href="#cb1-72"></a><span class="co"># 6. Executar o processo de repetição (loop)</span></span>
+<span id="cb1-73"><a href="#cb1-73"></a>cores &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;orange&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb1-74"><a href="#cb1-74"></a>idade_est &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">8</span>, <span class="fl">0.1</span>)</span>
+<span id="cb1-75"><a href="#cb1-75"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>N) {</span>
+<span id="cb1-76"><a href="#cb1-76"></a>   <span class="co">#     6.1. Filtrar a classe de interesse</span></span>
+<span id="cb1-77"><a href="#cb1-77"></a>   dados_i &lt;-<span class="st"> </span><span class="kw">subset</span>(dados, dados<span class="op">$</span>classe_gen <span class="op">==</span><span class="st"> </span>uni_classe[i])</span>
+<span id="cb1-78"><a href="#cb1-78"></a>   <span class="co">#     6.2. Executar os procedimentos necessários (muda bastante)</span></span>
+<span id="cb1-79"><a href="#cb1-79"></a>   nls_i &lt;-<span class="st"> </span><span class="kw">nlsLM</span>(volume <span class="op">~</span><span class="st"> </span><span class="kw">exp</span>(b0 <span class="op">-</span><span class="st"> </span>b1 <span class="op">/</span><span class="st"> </span>idade), dados_i,</span>
+<span id="cb1-80"><a href="#cb1-80"></a>                  <span class="dt">start =</span> <span class="kw">list</span>(<span class="dt">b0 =</span> <span class="dv">1</span>, <span class="dt">b1 =</span> <span class="dv">1</span>))</span>
+<span id="cb1-81"><a href="#cb1-81"></a>   coef_i &lt;-<span class="st"> </span><span class="kw">coef</span>(nls_i)</span>
+<span id="cb1-82"><a href="#cb1-82"></a>   <span class="kw">curve</span>(<span class="kw">exp</span>(coef_i[[<span class="st">&quot;b0&quot;</span>]] <span class="op">-</span><span class="st"> </span>coef_i[[<span class="st">&quot;b1&quot;</span>]] <span class="op">/</span><span class="st"> </span>x),</span>
+<span id="cb1-83"><a href="#cb1-83"></a>         <span class="dt">from =</span> <span class="dv">1</span>, <span class="dt">to =</span> <span class="dv">8</span>, <span class="dt">add =</span> <span class="ot">TRUE</span>, <span class="dt">col =</span> cores[i])</span>
+<span id="cb1-84"><a href="#cb1-84"></a>   volume_est &lt;-<span class="st"> </span><span class="kw">predict</span>(nls_i, <span class="kw">tibble</span>(<span class="dt">idade =</span> idade_est))</span>
+<span id="cb1-85"><a href="#cb1-85"></a>   ima_est &lt;-<span class="st"> </span>volume_est <span class="op">/</span><span class="st"> </span>idade_est</span>
+<span id="cb1-86"><a href="#cb1-86"></a>   ind_max_est &lt;-<span class="st"> </span><span class="kw">which.max</span>(ima_est)</span>
+<span id="cb1-87"><a href="#cb1-87"></a>   <span class="co">#     6.3. Acesso os resultados</span></span>
+<span id="cb1-88"><a href="#cb1-88"></a>   id_tec &lt;-<span class="st"> </span>idade_est[ind_max_est]</span>
+<span id="cb1-89"><a href="#cb1-89"></a>   ima_max &lt;-<span class="st"> </span>ima_est[ind_max_est]</span>
+<span id="cb1-90"><a href="#cb1-90"></a>   ima7 &lt;-<span class="st"> </span>ima_est[idade_est <span class="op">==</span><span class="st"> </span><span class="fl">7.0</span>]</span>
+<span id="cb1-91"><a href="#cb1-91"></a>   prod7 &lt;-<span class="st"> </span>volume_est[idade_est <span class="op">==</span><span class="st"> </span><span class="fl">7.0</span>]</span>
+<span id="cb1-92"><a href="#cb1-92"></a>   <span class="co">#     6.4. Modificar a data.frame, gerada em (5), para receber os resultados</span></span>
+<span id="cb1-93"><a href="#cb1-93"></a>   gen_dados[i, <span class="st">&quot;classe_gen&quot;</span>] &lt;-<span class="st"> </span>uni_classe[i]</span>
+<span id="cb1-94"><a href="#cb1-94"></a>   gen_dados[i, <span class="st">&quot;id_tec&quot;</span>] &lt;-<span class="st"> </span>id_tec</span>
+<span id="cb1-95"><a href="#cb1-95"></a>   gen_dados[i, <span class="st">&quot;ima_max&quot;</span>] &lt;-<span class="st"> </span>ima_max</span>
+<span id="cb1-96"><a href="#cb1-96"></a>   gen_dados[i, <span class="st">&quot;ima7&quot;</span>] &lt;-<span class="st"> </span>ima7</span>
+<span id="cb1-97"><a href="#cb1-97"></a>   gen_dados[i, <span class="st">&quot;prod7&quot;</span>] &lt;-<span class="st"> </span>prod7</span>
+<span id="cb1-98"><a href="#cb1-98"></a>}</span></code></pre></div>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
