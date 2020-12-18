@@ -120,13 +120,13 @@ header {
 
 #apresentar img {
     padding: 0;
-    margin: 20px;
-    max-width: 250px;
+    margin: 10px;
+    max-width: 300px;
     vertical-align: top;
 }
 
 #apresentar p {
-    width: 79%;
+    width: 75%;
     display: inline-block;
     padding: 0px;
     -moz-box-sizing: border-box;
@@ -186,7 +186,7 @@ header {
     padding-left: 20px;
  }  
 
-img_text .img_{
+.img_text .img_{
     width: 250px;
     flex: 0 0 250px;
 }
@@ -385,6 +385,13 @@ footer {
         height: 10vh;
         justify-content: center;
     }
+
+    #apresentar {
+        padding-left:40px;
+        padding-right:60px;
+        padding-top: 40px;
+    }
+
     .card__image {
         /* width: 75%; */
         flex-direction: row;

@@ -5,6 +5,7 @@ html, body {
     margin: 0px;
     overflow-x: hidden;
 }
+
 body {
     font-family: 'Jost', sans-serif;
     font-size: 1.2em; 
@@ -18,7 +19,6 @@ h1, h2 {
     word-spacing: 125%;
     line-height: 125%;
 }
-
 
 nav {
     display: flex;
@@ -83,7 +83,6 @@ nav ul li a {
     width: 75%;
 }
 
-
 header {
     display: flex;
     flex-direction: column;
@@ -97,19 +96,19 @@ header {
 
 #apresentar {
     /* height:100%; */
-    margin: 0px;
-    padding:00px;
+    /* margin: 0px;
+    padding: 0px; */
     text-align:center;
     
 }
 #apresentar img {
     padding:0;
     margin:20px; 
-    max-width:250px;   
+    max-width:350px;   
     vertical-align:top;
 }
 #apresentar p {
-    width:79%;
+    width:70%;
     display:inline-block;
     padding:0px;
     -moz-box-sizing:border-box;
@@ -207,7 +206,11 @@ footer {
         /* height: 30vh; */
         justify-content: center;
     }
-    
+
+    #apresentar {
+        padding:40px;
+    }
+
     #contato {
         flex-direction: row;
         flex-wrap: wrap;
