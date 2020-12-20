@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<meta name="author" content="Gustavo Eduardo Marcatti" />
+
+
+<title>Prova - Programação no R</title>
+
+<script>// Hide empty <a> tag within highlighted CodeBlock for screen reader accessibility (see https://github.com/jgm/pandoc/issues/6352#issuecomment-626106786) -->
+// v0.0.1
+// Written by JooYoung Seo (jooyoung@psu.edu) and Atsushi Yasumoto on June 1st, 2020.
+
+document.addEventListener('DOMContentLoaded', function() {
+  const codeList = document.getElementsByClassName("sourceCode");
+  for (var i = 0; i < codeList.length; i++) {
+    var linkList = codeList[i].getElementsByTagName('a');
+    for (var j = 0; j < linkList.length; j++) {
+      if (linkList[j].innerHTML === "") {
+        linkList[j].setAttribute('aria-hidden', 'true');
+      }
+    }
+  }
+});
+</script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+      code.sourceCode > span { display: inline-block; line-height: 1.25; }
+  code.sourceCode > span { color: inherit; text-decoration: inherit; }
+  code.sourceCode > span:empty { height: 1.2em; }
+  .sourceCode { overflow: visible; }
+  code.sourceCode { white-space: pre; position: relative; }
+  div.sourceCode { margin: 1em 0; }
+  pre.sourceCode { margin: 0; }
+  @media screen {
+  div.sourceCode { overflow: auto; }
+  }
+  @media print {
+  code.sourceCode { white-space: pre-wrap; }
+  code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+  }
+  pre.numberSource code
+    { counter-reset: source-line 0; }
+  pre.numberSource code > span
+    { position: relative; left: -4em; counter-increment: source-line; }
+  pre.numberSource code > span > a:first-child::before
+    { content: counter(source-line);
+      position: relative; left: -1em; text-align: right; vertical-align: baseline;
+      border: none; display: inline-block;
+      -webkit-touch-callout: none; -webkit-user-select: none;
+      -khtml-user-select: none; -moz-user-select: none;
+      -ms-user-select: none; user-select: none;
+      padding: 0 4px; width: 4em;
+      color: #aaaaaa;
+    }
+  pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+  div.sourceCode
+    {   }
+  @media screen {
+  code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+  }
+  code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+  code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+  code span.at { color: #7d9029; } /* Attribute */
+  code span.bn { color: #40a070; } /* BaseN */
+  code span.bu { } /* BuiltIn */
+  code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+  code span.ch { color: #4070a0; } /* Char */
+  code span.cn { color: #880000; } /* Constant */
+  code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+  code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+  code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+  code span.dt { color: #902000; } /* DataType */
+  code span.dv { color: #40a070; } /* DecVal */
+  code span.er { color: #ff0000; font-weight: bold; } /* Error */
+  code span.ex { } /* Extension */
+  code span.fl { color: #40a070; } /* Float */
+  code span.fu { color: #06287e; } /* Function */
+  code span.im { } /* Import */
+  code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+  code span.op { color: #666666; } /* Operator */
+  code span.ot { color: #007020; } /* Other */
+  code span.pp { color: #bc7a00; } /* Preprocessor */
+  code span.sc { color: #4070a0; } /* SpecialChar */
+  code span.ss { color: #bb6688; } /* SpecialString */
+  code span.st { color: #4070a0; } /* String */
+  code span.va { color: #19177c; } /* Variable */
+  code span.vs { color: #4070a0; } /* VerbatimString */
+  code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 16px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 24px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Prova - Programação no R</h1>
+<h4 class="author">Gustavo Eduardo Marcatti</h4>
+
+
+
+<div id="questão-1" class="section level3">
+<h3>Questão 1</h3>
+<p>Se listarmos todos os números naturais abaixo de 10 que são múltiplos de 3 ou 5, obtemos 3, 5, 6 e 9.<br />
+A soma desses múltiplos é 23 e a média é 5,75.<br />
+Encontre a média e soma de todos os múltiplos de 3 ou 5 abaixo de 1000.<br />
+Faça uma função.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">#----------------- Alternativa 1 -------------------------------#</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>vetor &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">9</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>N &lt;-<span class="st"> </span><span class="kw">length</span>(vetor)</span>
+<span id="cb1-4"><a href="#cb1-4"></a>div3ou5_log &lt;-<span class="st"> </span><span class="kw">logical</span>(N)</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>N) {</span>
+<span id="cb1-6"><a href="#cb1-6"></a>   <span class="cf">if</span> (vetor[i] <span class="op">%%</span><span class="st"> </span><span class="dv">3</span> <span class="op">==</span><span class="st"> </span><span class="dv">0</span> <span class="op">|</span><span class="st"> </span>vetor[i] <span class="op">%%</span><span class="st"> </span><span class="dv">5</span> <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) {</span>
+<span id="cb1-7"><a href="#cb1-7"></a>      div3ou5_log[i] &lt;-<span class="st"> </span><span class="ot">TRUE</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a>   }</span>
+<span id="cb1-9"><a href="#cb1-9"></a>}</span>
+<span id="cb1-10"><a href="#cb1-10"></a></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="kw">sum</span>(vetor[div3ou5_log])</span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="kw">mean</span>(vetor[div3ou5_log])</span>
+<span id="cb1-13"><a href="#cb1-13"></a></span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="co">#----------------- Alternativa 2 -------------------------------#</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a>vetor &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">9</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a>div3ou5_log &lt;-<span class="st"> </span><span class="kw">ifelse</span>(vetor <span class="op">%%</span><span class="st"> </span><span class="dv">3</span> <span class="op">==</span><span class="st"> </span><span class="dv">0</span> <span class="op">|</span><span class="st"> </span>vetor <span class="op">%%</span><span class="st"> </span><span class="dv">5</span> <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>)</span>
+<span id="cb1-17"><a href="#cb1-17"></a><span class="kw">sum</span>(vetor[div3ou5_log])</span>
+<span id="cb1-18"><a href="#cb1-18"></a><span class="kw">mean</span>(vetor[div3ou5_log])</span>
+<span id="cb1-19"><a href="#cb1-19"></a></span>
+<span id="cb1-20"><a href="#cb1-20"></a><span class="co">#----------------- Função --------------------------------------#</span></span>
+<span id="cb1-21"><a href="#cb1-21"></a>func_div3ou5 &lt;-<span class="st"> </span><span class="cf">function</span>(max_n) {</span>
+<span id="cb1-22"><a href="#cb1-22"></a>   vetor &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span>max_n</span>
+<span id="cb1-23"><a href="#cb1-23"></a>   div3ou5_log &lt;-<span class="st"> </span><span class="kw">ifelse</span>(vetor <span class="op">%%</span><span class="st"> </span><span class="dv">3</span> <span class="op">==</span><span class="st"> </span><span class="dv">0</span> <span class="op">|</span><span class="st"> </span>vetor <span class="op">%%</span><span class="st"> </span><span class="dv">5</span> <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>)</span>
+<span id="cb1-24"><a href="#cb1-24"></a>   div3ou5 &lt;-<span class="st"> </span>vetor[div3ou5_log]</span>
+<span id="cb1-25"><a href="#cb1-25"></a>   <span class="kw">return</span>(<span class="kw">list</span>(<span class="dt">media =</span> <span class="kw">mean</span>(div3ou5), <span class="dt">soma =</span> <span class="kw">sum</span>(div3ou5)))</span>
+<span id="cb1-26"><a href="#cb1-26"></a>}</span>
+<span id="cb1-27"><a href="#cb1-27"></a><span class="kw">func_div3ou5</span>(<span class="dv">999</span>)</span></code></pre></div>
+</div>
+<div id="questão-2" class="section level3">
+<h3>Questão 2</h3>
+<p>Obter um resumo de determinadas variáveis de um banco de dados. Acesse os dados em: <a href="https://gmarcatti.github.io/dados/dados.xlsx" class="uri">https://gmarcatti.github.io/dados/dados.xlsx</a> Seguir os passos descritos abaixo.<br />
+<br />
+a. Executar os comandos abaixo:<br />
+# carregar pacote para leitura dos dados<br />
+library(readxl)<br />
+# especificar o caminho dos dados de seu computador<br />
+dados &lt;- read_excel(“C:/aulas/dados_prog/dados.xlsx”)<br />
+<br />
+b. Obter a média e o desvio padrão (funções: mean e sd) para as variáveis volume e hd (altura dominante) para cada um dos talhões (variável chave_talhao) disponíveis na base de dados. Detalhe importante: o resumo deve ser restrito apenas a última observação (medição) de cada parcela (variável parc), isto é, observação de maior idade de cada parcela (medição mais atual).</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">#----------------- Alternativa 1 -------------------------------#</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="kw">library</span>(readxl)</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">library</span>(tibble)</span>
+<span id="cb2-4"><a href="#cb2-4"></a>dados &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;C:/aulas/dados_prog/dados.xlsx&quot;</span>)</span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="kw">print</span>(dados, <span class="dt">n =</span> <span class="dv">20</span>)</span>
+<span id="cb2-6"><a href="#cb2-6"></a></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="co"># 1 identificar e quantificar os grupos</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="co">#dados$talhao_parc &lt;- paste(dados$chave_talhao, dados$parc, sep = &quot;-&quot;)</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>uni_parc &lt;-<span class="st"> </span><span class="kw">unique</span>(dados<span class="op">$</span>parc) <span class="co">#talhao_parc</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a>N &lt;-<span class="st"> </span><span class="kw">length</span>(uni_parc)</span>
+<span id="cb2-11"><a href="#cb2-11"></a></span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="co"># 2 criar data.frame para receber os resultados</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a>d_ultima &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">chave_talhao =</span> <span class="kw">character</span>(N), <span class="dt">parc =</span> <span class="kw">integer</span>(N),</span>
+<span id="cb2-14"><a href="#cb2-14"></a>                   <span class="dt">idade =</span> <span class="kw">numeric</span>(N), <span class="dt">volume =</span> <span class="kw">numeric</span>(N), </span>
+<span id="cb2-15"><a href="#cb2-15"></a>                   <span class="dt">hd =</span> <span class="kw">numeric</span>(N))</span>
+<span id="cb2-16"><a href="#cb2-16"></a></span>
+<span id="cb2-17"><a href="#cb2-17"></a><span class="co"># 3 como acessar os elementos</span></span>
+<span id="cb2-18"><a href="#cb2-18"></a>indx_max &lt;-<span class="st"> </span><span class="kw">which.max</span>(dados<span class="op">$</span>idade)</span>
+<span id="cb2-19"><a href="#cb2-19"></a>dados[indx_max, ]</span>
+<span id="cb2-20"><a href="#cb2-20"></a></span>
+<span id="cb2-21"><a href="#cb2-21"></a><span class="co"># 4 loop</span></span>
+<span id="cb2-22"><a href="#cb2-22"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>N) {</span>
+<span id="cb2-23"><a href="#cb2-23"></a>   d_parc &lt;-<span class="st"> </span><span class="kw">subset</span>(dados, parc <span class="op">==</span><span class="st"> </span>uni_parc[i])</span>
+<span id="cb2-24"><a href="#cb2-24"></a>   indx_max &lt;-<span class="st"> </span><span class="kw">which.max</span>(d_parc<span class="op">$</span>idade)</span>
+<span id="cb2-25"><a href="#cb2-25"></a>   parc_ul &lt;-<span class="st"> </span>d_parc[indx_max, ]</span>
+<span id="cb2-26"><a href="#cb2-26"></a>   d_ultima[i, <span class="st">&quot;chave_talhao&quot;</span>] &lt;-<span class="st"> </span>parc_ul<span class="op">$</span>chave_talhao</span>
+<span id="cb2-27"><a href="#cb2-27"></a>   d_ultima[i, <span class="st">&quot;parc&quot;</span>] &lt;-<span class="st"> </span>parc_ul<span class="op">$</span>parc</span>
+<span id="cb2-28"><a href="#cb2-28"></a>   d_ultima[i, <span class="st">&quot;volume&quot;</span>] &lt;-<span class="st"> </span>parc_ul<span class="op">$</span>volume</span>
+<span id="cb2-29"><a href="#cb2-29"></a>   d_ultima[i, <span class="st">&quot;hd&quot;</span>] &lt;-<span class="st"> </span>parc_ul<span class="op">$</span>hd</span>
+<span id="cb2-30"><a href="#cb2-30"></a>   d_ultima[i, <span class="st">&quot;idade&quot;</span>] &lt;-<span class="st"> </span>parc_ul<span class="op">$</span>idade</span>
+<span id="cb2-31"><a href="#cb2-31"></a>}</span>
+<span id="cb2-32"><a href="#cb2-32"></a></span>
+<span id="cb2-33"><a href="#cb2-33"></a><span class="co"># 1 identificar e quantificar os grupos</span></span>
+<span id="cb2-34"><a href="#cb2-34"></a>uni_talhao &lt;-<span class="st"> </span><span class="kw">unique</span>(d_ultima<span class="op">$</span>chave_talhao)</span>
+<span id="cb2-35"><a href="#cb2-35"></a>N &lt;-<span class="st"> </span><span class="kw">length</span>(uni_talhao)</span>
+<span id="cb2-36"><a href="#cb2-36"></a><span class="co"># 2 criar data.frame para receber os resultados</span></span>
+<span id="cb2-37"><a href="#cb2-37"></a>ests &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">chave_talhao =</span> <span class="kw">character</span>(N),</span>
+<span id="cb2-38"><a href="#cb2-38"></a>               <span class="dt">vol_m =</span> <span class="kw">numeric</span>(N), <span class="dt">vol_dp =</span> <span class="kw">numeric</span>(N),</span>
+<span id="cb2-39"><a href="#cb2-39"></a>               <span class="dt">hd_m =</span> <span class="kw">numeric</span>(N), <span class="dt">hd_dp =</span> <span class="kw">numeric</span>(N))</span>
+<span id="cb2-40"><a href="#cb2-40"></a><span class="co"># 3 como acessar os elementos</span></span>
+<span id="cb2-41"><a href="#cb2-41"></a><span class="kw">mean</span>(dados<span class="op">$</span>volume)</span>
+<span id="cb2-42"><a href="#cb2-42"></a><span class="kw">sd</span>(dados<span class="op">$</span>volume)</span>
+<span id="cb2-43"><a href="#cb2-43"></a><span class="co"># 4 loop</span></span>
+<span id="cb2-44"><a href="#cb2-44"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>N) {</span>
+<span id="cb2-45"><a href="#cb2-45"></a>   d_talhao &lt;-<span class="st"> </span><span class="kw">subset</span>(d_ultima, chave_talhao <span class="op">==</span><span class="st"> </span>uni_talhao[i])</span>
+<span id="cb2-46"><a href="#cb2-46"></a>   ests[i, <span class="st">&quot;chave_talhao&quot;</span>] &lt;-<span class="st"> </span>uni_talhao[i]</span>
+<span id="cb2-47"><a href="#cb2-47"></a>   ests[i, <span class="st">&quot;vol_m&quot;</span>] &lt;-<span class="st"> </span><span class="kw">mean</span>(d_talhao<span class="op">$</span>volume)</span>
+<span id="cb2-48"><a href="#cb2-48"></a>   ests[i, <span class="st">&quot;vol_dp&quot;</span>] &lt;-<span class="st"> </span><span class="kw">sd</span>(d_talhao<span class="op">$</span>volume)</span>
+<span id="cb2-49"><a href="#cb2-49"></a>   ests[i, <span class="st">&quot;hd_m&quot;</span>] &lt;-<span class="st"> </span><span class="kw">mean</span>(d_talhao<span class="op">$</span>hd)</span>
+<span id="cb2-50"><a href="#cb2-50"></a>   ests[i, <span class="st">&quot;hd_dp&quot;</span>] &lt;-<span class="st"> </span><span class="kw">sd</span>(d_talhao<span class="op">$</span>hd)</span>
+<span id="cb2-51"><a href="#cb2-51"></a>}</span>
+<span id="cb2-52"><a href="#cb2-52"></a></span>
+<span id="cb2-53"><a href="#cb2-53"></a><span class="co">#----------------- Alternativa 2 -------------------------------#</span></span>
+<span id="cb2-54"><a href="#cb2-54"></a><span class="co"># carregar pacotes necessários</span></span>
+<span id="cb2-55"><a href="#cb2-55"></a><span class="kw">library</span>(readxl)</span>
+<span id="cb2-56"><a href="#cb2-56"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb2-57"><a href="#cb2-57"></a><span class="kw">library</span>(stringr)</span>
+<span id="cb2-58"><a href="#cb2-58"></a><span class="kw">library</span>(tibble)</span>
+<span id="cb2-59"><a href="#cb2-59"></a><span class="co"># especificar o caminho dos dados de seu computador</span></span>
+<span id="cb2-60"><a href="#cb2-60"></a>dados &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;C:/aulas/dados_prog/dados.xlsx&quot;</span>)</span>
+<span id="cb2-61"><a href="#cb2-61"></a>group_tp &lt;-<span class="st"> </span><span class="kw">group_by</span>(dados, chave_talhao, parc)</span>
+<span id="cb2-62"><a href="#cb2-62"></a>ultima_tp &lt;-<span class="st"> </span><span class="kw">slice</span>(group_tp, <span class="kw">which.max</span>(idade))</span>
+<span id="cb2-63"><a href="#cb2-63"></a>group_talhao &lt;-<span class="st"> </span><span class="kw">group_by</span>(ultima_tp, chave_talhao)</span>
+<span id="cb2-64"><a href="#cb2-64"></a>ests_talhao &lt;-<span class="st"> </span><span class="kw">summarise</span>(group_talhao, <span class="dt">vol_m =</span> <span class="kw">mean</span>(volume), <span class="dt">vol_dp =</span> <span class="kw">sd</span>(volume),</span>
+<span id="cb2-65"><a href="#cb2-65"></a>                        <span class="dt">hd_m =</span> <span class="kw">mean</span>(hd), <span class="dt">hd_dp =</span> <span class="kw">sd</span>(hd), <span class="dt">n =</span> <span class="kw">n</span>())</span>
+<span id="cb2-66"><a href="#cb2-66"></a></span>
+<span id="cb2-67"><a href="#cb2-67"></a><span class="co"># extra: ordenar por nome do talhao</span></span>
+<span id="cb2-68"><a href="#cb2-68"></a>numeros &lt;-<span class="st"> </span><span class="kw">sub</span>(<span class="st">&quot;.&quot;</span>, <span class="st">&quot;&quot;</span>, ests_talhao<span class="op">$</span>chave_talhao)</span>
+<span id="cb2-69"><a href="#cb2-69"></a>ests_talhao<span class="op">$</span>talhao &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;T&quot;</span>, <span class="kw">str_pad</span>(numeros, <span class="kw">max</span>(<span class="kw">nchar</span>(numeros)), <span class="dt">pad =</span> <span class="st">&quot;0&quot;</span>))</span>
+<span id="cb2-70"><a href="#cb2-70"></a>ests_talhao_ord &lt;-<span class="st"> </span><span class="kw">arrange</span>(ests_talhao, talhao)</span>
+<span id="cb2-71"><a href="#cb2-71"></a></span>
+<span id="cb2-72"><a href="#cb2-72"></a><span class="co">#----------------- Alternativa 3 -------------------------------#</span></span>
+<span id="cb2-73"><a href="#cb2-73"></a>dados_result &lt;-<span class="st"> </span>dados <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb2-74"><a href="#cb2-74"></a><span class="st">   </span><span class="kw">group_by</span>(chave_talhao,parc) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb2-75"><a href="#cb2-75"></a><span class="st">   </span><span class="kw">filter</span>(idade <span class="op">==</span><span class="st"> </span><span class="kw">max</span>(idade)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb2-76"><a href="#cb2-76"></a><span class="st">   </span><span class="kw">group_by</span>(chave_talhao) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb2-77"><a href="#cb2-77"></a><span class="st">   </span><span class="kw">summarise_at</span>(<span class="kw">vars</span>(hd,volume), <span class="kw">list</span>(<span class="op">~</span><span class="st"> </span><span class="kw">mean</span>(.,<span class="dt">na.rm =</span> <span class="ot">TRUE</span>), <span class="op">~</span><span class="st"> </span><span class="kw">sd</span>(., <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) )</span>
+<span id="cb2-78"><a href="#cb2-78"></a></span>
+<span id="cb2-79"><a href="#cb2-79"></a>dados_result</span></code></pre></div>
+</div>
+<div id="questão-3" class="section level3">
+<h3>Questão 3</h3>
+<p>Ajustar um modelo, de volume em função da idade (escolha o modelo de sua preferência), para cada uma das classes prec_mm (Precipitações) utilizando um loop de sua preferência. O resultado final deverá ser uma data.frame (ou tibble) com a quantidade de linhas igual ao número de classes de precipitações e contendo as seguintes colunas: prec_mm, b0, b1, R2. Esta última coluna é o coeficiente de determinação (medida de qualidade ajuste). Faça a plotagem dos ajustes também, pode ser algo semelhante ao apresentado em aula.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">library</span>(readxl)</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="kw">library</span>(tibble)</span>
+<span id="cb3-3"><a href="#cb3-3"></a>dados &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;C:/aulas/dados_prog/dados.xlsx&quot;</span>)</span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="co"># 1</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>uni_prec &lt;-<span class="st"> </span><span class="kw">unique</span>(dados<span class="op">$</span>prec_mm)</span>
+<span id="cb3-6"><a href="#cb3-6"></a>N &lt;-<span class="st"> </span><span class="kw">length</span>(uni_prec)</span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="co"># 2</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a>coefs &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">prec_mm =</span> <span class="kw">numeric</span>(N), <span class="dt">b0 =</span> <span class="kw">numeric</span>(N),</span>
+<span id="cb3-9"><a href="#cb3-9"></a>                <span class="dt">b1 =</span> <span class="kw">numeric</span>(N), <span class="dt">r2 =</span> <span class="kw">numeric</span>(N))</span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="co"># 3</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a>lm_geral &lt;-<span class="st"> </span><span class="kw">lm</span>(volume <span class="op">~</span><span class="st"> </span>idade, dados)</span>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="kw">coef</span>(lm_geral)[[<span class="dv">1</span>]]</span>
+<span id="cb3-13"><a href="#cb3-13"></a><span class="kw">coef</span>(lm_geral)[[<span class="dv">2</span>]]</span>
+<span id="cb3-14"><a href="#cb3-14"></a><span class="kw">cor</span>(dados<span class="op">$</span>volume, <span class="kw">fitted</span>(lm_geral))<span class="op">^</span><span class="dv">2</span></span>
+<span id="cb3-15"><a href="#cb3-15"></a><span class="co"># 4</span></span>
+<span id="cb3-16"><a href="#cb3-16"></a><span class="kw">plot</span>(dados<span class="op">$</span>idade, dados<span class="op">$</span>volume, <span class="dt">xlab =</span> <span class="st">&quot;Idade (anos)&quot;</span>, </span>
+<span id="cb3-17"><a href="#cb3-17"></a>     <span class="dt">ylab =</span> <span class="st">&quot;Volume (m³/ha)&quot;</span>)</span>
+<span id="cb3-18"><a href="#cb3-18"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>N) {</span>
+<span id="cb3-19"><a href="#cb3-19"></a>   d_i &lt;-<span class="st"> </span><span class="kw">subset</span>(dados, prec_mm <span class="op">==</span><span class="st"> </span>uni_prec[i])</span>
+<span id="cb3-20"><a href="#cb3-20"></a>   lm_i &lt;-<span class="st"> </span><span class="kw">lm</span>(volume <span class="op">~</span><span class="st"> </span>idade, d_i)</span>
+<span id="cb3-21"><a href="#cb3-21"></a>   b0 =<span class="st"> </span><span class="kw">coef</span>(lm_i)[[<span class="dv">1</span>]]</span>
+<span id="cb3-22"><a href="#cb3-22"></a>   b1 =<span class="st"> </span><span class="kw">coef</span>(lm_i)[[<span class="dv">2</span>]]</span>
+<span id="cb3-23"><a href="#cb3-23"></a>   r2 =<span class="st"> </span><span class="kw">cor</span>(d_i<span class="op">$</span>volume, <span class="kw">fitted</span>(lm_i))<span class="op">^</span><span class="dv">2</span></span>
+<span id="cb3-24"><a href="#cb3-24"></a>   coefs[i, <span class="st">&quot;prec_mm&quot;</span>] &lt;-<span class="st"> </span>uni_prec[i]</span>
+<span id="cb3-25"><a href="#cb3-25"></a>   coefs[i, <span class="st">&quot;b0&quot;</span>] &lt;-<span class="st"> </span>b0</span>
+<span id="cb3-26"><a href="#cb3-26"></a>   coefs[i, <span class="st">&quot;b1&quot;</span>] &lt;-<span class="st"> </span>b1</span>
+<span id="cb3-27"><a href="#cb3-27"></a>   coefs[i, <span class="st">&quot;r2&quot;</span>] &lt;-<span class="st"> </span>r2</span>
+<span id="cb3-28"><a href="#cb3-28"></a>   <span class="kw">abline</span>(b0, b1, <span class="dt">col =</span> i)</span>
+<span id="cb3-29"><a href="#cb3-29"></a>}</span>
+<span id="cb3-30"><a href="#cb3-30"></a>coefs</span></code></pre></div>
+</div>
+<div id="questão-4" class="section level3">
+<h3>Questão 4</h3>
+<p>Para ser número primo, um número deve ser divisível apenas por 2 números: 1 e por ele mesmo. Caso um número seja múltiplo de qualquer outro, ele não é primo. Em outras palavras, se um número é primo, o resto da divisão por qualquer outro número é diferente de zero, com exceção do número 1 e ele mesmo.<br />
+Os números primos entre 1 e 100 são: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97.<br />
+<br />
+Formule um algoritmo e implemente uma função em código R para retornar os números primos de 1 a n. Sua função deverá apresentar apenas o n como argumento, e deverá retornar um vetor com os números primos de 1 a n. <br />
+<br />
+Dicas: (1) Para obter o resto da divisão utilize %%. (2) Tente subdividir o problema em duas partes: 1º crie uma função que identifica se um número é primo ou não. 2º depois utilize essa função em um processo repetitivo para avaliar se os elementos de um vetor de 1:n são primos… os que forem primos devem ser armazenados em um vetor. Provavelmente as duas funções devem ter um loop.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>e_primo &lt;-<span class="st"> </span><span class="cf">function</span>(num) {</span>
+<span id="cb4-2"><a href="#cb4-2"></a>   <span class="cf">if</span> (num <span class="op">==</span><span class="st"> </span><span class="dv">2</span>) <span class="kw">return</span>(<span class="ot">TRUE</span>)</span>
+<span id="cb4-3"><a href="#cb4-3"></a>   <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>(num <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)) {</span>
+<span id="cb4-4"><a href="#cb4-4"></a>      <span class="cf">if</span> (num <span class="op">%%</span><span class="st"> </span>i <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) {</span>
+<span id="cb4-5"><a href="#cb4-5"></a>         <span class="kw">return</span>(<span class="ot">FALSE</span>)</span>
+<span id="cb4-6"><a href="#cb4-6"></a>      }</span>
+<span id="cb4-7"><a href="#cb4-7"></a>   }</span>
+<span id="cb4-8"><a href="#cb4-8"></a>   <span class="kw">return</span>(<span class="ot">TRUE</span>)</span>
+<span id="cb4-9"><a href="#cb4-9"></a>}</span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="kw">e_primo</span>(<span class="dv">13</span>)</span>
+<span id="cb4-11"><a href="#cb4-11"></a><span class="kw">e_primo</span>(<span class="dv">15</span>)</span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="kw">e_primo</span>(<span class="dv">947</span>)</span>
+<span id="cb4-13"><a href="#cb4-13"></a><span class="kw">e_primo</span>(<span class="dv">2</span>)</span>
+<span id="cb4-14"><a href="#cb4-14"></a></span>
+<span id="cb4-15"><a href="#cb4-15"></a>primos &lt;-<span class="st"> </span><span class="cf">function</span>(n) {</span>
+<span id="cb4-16"><a href="#cb4-16"></a>   vetor_primo &lt;-<span class="st"> </span><span class="kw">logical</span>(n)</span>
+<span id="cb4-17"><a href="#cb4-17"></a>   <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>n) {</span>
+<span id="cb4-18"><a href="#cb4-18"></a>      <span class="cf">if</span> (<span class="kw">e_primo</span>(i)) {</span>
+<span id="cb4-19"><a href="#cb4-19"></a>         vetor_primo[i] &lt;-<span class="st"> </span><span class="ot">TRUE</span></span>
+<span id="cb4-20"><a href="#cb4-20"></a>      }</span>
+<span id="cb4-21"><a href="#cb4-21"></a>   }</span>
+<span id="cb4-22"><a href="#cb4-22"></a>   <span class="kw">return</span>((<span class="dv">1</span><span class="op">:</span>n)[vetor_primo])</span>
+<span id="cb4-23"><a href="#cb4-23"></a>}</span>
+<span id="cb4-24"><a href="#cb4-24"></a><span class="kw">primos</span>(<span class="dv">100</span>)</span></code></pre></div>
+</div>
+<div id="questão-5" class="section level3">
+<h3>Questão 5</h3>
+<p>Discorra sobre os paradigmas de programação apresentados no curso: imperativo, funcional e matricial/vetorizado. Exemplo: fale um pouco sobre cada um, vantagens, desvantagens, usos, etc.<br />
+</p>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
