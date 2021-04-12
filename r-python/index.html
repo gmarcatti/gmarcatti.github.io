@@ -21,9 +21,9 @@
   <meta name="twitter:description" content="Este livro apresenta os elementos essenciais para programação computacional utilizando as linguagens de programação R e Python" />
   
 
+<meta name="author" content="Gustavo Eduardo Marcatti" />
 <meta name="author" content="Departamento de Engenharia Florestal" />
 <meta name="author" content="Universidade Federal de São João del-Rei" />
-<meta name="author" content="UFSJ" />
 
 
 
@@ -33,7 +33,7 @@
   
   
 
-<link rel="next" href="intro.html"/>
+<link rel="next" href="por-que-programar.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -135,15 +135,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Programação no R & Python</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
-<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
-<li class="chapter" data-level="3" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>3</b> Literature</a></li>
-<li class="chapter" data-level="4" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>4</b> Methods</a></li>
-<li class="chapter" data-level="5" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>5</b> Applications</a><ul>
-<li class="chapter" data-level="5.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>5.1</b> Example one</a></li>
-<li class="chapter" data-level="5.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>5.2</b> Example two</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prefácio</a></li>
+<li class="chapter" data-level="2" data-path="por-que-programar.html"><a href="por-que-programar.html"><i class="fa fa-check"></i><b>2</b> POR QUE PROGRAMAR?</a></li>
+<li class="chapter" data-level="3" data-path="por-que-o-r.html"><a href="por-que-o-r.html"><i class="fa fa-check"></i><b>3</b> POR QUE O R?</a></li>
+<li class="chapter" data-level="4" data-path="iniciando-no-r.html"><a href="iniciando-no-r.html"><i class="fa fa-check"></i><b>4</b> INICIANDO NO R</a><ul>
+<li class="chapter" data-level="4.1" data-path="iniciando-no-r.html"><a href="iniciando-no-r.html#comandos-e-ambiente-de-trabalho"><i class="fa fa-check"></i><b>4.1</b> COMANDOS E AMBIENTE DE TRABALHO</a></li>
+<li class="chapter" data-level="4.2" data-path="iniciando-no-r.html"><a href="iniciando-no-r.html#gerando-e-removendo-objetos"><i class="fa fa-check"></i><b>4.2</b> GERANDO E REMOVENDO OBJETOS</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>6</b> Final Words</a></li>
+<li class="chapter" data-level="5" data-path="criação-de-funções.html"><a href="criação-de-funções.html"><i class="fa fa-check"></i><b>5</b> CRIAÇÃO DE FUNÇÕES</a><ul>
+<li class="chapter" data-level="5.1" data-path="criação-de-funções.html"><a href="criação-de-funções.html#motivação-para-criar-funções"><i class="fa fa-check"></i><b>5.1</b> MOTIVAÇÃO PARA CRIAR FUNÇÕES</a></li>
+<li class="chapter" data-level="5.2" data-path="criação-de-funções.html"><a href="criação-de-funções.html#elementos-básicos-de-uma-função"><i class="fa fa-check"></i><b>5.2</b> ELEMENTOS BÁSICOS DE UMA FUNÇÃO</a></li>
+<li class="chapter" data-level="5.3" data-path="criação-de-funções.html"><a href="criação-de-funções.html#escopo"><i class="fa fa-check"></i><b>5.3</b> ESCOPO</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://gmarcatti.com/" target="blank">Minha página pessoal</a></li>
@@ -167,21 +170,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="header">
 <h1 class="title">Programação no R &amp; Python</h1>
-<h2 class="subtitle"><em>Gustavo Eduardo Marcatti</em></h2>
+<h2 class="subtitle"><em><p><img src="images/logo.png" style="width:3in" /></p></em></h2>
+<p class="author"><em>Gustavo Eduardo Marcatti</em></p>
 <p class="author"><em>Departamento de Engenharia Florestal</em></p>
 <p class="author"><em>Universidade Federal de São João del-Rei</em></p>
-<p class="author"><em>UFSJ</em></p>
 <p class="date"><em>Abril 2021</em></p>
 </div>
-<div id="prerequisites" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Prerequisites</h1>
-<p>This is a <em>sample</em> book written in <strong>Markdown</strong>. You can use anything that Pandoc’s Markdown supports, e.g., a math equation <span class="math inline">\(a^2 + b^2 = c^2\)</span>.</p>
-<p>The <strong>bookdown</strong> package can be installed from CRAN or Github:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>)</span>
-<span id="cb1-2"><a href="index.html#cb1-2"></a><span class="co"># or the development version</span></span>
-<span id="cb1-3"><a href="index.html#cb1-3"></a><span class="co"># devtools::install_github(&quot;rstudio/bookdown&quot;)</span></span></code></pre></div>
-<p>Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading <code>#</code>.</p>
-<p>To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <a href="https://yihui.org/tinytex/" class="uri">https://yihui.org/tinytex/</a>.</p>
+<div id="prefácio" class="section level1">
+<h1><span class="header-section-number">Capítulo 1</span> Prefácio</h1>
+<p>Falar sobre o livro aqui.</p>
+<p>Falar sobre os tópicos a seguir… introduzir sobre os tópicos…</p>
 
 </div>
             </section>
@@ -190,7 +188,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 
-<a href="intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="por-que-programar.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -240,20 +238,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

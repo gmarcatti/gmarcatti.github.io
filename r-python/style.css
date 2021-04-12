@@ -12,3 +12,13 @@ pre {
 pre code {
   white-space: inherit;
 }
+
+pre.numberSource code > span > a:first-child::before {
+  left: -0.3em;
+}
+
+h1 { font-size: 12px; }
+
+h2 { font-size: 11px; }
+
+h3 { font-size: 11px; }

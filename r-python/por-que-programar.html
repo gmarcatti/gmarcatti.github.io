@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 2 POR QUE PROGRAMAR? | Programação no R &amp; Python</title>
+  <meta name="description" content="Este livro apresenta os elementos essenciais para programação computacional utilizando as linguagens de programação R e Python" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 2 POR QUE PROGRAMAR? | Programação no R &amp; Python" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Este livro apresenta os elementos essenciais para programação computacional utilizando as linguagens de programação R e Python" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 2 POR QUE PROGRAMAR? | Programação no R &amp; Python" />
+  
+  <meta name="twitter:description" content="Este livro apresenta os elementos essenciais para programação computacional utilizando as linguagens de programação R e Python" />
+  
+
+<meta name="author" content="Gustavo Eduardo Marcatti" />
+<meta name="author" content="Departamento de Engenharia Florestal" />
+<meta name="author" content="Universidade Federal de São João del-Rei" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="por-que-o-r.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Programação no R & Python</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prefácio</a></li>
+<li class="chapter" data-level="2" data-path="por-que-programar.html"><a href="por-que-programar.html"><i class="fa fa-check"></i><b>2</b> POR QUE PROGRAMAR?</a></li>
+<li class="chapter" data-level="3" data-path="por-que-o-r.html"><a href="por-que-o-r.html"><i class="fa fa-check"></i><b>3</b> POR QUE O R?</a></li>
+<li class="chapter" data-level="4" data-path="iniciando-no-r.html"><a href="iniciando-no-r.html"><i class="fa fa-check"></i><b>4</b> INICIANDO NO R</a><ul>
+<li class="chapter" data-level="4.1" data-path="iniciando-no-r.html"><a href="iniciando-no-r.html#comandos-e-ambiente-de-trabalho"><i class="fa fa-check"></i><b>4.1</b> COMANDOS E AMBIENTE DE TRABALHO</a></li>
+<li class="chapter" data-level="4.2" data-path="iniciando-no-r.html"><a href="iniciando-no-r.html#gerando-e-removendo-objetos"><i class="fa fa-check"></i><b>4.2</b> GERANDO E REMOVENDO OBJETOS</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="criação-de-funções.html"><a href="criação-de-funções.html"><i class="fa fa-check"></i><b>5</b> CRIAÇÃO DE FUNÇÕES</a><ul>
+<li class="chapter" data-level="5.1" data-path="criação-de-funções.html"><a href="criação-de-funções.html#motivação-para-criar-funções"><i class="fa fa-check"></i><b>5.1</b> MOTIVAÇÃO PARA CRIAR FUNÇÕES</a></li>
+<li class="chapter" data-level="5.2" data-path="criação-de-funções.html"><a href="criação-de-funções.html#elementos-básicos-de-uma-função"><i class="fa fa-check"></i><b>5.2</b> ELEMENTOS BÁSICOS DE UMA FUNÇÃO</a></li>
+<li class="chapter" data-level="5.3" data-path="criação-de-funções.html"><a href="criação-de-funções.html#escopo"><i class="fa fa-check"></i><b>5.3</b> ESCOPO</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://gmarcatti.com/" target="blank">Minha página pessoal</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Programação no R &amp; Python</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="por-que-programar" class="section level1">
+<h1><span class="header-section-number">Capítulo 2</span> POR QUE PROGRAMAR?</h1>
+<p>Falar sobre o livro aqui.</p>
+<p>Falar sobre os tópicos a seguir… introduzir sobre os tópicos…</p>
+<p><strong>Automatizar tarefas:</strong> Executar sequência, muitas vezes longa e complexa, de instruções via comando único.
+Fator velocidade: Computador é capaz de executar cálculos com elevada precisão e rapidez, superando, e muito, a capacidade do ser humano. Atualmente, o fator velocidade é essencial, pois a cada dia são coletados volumes de dados cada vez maiores, o que torna praticamente impossível a derivação de informações sem o auxílio do computador, além disso, as informações devem ser geradas e disseminadas em um intervalo de tempo cada vez menor. Sem a comunicação em tempo hábil, tal informação pode perder o sentido e ser pouco útil para os processos de tomada de decisão.</p>
+<p><strong>Fator erro:</strong> Minimiza a quantidade de trabalhos repetitivos e monótonos, diminuindo as chances de ocorrer erros humanos devido ao cansaço e redução gradativa da concentração.</p>
+<p><strong>Pensamento criativo vs rotineiro:</strong> A programação possibilita ao profissional dedicar mais tempo para o pensamento criativo, que demanda capacidade de imaginação e percepção. Já o pensamento rotineiro requer pouco talento, a não ser aquele de seguir instruções corretamente.
+Independência de softwares já prontos: Todos os softwares são concebidos para resolver um conjunto de problemas que surgem com maior frequência no dia-a-dia dos usuários, pelo menos de acordo com as observações, impressões e pesquisa do desenvolvedor frente ao seu nicho de mercado. É ilusório acreditar que existe softwares desenvolvidos para resolver todos os seus problemas. É muito comum se deparar com problemas sem soluções implementadas em softwares, em alguns casos o trabalho é interrompido ou então a estratégia de resolução deve ser alterada. Ou altera-se o algoritmo ou então utiliza-se procedimentos manuais.</p>
+<p><strong>Documentar metodologias:</strong> A sequência de instruções é armazenada em um documento de forma lógica e intuitiva, podendo ser consultada e facilmente entendida, mesmo após anos do desenvolvimento. Especialmente se junto com os códigos alguns comentários, para descrever as etapas mais críticas, forem adicionados.</p>
+<p><strong>Não se sentir um peixe fora d’água:</strong> Dentro do seu ambiente de trabalho, ser capaz de identificar problemas que são passíveis de serem resolvidos via programação e resolver por conta própria ou então buscar equipe (internamente ou externamente) capacitada para resolver tal problema.</p>
+<p><strong>Potencializa a capacidade de resolver problemas:</strong> Essa é uma opinião compartilhada por muitos programadores. A prática de programação desenvolve a capacidade de pensar de forma sistemática e objetiva, o que facilita o processo de resolução de problemas variados, inclusive da vida pessoal. Aprender a programar permite organizar melhor as ideias, focar no que é mais importante e crítico. De maneira geral o conhecimento de programação permite ver o mundo de outra forma. Em muitos países, a prática de programação é incentivada, e faz parte do plano pedagógico de muitas escolas. O incentivo começa com as crianças, mesmo em idades iniciais. A programação favorece a aprendizagem, sobretudo em disciplinas relacionados às ciências exatas. A seguir é apresentada uma frase dita pelo Steve Jobs: “Todas as pessoas deveriam aprender a programar um computador, pois isso ensina você a pensar”.</p>
+<p><strong>Segurança para resolver problemas:</strong> Alguns dos problemas que enfrentamos no dia a dia não possuem solução implementada disponível, diante desse fato, o caminho a ser seguido seria alterar a metodologia de resolução, o que nem sempre é possível ou então buscar profissional qualificado no mercado, o que pode ser difícil ou então muito oneroso. Ainda existe o cenário mais pessimista, que é simplesmente a constatação de que o problema não pode ser resolvido com a atual infraestrutura em mãos. O fato principal aqui é que com um certo conhecimento de programação dificilmente será intimidado pelos problemas apresentados.</p>
+<p><strong>Menos estresse:</strong> Com softwares de aponte-e-clique momentos de estresse podem ser mais frequente, sobretudo porque esse tipo de software é muito mais suscetível a bugs do que uma linguagem de programação .Isso porque com esses softwares, além de se preocupar com a implementação do algoritmo que efetivamente resolve o problema é necessário desenvolver uma interface gráfica para o usuário, algo muito complexo de ser feito. Bugs são coisas realmente estressantes, às vezes a ferramenta não entrega o que promete ou então causa a interrupção do funcionamento do software. Aqui cabe um parêntese, de acordo com minha experiência, na maioria das vezes que esses problemas acontecem é culpa do usuário. Isso porque muitas vezes o usuário não sabe “pedir”, isto é, não executa a ferramenta correta ou então não executa a correta como se deveria (como instruído no manual). Ok, mas o desenvolvedor deveria prever isso e simplesmente emitir uma mensagem de erro, com uma instrução para executar a função corretamente. Geralmente os desenvolvedores fazem isso, e softwares já maduros fazem isso com maestria, inclusive com planejamento de interfaces que minimizam as chances de o usuário fazer algo errado. Mas imaginar que um software irá controlar (cercar) todas as chances de nós cometermos erros é completamente ilusório. Além disso, geralmente quanto maior é o controle mais engessado é o software.</p>
+<p><strong>Maior satisfação pessoal:</strong> Nada melhor para autoestima do que resolver um problema programação computacional. Você se sente parte da solução, com um sentimento que sua participação foi vital para resolver o problema.
+Possibilidade de estar na fronteira do conhecimento: É muito comum que uma pesquisa inovadora necessite de determinado tipo específico análise, mas pode ser que simplesmente não existe metodologia publicada sobre a análise e muito menos implementações disponíveis, nesses casos a programação pode ser útil, pois o atraso na publicação pode significar a perda do caráter inovador e até mesmo de uma eventual patente.</p>
+<p><strong>Confere capacidade de identificar e utilizar códigos prontos disponíveis:</strong> Existe quantidade muito grande de códigos disponíveis para resolver uma infinidade de problemas. Porções de códigos são muito mais simples de serem desenvolvidos do que softwares com interface gráfica com o usuário. Seja um reciclador de códigos, evite reinventar a roda!</p>
+<p><strong>Aprender sobre temas complexos:</strong> Alguns temas, especificamente relacionados à matemática, são indigestos para boa parte dos estudantes. Essa dificuldade está associada a diversos fatores, mas a ausência de aplicações práticas com explicação do procedimento de forma detalhada, pode ser apontando como um dos principais. Com a programação é possível realizar experimentos práticos de forma simples e rápida, além disso, com a programação é possível explorar os conceitos mais básicos da matemática, que apesar de básicos os estudantes têm dificuldades de entender com aulas puramente teóricas, isso devido à baixa capacidade de abstração.</p>
+<p><strong>Aprender a utilizar a matemática de forma “correta”:</strong> A resolução de problema matemático requer 4 etapas básicas: (1) Identificar as questões corretas / definir o problema: requer proatividade e conhecimento técnico sobre o tema de estudo; (2) Formular o problema: converter um problema do mundo real em uma formulação matemática, e se possível já na forma de código para ser resolvido por um computador. É aqui que o conhecimento de programação é importante e útil; (3) Encontrar a solução: tarefa executada por um computador, seria basicamente fazer contas; (4) Avaliação da solução: converter um problema matemático em uma solução passível de ser executada no mundo real. Também é a etapa em que a decisão é tomada.</p>
+<p><strong>Se preparar para o futuro:</strong> Na verdade se preparar para o agora! A demanda por programadores já é elevada e a tendência é aumentar cada vez mais, atualmente muitas empresas demandam profissional com o domínio de programação além da formação técnica convencional, tal como agronomia, engenharia civil, engenharia florestal e biologia. Há previsões mais extremistas de que a programação será tão importante e necessária quanto disciplinas básicas, tais como biologia e física, e até mesmo uma atividade tão básica quanto dirigir um carro. Apesar dessas previsões serem um tanto exageradas o que não resta dúvida é que a programação está se tornando cada vez mais relevante e seu domínio pode se tornar a alavanca que você precisa para alcançar colocações melhores no mercado.</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="por-que-o-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["r-python.pdf", "r-python.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
