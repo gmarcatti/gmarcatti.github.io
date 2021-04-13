@@ -135,17 +135,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Programação no R & Python</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prefácio</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> PREFÁCIO</a></li>
 <li class="chapter" data-level="2" data-path="por-que-programar.html"><a href="por-que-programar.html"><i class="fa fa-check"></i><b>2</b> POR QUE PROGRAMAR?</a></li>
 <li class="chapter" data-level="3" data-path="por-que-o-r.html"><a href="por-que-o-r.html"><i class="fa fa-check"></i><b>3</b> POR QUE O R?</a></li>
 <li class="chapter" data-level="4" data-path="iniciando-no-r.html"><a href="iniciando-no-r.html"><i class="fa fa-check"></i><b>4</b> INICIANDO NO R</a><ul>
-<li class="chapter" data-level="4.1" data-path="iniciando-no-r.html"><a href="iniciando-no-r.html#comandos-e-ambiente-de-trabalho"><i class="fa fa-check"></i><b>4.1</b> COMANDOS E AMBIENTE DE TRABALHO</a></li>
-<li class="chapter" data-level="4.2" data-path="iniciando-no-r.html"><a href="iniciando-no-r.html#gerando-e-removendo-objetos"><i class="fa fa-check"></i><b>4.2</b> GERANDO E REMOVENDO OBJETOS</a></li>
+<li class="chapter" data-level="4.1" data-path="iniciando-no-r.html"><a href="iniciando-no-r.html#comandos-e-ambiente-de-trabalho"><i class="fa fa-check"></i><b>4.1</b> Comandos e ambiente de trabalho</a></li>
+<li class="chapter" data-level="4.2" data-path="iniciando-no-r.html"><a href="iniciando-no-r.html#gerar-e-remover-objetos"><i class="fa fa-check"></i><b>4.2</b> Gerar e remover objetos</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="criação-de-funções.html"><a href="criação-de-funções.html"><i class="fa fa-check"></i><b>5</b> CRIAÇÃO DE FUNÇÕES</a><ul>
-<li class="chapter" data-level="5.1" data-path="criação-de-funções.html"><a href="criação-de-funções.html#motivação-para-criar-funções"><i class="fa fa-check"></i><b>5.1</b> MOTIVAÇÃO PARA CRIAR FUNÇÕES</a></li>
-<li class="chapter" data-level="5.2" data-path="criação-de-funções.html"><a href="criação-de-funções.html#elementos-básicos-de-uma-função"><i class="fa fa-check"></i><b>5.2</b> ELEMENTOS BÁSICOS DE UMA FUNÇÃO</a></li>
-<li class="chapter" data-level="5.3" data-path="criação-de-funções.html"><a href="criação-de-funções.html#escopo"><i class="fa fa-check"></i><b>5.3</b> ESCOPO</a></li>
+<li class="chapter" data-level="5.1" data-path="criação-de-funções.html"><a href="criação-de-funções.html#motivação-para-criar-funções"><i class="fa fa-check"></i><b>5.1</b> Motivação para criar funções</a></li>
+<li class="chapter" data-level="5.2" data-path="criação-de-funções.html"><a href="criação-de-funções.html#elementos-básicos-de-uma-função"><i class="fa fa-check"></i><b>5.2</b> Elementos básicos de uma função</a></li>
+<li class="chapter" data-level="5.3" data-path="criação-de-funções.html"><a href="criação-de-funções.html#escopo"><i class="fa fa-check"></i><b>5.3</b> Escopo</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -173,25 +173,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>No tópico anterior foi mostrado como executar uma função no R, neste tópico iremos mais além, será apresentado os componentes básicos para você criar suas próprias funções e se beneficiar de todas as suas vantagens.</p>
 <p>Uma das maiores potencialidades do R é que permite ao usuário definir suas próprias funções de forma simples e fácil. Isso o torna uma ferramenta poderosa para criar e testar novas metodologias. As funções são utilizadas para praticamente tudo e inclusive para criar novas funções. No R as funções apresentam papel de destaque, pois é a principal forma de interagir com as rotinas nativas da linguagem.</p>
 <div id="motivação-para-criar-funções" class="section level2">
-<h2><span class="header-section-number">5.1</span> MOTIVAÇÃO PARA CRIAR FUNÇÕES</h2>
-<p>De uma visão mais prática as funções são úteis por uma série de fatores, podemos citar estender/expandir as funcionalidades de um sistema base, isto é, criar novos procedimentos para o sistema; serve para encapsular parte do código que executa a mesma funcionalidade ao longo do processo, e assim organizar melhor o código, além de tornar o processo mais seguro, uma vez que a execução da função ocorre em ambiente local (diferente do ambiente global da sessão), isso pode evitar efeitos indesejáveis, os processos do ambiente local não afeta o global e também não é afetado; permite reutilizar códigos, e assim evitar repetição desnecessária de códigos, isso facilita muito o processo de criação e manutenção do código, além de evitar o problema de copiar e colar: as funções são extremamente úteis para reduzir a duplicação de códigos <sup>BOX1</sup>.</p>
+<h2><span class="header-section-number">5.1</span> Motivação para criar funções</h2>
+<p>De uma visão mais prática as funções são úteis por uma série de fatores, podemos citar <strong>estender/expandir as funcionalidades</strong> de um sistema base, isto é, criar novos procedimentos para o sistema; serve para <strong>encapsular parte do código</strong> que executa a mesma funcionalidade ao longo do processo, e assim organizar melhor o código, além de tornar o processo mais seguro, uma vez que a execução da função ocorre em ambiente local (diferente do ambiente global da sessão), isso pode evitar efeitos indesejáveis, os processos do ambiente local não afeta o global e também não é afetado; permite <strong>reutilizar códigos</strong>, e assim evitar repetição desnecessária de códigos, isso facilita muito o processo de criação e manutenção do código, além de evitar o problema de copiar e colar: as funções são extremamente úteis para reduzir a duplicação de códigos <sup>BOX1</sup>.</p>
 <div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #3c763d; background-color: #dff0d8; border-color: #d6e9c6;">
 <p><strong>BOX1: Métrica do código repetido</strong>
 Existem softwares, tais como CodeClimate e SonarQube, que avaliam a qualidade do código desenvolvido frente a diferentes perspectivas, uma delas é a quantidade de códigos repetidos. Códigos repetidos são nocivos para o programa, uma vez que o torna mais extenso e complexo. Em caso de necessidade de alteração no código repetido a alteração deverá ser feita em todos as repetições, sem exceções, e isso pode ser trabalhoso e com alta susceptibilidade à erros. O ideal seria encapsular este trecho de código repetido em uma função.</p>
 </div>
 <hr />
-<p>De uma visão mais geral, o papel primordial das funções é o de abstração. Abstração é difícil de ser definida, mas consiste no ato de isolar elementos em detrimento a outros. A abstração é muito útil para simplificar eventos e assim facilitar a resolução de problemas, por exemplo, isola-se apenas aquilo que é útil e relevante, todo resto então deve ser esquecido ou eliminado.</p>
+<p>De uma visão mais geral, o papel primordial das funções é o de <strong>abstração</strong>. Abstração é difícil de ser definida, mas consiste no ato de isolar elementos em detrimento a outros. A abstração é muito útil para simplificar eventos e assim facilitar a resolução de problemas, por exemplo, isola-se apenas aquilo que é útil e relevante, todo resto então deve ser esquecido ou eliminado.</p>
 <p>Um exemplo prático de abstração seria o uso de um projetor de slides. Um professor não precisará saber que tipo de lâmpada aquele projetor utiliza, nem mesmo a quantidade de lumens da lâmpada para utilizá-lo em uma aula. Muito provavelmente o conhecimento necessário será o de instalar em um computador e a funcionalidade de liga/desliga. Apenas com esse conhecimento, o professor já é capaz de ministrar sua aula. Observe que um nível de abstração diferente é requerido para um técnico que ganha a vida dando manutenção nesses equipamentos, possivelmente ele vai ter que entender de lâmpadas e lumens.</p>
 <p>Na programação, um exemplo poderia ser a função nnet da biblioteca de mesmo nome do R, essa função serve para ajustar redes neurais artificiais à um conjunto de dados. A interface com o usuário é simples e intuitiva, indicada para a maioria das pessoas, que irão utilizar essa função como uma ferramenta, como um Engenheiro Florestal que irá predizer a produtividade de determinada cultura utilizando variáveis climáticas. Um nível de abstração diferente será requerido para um profissional da matemática ou ciência da computação, que será responsável por implementar uma função que executa uma rede neural artificial.</p>
 </div>
 <div id="elementos-básicos-de-uma-função" class="section level2">
-<h2><span class="header-section-number">5.2</span> ELEMENTOS BÁSICOS DE UMA FUNÇÃO</h2>
+<h2><span class="header-section-number">5.2</span> Elementos básicos de uma função</h2>
 <p>A nova função R que você construir poderá ser completamente nova (um novo modelo que você está testando, por exemplo) ou apenas uma modificação personalizada de uma função do R já existente. Você pode desejar ainda usar as funções já existentes de modo repetido no seu conjunto de dados, isto facilitará em muito o seu trabalho, já que as tarefas a serem realizadas ficarão incorporadas em uma única função.
 A sintaxe<sup>BOX2</sup> básica de uma função do R é apresentada a seguir.</p>
 <p><strong>Sintaxe:</strong></p>
-<pre><code>nome &lt;- function(argumentos){
-   sequências de instruções (corpo)
-   return(argumento)
+<pre><code>nome &lt;- function(argumentos) {
+    sequências de instruções (corpo)
+    return(argumento)
 }</code></pre>
 <p><strong>nome:</strong> aquele que você escolhe para dar a função. O nome é um elemento essencial de uma função, para existir a função deverá possuir um nome;</p>
 <p><strong>argumentos:</strong> lista de expressões a serem usadas dentro da função, que podem ser obrigatórios ou opcionais. Os argumentos também podem apresentar um padrão pré-estabelecido. Argumentos não são essenciais, embora incomum, funções sem argumentos podem ser construída;</p>
@@ -199,56 +199,56 @@ A sintaxe<sup>BOX2</sup> básica de uma função do R é apresentada a seguir.</
 <p><strong>return:</strong> é o último valor calculado, e pode vir acompanhado para função reservada return ou não. O retorno de uma função não é essencial, podemos ter interesse em apenas imprimir o resultado na tela. O retorno é útil se este resultado será utilizado posteriormente no decorrer no processo, assim o retorno poderá ser armazenado em um objeto após a execução da função.</p>
 <div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #3c763d; background-color: #dff0d8; border-color: #d6e9c6;">
 <p><strong>BOX 2: Sintaxe, semântica, lógica</strong>
-A sintaxe refere-se às regras que ditam a composição de textos com significado lógico para determinada linguagem programação. Os erros de sintaxe são erros no código e bloqueiam a execução de um processo. Exemplos seria digitar de forma errada a palavra reservada function ou esquecer de fechar um parêntese. O RStudio possui mecanismos para checar alguns erros sintaxe na edição do script, antes mesmo da execução. Os erros de sintaxe geralmente são fáceis de serem detectados. Além dos erros de sintaxe ainda podemos ter os erros de semântica, que envolvem códigos tecnicamente corretos, mas apresentam problemas com o significado. Esses erros geralmente só podem ser identificados no momento da execução do código. Um exemplo seria tentar ler um arquivo que não existe no computador. Há também os erros de lógica, esses erros são mais difíceis de serem detectados, a sintaxe e semântica estão corretas, mas mesmo assim o código não executa da maneira com que o programador imaginou. Os erros de lógica são críticos porque não podem ser detectados pelo editor ou interpretador, a identificação seria de responsabilidade inteiramente do programador. Exemplo seria usar uma operação errada no processo, como utilizar soma em vez multiplicação. O resultado seria gerado corretamente, porém é de nosso interesse a multiplicação e não a soma.</p>
+A <strong>sintaxe</strong> refere-se às regras que ditam a composição de textos com significado lógico para determinada linguagem programação. Os erros de sintaxe são erros no código e bloqueiam a execução de um processo. Exemplos seria digitar de forma errada a palavra reservada function ou esquecer de fechar um parêntese. O RStudio possui mecanismos para checar alguns erros sintaxe na edição do script, antes mesmo da execução. Os erros de sintaxe geralmente são fáceis de serem detectados. Além dos erros de sintaxe ainda podemos ter os erros de <strong>semântica</strong>, que envolvem códigos tecnicamente corretos, mas apresentam problemas com o significado. Esses erros geralmente só podem ser identificados no momento da execução do código. Um exemplo seria tentar ler um arquivo que não existe no computador. Há também os erros de <strong>lógica</strong>, esses erros são mais difíceis de serem detectados, a sintaxe e semântica estão corretas, mas mesmo assim o código não executa da maneira com que o programador imaginou. Os erros de lógica são críticos porque não podem ser detectados pelo editor ou interpretador, a identificação seria de responsabilidade inteiramente do programador. Exemplo seria usar uma operação errada no processo, como utilizar soma em vez multiplicação. O resultado seria gerado corretamente, porém é de nosso interesse a multiplicação e não a soma.</p>
 </div>
 <hr />
 <p>Podemos criar nossa própria função para dar boas-vindas ao usuário, observa as diferentes versões para a tarefa.</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="criação-de-funções.html#cb20-1"></a><span class="co"># Versão 1 – sem argumentos</span></span>
-<span id="cb20-2"><a href="criação-de-funções.html#cb20-2"></a>boas_vindas &lt;-<span class="st"> </span><span class="cf">function</span>(){ <span class="co"># criar a função</span></span>
-<span id="cb20-3"><a href="criação-de-funções.html#cb20-3"></a>  <span class="kw">cat</span>(<span class="st">&quot;Seja bem vindo!&quot;</span>)</span>
+<span id="cb20-2"><a href="criação-de-funções.html#cb20-2"></a>boas_vindas &lt;-<span class="st"> </span><span class="cf">function</span>() { <span class="co"># criar a função</span></span>
+<span id="cb20-3"><a href="criação-de-funções.html#cb20-3"></a>    <span class="kw">cat</span>(<span class="st">&quot;Seja bem vindo!&quot;</span>)</span>
 <span id="cb20-4"><a href="criação-de-funções.html#cb20-4"></a>}</span>
 <span id="cb20-5"><a href="criação-de-funções.html#cb20-5"></a><span class="kw">boas_vindas</span>() <span class="co"># executar a função</span></span>
 <span id="cb20-6"><a href="criação-de-funções.html#cb20-6"></a><span class="co">## Seja bem vindo!</span></span>
 <span id="cb20-7"><a href="criação-de-funções.html#cb20-7"></a></span>
 <span id="cb20-8"><a href="criação-de-funções.html#cb20-8"></a><span class="co"># Versão 2 – com argumentos</span></span>
-<span id="cb20-9"><a href="criação-de-funções.html#cb20-9"></a>boas_vindas &lt;-<span class="st"> </span><span class="cf">function</span>(nome){ <span class="co"># criar a função</span></span>
-<span id="cb20-10"><a href="criação-de-funções.html#cb20-10"></a>  <span class="kw">cat</span>(<span class="st">&quot;Seja bem vindo&quot;</span>, nome, <span class="st">&quot;!&quot;</span>)</span>
+<span id="cb20-9"><a href="criação-de-funções.html#cb20-9"></a>boas_vindas &lt;-<span class="st"> </span><span class="cf">function</span>(nome) {</span>
+<span id="cb20-10"><a href="criação-de-funções.html#cb20-10"></a>    <span class="kw">cat</span>(<span class="st">&quot;Seja bem vindo&quot;</span>, nome, <span class="st">&quot;!&quot;</span>)</span>
 <span id="cb20-11"><a href="criação-de-funções.html#cb20-11"></a>}</span>
-<span id="cb20-12"><a href="criação-de-funções.html#cb20-12"></a><span class="kw">boas_vindas</span>(<span class="st">&quot;Eduardo&quot;</span>) <span class="co"># executar a função</span></span>
+<span id="cb20-12"><a href="criação-de-funções.html#cb20-12"></a><span class="kw">boas_vindas</span>(<span class="st">&quot;Eduardo&quot;</span>)</span>
 <span id="cb20-13"><a href="criação-de-funções.html#cb20-13"></a><span class="co">## Seja bem vindo Eduardo !</span></span>
 <span id="cb20-14"><a href="criação-de-funções.html#cb20-14"></a></span>
 <span id="cb20-15"><a href="criação-de-funções.html#cb20-15"></a><span class="co"># Versão 3 – com argumento padrão</span></span>
-<span id="cb20-16"><a href="criação-de-funções.html#cb20-16"></a>boas_vindas &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">nome =</span> <span class="st">&quot;Aluno&quot;</span>){ <span class="co"># criar a função</span></span>
-<span id="cb20-17"><a href="criação-de-funções.html#cb20-17"></a>  <span class="kw">cat</span>(<span class="st">&quot;Seja bem vindo&quot;</span>, nome, <span class="st">&quot;!&quot;</span>)</span>
+<span id="cb20-16"><a href="criação-de-funções.html#cb20-16"></a>boas_vindas &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">nome =</span> <span class="st">&quot;Aluno&quot;</span>) {</span>
+<span id="cb20-17"><a href="criação-de-funções.html#cb20-17"></a>    <span class="kw">cat</span>(<span class="st">&quot;Seja bem vindo&quot;</span>, nome, <span class="st">&quot;!&quot;</span>)</span>
 <span id="cb20-18"><a href="criação-de-funções.html#cb20-18"></a>}</span>
-<span id="cb20-19"><a href="criação-de-funções.html#cb20-19"></a><span class="kw">boas_vindas</span>() <span class="co"># executar a função</span></span>
+<span id="cb20-19"><a href="criação-de-funções.html#cb20-19"></a><span class="kw">boas_vindas</span>()</span>
 <span id="cb20-20"><a href="criação-de-funções.html#cb20-20"></a><span class="co">## Seja bem vindo Aluno !</span></span>
 <span id="cb20-21"><a href="criação-de-funções.html#cb20-21"></a></span>
 <span id="cb20-22"><a href="criação-de-funções.html#cb20-22"></a><span class="co"># Versão 4 – com argumento padrão e retorno</span></span>
-<span id="cb20-23"><a href="criação-de-funções.html#cb20-23"></a>boas_vindas &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">nome =</span> <span class="st">&quot;Aluno&quot;</span>){ <span class="co"># criar a função</span></span>
-<span id="cb20-24"><a href="criação-de-funções.html#cb20-24"></a>  frase &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;Bom dia&quot;</span>, nome, <span class="st">&quot;!&quot;</span>)</span>
-<span id="cb20-25"><a href="criação-de-funções.html#cb20-25"></a>  <span class="kw">return</span>(frase)</span>
+<span id="cb20-23"><a href="criação-de-funções.html#cb20-23"></a>boas_vindas &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">nome =</span> <span class="st">&quot;Aluno&quot;</span>) {</span>
+<span id="cb20-24"><a href="criação-de-funções.html#cb20-24"></a>    frase &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;Bom dia&quot;</span>, nome, <span class="st">&quot;!&quot;</span>)</span>
+<span id="cb20-25"><a href="criação-de-funções.html#cb20-25"></a>    <span class="kw">return</span>(frase)</span>
 <span id="cb20-26"><a href="criação-de-funções.html#cb20-26"></a>}</span>
-<span id="cb20-27"><a href="criação-de-funções.html#cb20-27"></a>frase_boas_vindas &lt;-<span class="st"> </span><span class="kw">boas_vindas</span>(<span class="st">&quot;Eduardo&quot;</span>) <span class="co"># executar a função</span></span>
+<span id="cb20-27"><a href="criação-de-funções.html#cb20-27"></a>frase_boas_vindas &lt;-<span class="st"> </span><span class="kw">boas_vindas</span>(<span class="st">&quot;Eduardo&quot;</span>)</span>
 <span id="cb20-28"><a href="criação-de-funções.html#cb20-28"></a>frase_boas_vindas <span class="co"># mostrar o objeto resultante</span></span>
 <span id="cb20-29"><a href="criação-de-funções.html#cb20-29"></a><span class="co">## [1] &quot;Bom dia Eduardo !&quot;</span></span></code></pre></div>
 <p>O próximo exemplo demostra o uso do resultado retornado pela execução da função em uma análise posterior. Além de retornar o resultado numérico, a função também imprime na tela o resultado combinado com um texto explicativo.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="criação-de-funções.html#cb21-1"></a>lucro &lt;-<span class="st"> </span><span class="cf">function</span>(receita, custo){</span>
-<span id="cb21-2"><a href="criação-de-funções.html#cb21-2"></a>  valor_lucro &lt;-<span class="st"> </span>receita <span class="op">-</span><span class="st"> </span>custo</span>
-<span id="cb21-3"><a href="criação-de-funções.html#cb21-3"></a>  <span class="kw">cat</span>(<span class="st">&quot;O lucro foi de R$&quot;</span>, valor_lucro, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb21-4"><a href="criação-de-funções.html#cb21-4"></a>  <span class="kw">return</span>(valor_lucro)</span>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="criação-de-funções.html#cb21-1"></a>lucro &lt;-<span class="st"> </span><span class="cf">function</span>(receita, custo) {</span>
+<span id="cb21-2"><a href="criação-de-funções.html#cb21-2"></a>    valor_lucro &lt;-<span class="st"> </span>receita <span class="op">-</span><span class="st"> </span>custo</span>
+<span id="cb21-3"><a href="criação-de-funções.html#cb21-3"></a>    <span class="kw">cat</span>(<span class="st">&quot;O lucro foi de R$&quot;</span>, valor_lucro, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb21-4"><a href="criação-de-funções.html#cb21-4"></a>    <span class="kw">return</span>(valor_lucro)</span>
 <span id="cb21-5"><a href="criação-de-funções.html#cb21-5"></a>}</span>
 <span id="cb21-6"><a href="criação-de-funções.html#cb21-6"></a>lucro_projeto1 &lt;-<span class="st"> </span><span class="kw">lucro</span>(<span class="dv">6000</span>, <span class="dv">4500</span>)</span>
-<span id="cb21-7"><a href="criação-de-funções.html#cb21-7"></a><span class="co">## O lucro foi de R$ 1500 </span></span>
+<span id="cb21-7"><a href="criação-de-funções.html#cb21-7"></a><span class="co">## O lucro foi de R$ 1500</span></span>
 <span id="cb21-8"><a href="criação-de-funções.html#cb21-8"></a>lucro_projeto2 &lt;-<span class="st"> </span><span class="kw">lucro</span>(<span class="dv">4000</span>, <span class="dv">5000</span>)</span>
-<span id="cb21-9"><a href="criação-de-funções.html#cb21-9"></a><span class="co">## O lucro foi de R$ -1000 </span></span>
+<span id="cb21-9"><a href="criação-de-funções.html#cb21-9"></a><span class="co">## O lucro foi de R$ -1000</span></span>
 <span id="cb21-10"><a href="criação-de-funções.html#cb21-10"></a>lucro_total &lt;-<span class="st"> </span>lucro_projeto1 <span class="op">+</span><span class="st"> </span>lucro_projeto2</span>
 <span id="cb21-11"><a href="criação-de-funções.html#cb21-11"></a>lucro_total</span>
 <span id="cb21-12"><a href="criação-de-funções.html#cb21-12"></a><span class="co">## [1] 500</span></span></code></pre></div>
 <p>A função computa o lucro de dois diferentes projetos, os resultados são somados para computar qual seria o lucro total. Observe que foi incluído o texto <code>\n</code> na função de concatenar e imprimir, isso foi necessário para evitar que a impressão e o resultado retornado sejam apresentados na mesma linha. O texto <code>\n</code> indica para o programa pular de linha. Vale destacar que se optar por utilizar a função print combinada com a função paste não seria necessário incluir <code>\n</code>, pois por padrão a função print já pula para próxima linha após a execução.</p>
 </div>
 <div id="escopo" class="section level2">
-<h2><span class="header-section-number">5.3</span> ESCOPO</h2>
+<h2><span class="header-section-number">5.3</span> Escopo</h2>
 <p>Regras de espoco, ou simplesmente escopo, é um conjunto de regras destinado a controlar o acesso de variáveis durante a execução de um processo. Não existe um padrão universal de regras de escopo, mas em geral, não existe grandes variações de regras entre a maioria das linguagens de programação.</p>
 <p>No R temos dois escopos básicos de variáveis, o global e o local, o primeiro, em que as variáveis podem ser acessadas em qualquer momento dentro da função, independente se a variá-vel foi criada dentro da função ou não, já o segundo, as variá-veis externar só podem ser acessadas na função se passadas como parâmetros, além disso, as variáveis criadas dentro da função não afeta o ambiente externo (global).</p>
 

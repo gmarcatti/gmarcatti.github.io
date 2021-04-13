@@ -143,7 +143,7 @@
 \renewcommand{\contentsname}{SUMÁRIO}
 
 \hypertarget{prefuxe1cio}{%
-\chapter{Prefácio}\label{prefuxe1cio}}
+\chapter{PREFÁCIO}\label{prefuxe1cio}}
 
 Falar sobre o livro aqui.
 
@@ -237,7 +237,7 @@ Possibilidade de estar na fronteira do conhecimento: É muito comum que uma pesq
 \chapter{INICIANDO NO R}\label{iniciando-no-r}}
 
 \hypertarget{comandos-e-ambiente-de-trabalho}{%
-\section{COMANDOS E AMBIENTE DE TRABALHO}\label{comandos-e-ambiente-de-trabalho}}
+\section{Comandos e ambiente de trabalho}\label{comandos-e-ambiente-de-trabalho}}
 
 Comandos no R são expressões inseridas no prompt \texttt{\textgreater{}} e finalizadas com a tecla Enter, é executado um comando. O prompt já apresentando automaticamente e indica que o R está pronto para receber um comando\footnote{Além do prompt, outros símbolos podem ser apresentados, como \texttt{+} que indica que o comando anterior não foi finalizando, isso ocorre quando criamos blocos de comandos que ocupam mais de uma linha, como é o caso de funções. Também pode ocorrer quan-do equivocadamente esquecemos de fechar um parêntese e o co-mando ainda está aguardando, neste caso pode-se fechar o parên-tese na próxima linha, se possível, caso contrário pode-se usar a tecla Esc para cancelar o comando.}, se o prompt for digitado junto com o comando, uma mensagem de erro será emitida. Cada linha representa um comando, alternativamente pode-se inserir vários comandos em uma mesma linha, porém cada comando deve estar separado dos demais por ponto e vírgula \texttt{;}.
 
@@ -336,7 +336,8 @@ log10( ) & logaritmo na base 10\tabularnewline
 log( ) & logaritmo na base ``e'' ou LN\tabularnewline
 sin() cos() tan() & funções trigonométricas\tabularnewline
 asin() acos( ) atan( ) & funções trigonométricas inversas\tabularnewline
-+ - * / ** ou \^{} & adição, subtração, multiplicação, divisão e potência\tabularnewline
++ - * / & adição, subtração, multiplicação e divisão\tabularnewline
+** ou \^{} & potência\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -370,8 +371,8 @@ Outra função útil de ajuda no R é a função args, que lista os argumentos n
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{gerando-e-removendo-objetos}{%
-\section{GERANDO E REMOVENDO OBJETOS}\label{gerando-e-removendo-objetos}}
+\hypertarget{gerar-e-remover-objetos}{%
+\section{Gerar e remover objetos}\label{gerar-e-remover-objetos}}
 
 As entidades nas quais R opera são tecnicamente conhecidas como objetos. Exemplos são vetores de valores numéricos (reais) ou complexos, vetores de valores lógicos e vetores de cadeias de caracteres.
 
@@ -477,7 +478,7 @@ Para eliminar todos os objetos pode-se utilizar o comando o comando abaixo, por�
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{rm}\NormalTok{(}\DataTypeTok{list=}\KeywordTok{ls}\NormalTok{(}\DataTypeTok{all=}\OtherTok{TRUE}\NormalTok{))}
+\KeywordTok{rm}\NormalTok{(}\DataTypeTok{list =} \KeywordTok{ls}\NormalTok{(}\DataTypeTok{all =} \OtherTok{TRUE}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -493,23 +494,23 @@ No tópico anterior foi mostrado como executar uma função no R, neste tópico 
 Uma das maiores potencialidades do R é que permite ao usuário definir suas próprias funções de forma simples e fácil. Isso o torna uma ferramenta poderosa para criar e testar novas metodologias. As funções são utilizadas para praticamente tudo e inclusive para criar novas funções. No R as funções apresentam papel de destaque, pois é a principal forma de interagir com as rotinas nativas da linguagem.
 
 \hypertarget{motivauxe7uxe3o-para-criar-funuxe7uxf5es}{%
-\section{MOTIVAÇÃO PARA CRIAR FUNÇÕES}\label{motivauxe7uxe3o-para-criar-funuxe7uxf5es}}
+\section{Motivação para criar funções}\label{motivauxe7uxe3o-para-criar-funuxe7uxf5es}}
 
-De uma visão mais prática as funções são úteis por uma série de fatores, podemos citar estender/expandir as funcionalidades de um sistema base, isto é, criar novos procedimentos para o sistema; serve para encapsular parte do código que executa a mesma funcionalidade ao longo do processo, e assim organizar melhor o código, além de tornar o processo mais seguro, uma vez que a execução da função ocorre em ambiente local (diferente do ambiente global da sessão), isso pode evitar efeitos indesejáveis, os processos do ambiente local não afeta o global e também não é afetado; permite reutilizar códigos, e assim evitar repetição desnecessária de códigos, isso facilita muito o processo de criação e manutenção do código, além de evitar o problema de copiar e colar: as funções são extremamente úteis para reduzir a duplicação de códigos \textsuperscript{BOX1}.
+De uma visão mais prática as funções são úteis por uma série de fatores, podemos citar \textbf{estender/expandir as funcionalidades} de um sistema base, isto é, criar novos procedimentos para o sistema; serve para \textbf{encapsular parte do código} que executa a mesma funcionalidade ao longo do processo, e assim organizar melhor o código, além de tornar o processo mais seguro, uma vez que a execução da função ocorre em ambiente local (diferente do ambiente global da sessão), isso pode evitar efeitos indesejáveis, os processos do ambiente local não afeta o global e também não é afetado; permite \textbf{reutilizar códigos}, e assim evitar repetição desnecessária de códigos, isso facilita muito o processo de criação e manutenção do código, além de evitar o problema de copiar e colar: as funções são extremamente úteis para reduzir a duplicação de códigos \textsuperscript{BOX1}.
 
 \textbf{BOX1: Métrica do código repetido}
 Existem softwares, tais como CodeClimate e SonarQube, que avaliam a qualidade do código desenvolvido frente a diferentes perspectivas, uma delas é a quantidade de códigos repetidos. Códigos repetidos são nocivos para o programa, uma vez que o torna mais extenso e complexo. Em caso de necessidade de alteração no código repetido a alteração deverá ser feita em todos as repetições, sem exceções, e isso pode ser trabalhoso e com alta susceptibilidade à erros. O ideal seria encapsular este trecho de código repetido em uma função.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-De uma visão mais geral, o papel primordial das funções é o de abstração. Abstração é difícil de ser definida, mas consiste no ato de isolar elementos em detrimento a outros. A abstração é muito útil para simplificar eventos e assim facilitar a resolução de problemas, por exemplo, isola-se apenas aquilo que é útil e relevante, todo resto então deve ser esquecido ou eliminado.
+De uma visão mais geral, o papel primordial das funções é o de \textbf{abstração}. Abstração é difícil de ser definida, mas consiste no ato de isolar elementos em detrimento a outros. A abstração é muito útil para simplificar eventos e assim facilitar a resolução de problemas, por exemplo, isola-se apenas aquilo que é útil e relevante, todo resto então deve ser esquecido ou eliminado.
 
 Um exemplo prático de abstração seria o uso de um projetor de slides. Um professor não precisará saber que tipo de lâmpada aquele projetor utiliza, nem mesmo a quantidade de lumens da lâmpada para utilizá-lo em uma aula. Muito provavelmente o conhecimento necessário será o de instalar em um computador e a funcionalidade de liga/desliga. Apenas com esse conhecimento, o professor já é capaz de ministrar sua aula. Observe que um nível de abstração diferente é requerido para um técnico que ganha a vida dando manutenção nesses equipamentos, possivelmente ele vai ter que entender de lâmpadas e lumens.
 
 Na programação, um exemplo poderia ser a função nnet da biblioteca de mesmo nome do R, essa função serve para ajustar redes neurais artificiais à um conjunto de dados. A interface com o usuário é simples e intuitiva, indicada para a maioria das pessoas, que irão utilizar essa função como uma ferramenta, como um Engenheiro Florestal que irá predizer a produtividade de determinada cultura utilizando variáveis climáticas. Um nível de abstração diferente será requerido para um profissional da matemática ou ciência da computação, que será responsável por implementar uma função que executa uma rede neural artificial.
 
 \hypertarget{elementos-buxe1sicos-de-uma-funuxe7uxe3o}{%
-\section{ELEMENTOS BÁSICOS DE UMA FUNÇÃO}\label{elementos-buxe1sicos-de-uma-funuxe7uxe3o}}
+\section{Elementos básicos de uma função}\label{elementos-buxe1sicos-de-uma-funuxe7uxe3o}}
 
 A nova função R que você construir poderá ser completamente nova (um novo modelo que você está testando, por exemplo) ou apenas uma modificação personalizada de uma função do R já existente. Você pode desejar ainda usar as funções já existentes de modo repetido no seu conjunto de dados, isto facilitará em muito o seu trabalho, já que as tarefas a serem realizadas ficarão incorporadas em uma única função.
 A sintaxe\textsuperscript{BOX2} básica de uma função do R é apresentada a seguir.
@@ -517,9 +518,9 @@ A sintaxe\textsuperscript{BOX2} básica de uma função do R é apresentada a se
 \textbf{Sintaxe:}
 
 \begin{verbatim}
-nome <- function(argumentos){
-   sequências de instruções (corpo)
-   return(argumento)
+nome <- function(argumentos) {
+    sequências de instruções (corpo)
+    return(argumento)
 }
 \end{verbatim}
 
@@ -532,7 +533,7 @@ nome <- function(argumentos){
 \textbf{return:} é o último valor calculado, e pode vir acompanhado para função reservada return ou não. O retorno de uma função não é essencial, podemos ter interesse em apenas imprimir o resultado na tela. O retorno é útil se este resultado será utilizado posteriormente no decorrer no processo, assim o retorno poderá ser armazenado em um objeto após a execução da função.
 
 \textbf{BOX 2: Sintaxe, semântica, lógica}
-A sintaxe refere-se às regras que ditam a composição de textos com significado lógico para determinada linguagem programação. Os erros de sintaxe são erros no código e bloqueiam a execução de um processo. Exemplos seria digitar de forma errada a palavra reservada function ou esquecer de fechar um parêntese. O RStudio possui mecanismos para checar alguns erros sintaxe na edição do script, antes mesmo da execução. Os erros de sintaxe geralmente são fáceis de serem detectados. Além dos erros de sintaxe ainda podemos ter os erros de semântica, que envolvem códigos tecnicamente corretos, mas apresentam problemas com o significado. Esses erros geralmente só podem ser identificados no momento da execução do código. Um exemplo seria tentar ler um arquivo que não existe no computador. Há também os erros de lógica, esses erros são mais difíceis de serem detectados, a sintaxe e semântica estão corretas, mas mesmo assim o código não executa da maneira com que o programador imaginou. Os erros de lógica são críticos porque não podem ser detectados pelo editor ou interpretador, a identificação seria de responsabilidade inteiramente do programador. Exemplo seria usar uma operação errada no processo, como utilizar soma em vez multiplicação. O resultado seria gerado corretamente, porém é de nosso interesse a multiplicação e não a soma.
+A \textbf{sintaxe} refere-se às regras que ditam a composição de textos com significado lógico para determinada linguagem programação. Os erros de sintaxe são erros no código e bloqueiam a execução de um processo. Exemplos seria digitar de forma errada a palavra reservada function ou esquecer de fechar um parêntese. O RStudio possui mecanismos para checar alguns erros sintaxe na edição do script, antes mesmo da execução. Os erros de sintaxe geralmente são fáceis de serem detectados. Além dos erros de sintaxe ainda podemos ter os erros de \textbf{semântica}, que envolvem códigos tecnicamente corretos, mas apresentam problemas com o significado. Esses erros geralmente só podem ser identificados no momento da execução do código. Um exemplo seria tentar ler um arquivo que não existe no computador. Há também os erros de \textbf{lógica}, esses erros são mais difíceis de serem detectados, a sintaxe e semântica estão corretas, mas mesmo assim o código não executa da maneira com que o programador imaginou. Os erros de lógica são críticos porque não podem ser detectados pelo editor ou interpretador, a identificação seria de responsabilidade inteiramente do programador. Exemplo seria usar uma operação errada no processo, como utilizar soma em vez multiplicação. O resultado seria gerado corretamente, porém é de nosso interesse a multiplicação e não a soma.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -541,32 +542,32 @@ Podemos criar nossa própria função para dar boas-vindas ao usuário, observa 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Versão 1 – sem argumentos}
-\NormalTok{boas_vindas <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{()\{ }\CommentTok{# criar a função}
-  \KeywordTok{cat}\NormalTok{(}\StringTok{"Seja bem vindo!"}\NormalTok{)}
+\NormalTok{boas_vindas <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{() \{ }\CommentTok{# criar a função}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"Seja bem vindo!"}\NormalTok{)}
 \NormalTok{\}}
 \KeywordTok{boas_vindas}\NormalTok{() }\CommentTok{# executar a função}
 \CommentTok{## Seja bem vindo!}
 
 \CommentTok{# Versão 2 – com argumentos}
-\NormalTok{boas_vindas <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(nome)\{ }\CommentTok{# criar a função}
-  \KeywordTok{cat}\NormalTok{(}\StringTok{"Seja bem vindo"}\NormalTok{, nome, }\StringTok{"!"}\NormalTok{)}
+\NormalTok{boas_vindas <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(nome) \{}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"Seja bem vindo"}\NormalTok{, nome, }\StringTok{"!"}\NormalTok{)}
 \NormalTok{\}}
-\KeywordTok{boas_vindas}\NormalTok{(}\StringTok{"Eduardo"}\NormalTok{) }\CommentTok{# executar a função}
+\KeywordTok{boas_vindas}\NormalTok{(}\StringTok{"Eduardo"}\NormalTok{)}
 \CommentTok{## Seja bem vindo Eduardo !}
 
 \CommentTok{# Versão 3 – com argumento padrão}
-\NormalTok{boas_vindas <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(}\DataTypeTok{nome =} \StringTok{"Aluno"}\NormalTok{)\{ }\CommentTok{# criar a função}
-  \KeywordTok{cat}\NormalTok{(}\StringTok{"Seja bem vindo"}\NormalTok{, nome, }\StringTok{"!"}\NormalTok{)}
+\NormalTok{boas_vindas <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(}\DataTypeTok{nome =} \StringTok{"Aluno"}\NormalTok{) \{}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"Seja bem vindo"}\NormalTok{, nome, }\StringTok{"!"}\NormalTok{)}
 \NormalTok{\}}
-\KeywordTok{boas_vindas}\NormalTok{() }\CommentTok{# executar a função}
+\KeywordTok{boas_vindas}\NormalTok{()}
 \CommentTok{## Seja bem vindo Aluno !}
 
 \CommentTok{# Versão 4 – com argumento padrão e retorno}
-\NormalTok{boas_vindas <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(}\DataTypeTok{nome =} \StringTok{"Aluno"}\NormalTok{)\{ }\CommentTok{# criar a função}
-\NormalTok{  frase <-}\StringTok{ }\KeywordTok{paste}\NormalTok{(}\StringTok{"Bom dia"}\NormalTok{, nome, }\StringTok{"!"}\NormalTok{)}
-  \KeywordTok{return}\NormalTok{(frase)}
+\NormalTok{boas_vindas <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(}\DataTypeTok{nome =} \StringTok{"Aluno"}\NormalTok{) \{}
+\NormalTok{    frase <-}\StringTok{ }\KeywordTok{paste}\NormalTok{(}\StringTok{"Bom dia"}\NormalTok{, nome, }\StringTok{"!"}\NormalTok{)}
+    \KeywordTok{return}\NormalTok{(frase)}
 \NormalTok{\}}
-\NormalTok{frase_boas_vindas <-}\StringTok{ }\KeywordTok{boas_vindas}\NormalTok{(}\StringTok{"Eduardo"}\NormalTok{) }\CommentTok{# executar a função}
+\NormalTok{frase_boas_vindas <-}\StringTok{ }\KeywordTok{boas_vindas}\NormalTok{(}\StringTok{"Eduardo"}\NormalTok{)}
 \NormalTok{frase_boas_vindas }\CommentTok{# mostrar o objeto resultante}
 \CommentTok{## [1] "Bom dia Eduardo !"}
 \end{Highlighting}
@@ -576,15 +577,15 @@ O próximo exemplo demostra o uso do resultado retornado pela execução da fun�
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{lucro <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(receita, custo)\{}
-\NormalTok{  valor_lucro <-}\StringTok{ }\NormalTok{receita }\OperatorTok{-}\StringTok{ }\NormalTok{custo}
-  \KeywordTok{cat}\NormalTok{(}\StringTok{"O lucro foi de R$"}\NormalTok{, valor_lucro, }\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
-  \KeywordTok{return}\NormalTok{(valor_lucro)}
+\NormalTok{lucro <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(receita, custo) \{}
+\NormalTok{    valor_lucro <-}\StringTok{ }\NormalTok{receita }\OperatorTok{-}\StringTok{ }\NormalTok{custo}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"O lucro foi de R$"}\NormalTok{, valor_lucro, }\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+    \KeywordTok{return}\NormalTok{(valor_lucro)}
 \NormalTok{\}}
 \NormalTok{lucro_projeto1 <-}\StringTok{ }\KeywordTok{lucro}\NormalTok{(}\DecValTok{6000}\NormalTok{, }\DecValTok{4500}\NormalTok{)}
-\CommentTok{## O lucro foi de R$ 1500 }
+\CommentTok{## O lucro foi de R$ 1500}
 \NormalTok{lucro_projeto2 <-}\StringTok{ }\KeywordTok{lucro}\NormalTok{(}\DecValTok{4000}\NormalTok{, }\DecValTok{5000}\NormalTok{)}
-\CommentTok{## O lucro foi de R$ -1000 }
+\CommentTok{## O lucro foi de R$ -1000}
 \NormalTok{lucro_total <-}\StringTok{ }\NormalTok{lucro_projeto1 }\OperatorTok{+}\StringTok{ }\NormalTok{lucro_projeto2}
 \NormalTok{lucro_total}
 \CommentTok{## [1] 500}
@@ -594,7 +595,7 @@ O próximo exemplo demostra o uso do resultado retornado pela execução da fun�
 A função computa o lucro de dois diferentes projetos, os resultados são somados para computar qual seria o lucro total. Observe que foi incluído o texto \texttt{\textbackslash{}n} na função de concatenar e imprimir, isso foi necessário para evitar que a impressão e o resultado retornado sejam apresentados na mesma linha. O texto \texttt{\textbackslash{}n} indica para o programa pular de linha. Vale destacar que se optar por utilizar a função print combinada com a função paste não seria necessário incluir \texttt{\textbackslash{}n}, pois por padrão a função print já pula para próxima linha após a execução.
 
 \hypertarget{escopo}{%
-\section{ESCOPO}\label{escopo}}
+\section{Escopo}\label{escopo}}
 
 Regras de espoco, ou simplesmente escopo, é um conjunto de regras destinado a controlar o acesso de variáveis durante a execução de um processo. Não existe um padrão universal de regras de escopo, mas em geral, não existe grandes variações de regras entre a maioria das linguagens de programação.
 

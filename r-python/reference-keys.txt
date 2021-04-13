@@ -5,7 +5,7 @@ por-que-programar
 por-que-o-r
 iniciando-no-r
 comandos-e-ambiente-de-trabalho
-gerando-e-removendo-objetos
+gerar-e-remover-objetos
 criação-de-funções
 motivação-para-criar-funções
 elementos-básicos-de-uma-função
