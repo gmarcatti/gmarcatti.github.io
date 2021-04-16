@@ -140,14 +140,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3" data-path="por-que-o-r.html"><a href="por-que-o-r.html"><i class="fa fa-check"></i><b>3</b> POR QUE O R?</a></li>
 <li class="chapter" data-level="4" data-path="iniciando-no-r.html"><a href="iniciando-no-r.html"><i class="fa fa-check"></i><b>4</b> INICIANDO NO R</a><ul>
 <li class="chapter" data-level="4.1" data-path="iniciando-no-r.html"><a href="iniciando-no-r.html#comandos-e-ambiente-de-trabalho"><i class="fa fa-check"></i><b>4.1</b> Comandos e ambiente de trabalho</a></li>
-<li class="chapter" data-level="4.2" data-path="iniciando-no-r.html"><a href="iniciando-no-r.html#gerar-e-remover-objetos"><i class="fa fa-check"></i><b>4.2</b> Gerar e remover objetos</a></li>
+<li class="chapter" data-level="4.2" data-path="iniciando-no-r.html"><a href="iniciando-no-r.html#operações-básicas-e-execução-de-funções"><i class="fa fa-check"></i><b>4.2</b> Operações básicas e execução de funções</a></li>
+<li class="chapter" data-level="4.3" data-path="iniciando-no-r.html"><a href="iniciando-no-r.html#objetos-no-r-gerar-e-remover-objetos"><i class="fa fa-check"></i><b>4.3</b> Objetos no R: gerar e remover objetos</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="criação-de-funções.html"><a href="criação-de-funções.html"><i class="fa fa-check"></i><b>5</b> CRIAÇÃO DE FUNÇÕES</a><ul>
 <li class="chapter" data-level="5.1" data-path="criação-de-funções.html"><a href="criação-de-funções.html#motivação-para-criar-funções"><i class="fa fa-check"></i><b>5.1</b> Motivação para criar funções</a></li>
 <li class="chapter" data-level="5.2" data-path="criação-de-funções.html"><a href="criação-de-funções.html#elementos-básicos-de-uma-função"><i class="fa fa-check"></i><b>5.2</b> Elementos básicos de uma função</a></li>
 <li class="chapter" data-level="5.3" data-path="criação-de-funções.html"><a href="criação-de-funções.html#escopo"><i class="fa fa-check"></i><b>5.3</b> Escopo</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="6" data-path="operações-condicionais.html"><a href="operações-condicionais.html"><i class="fa fa-check"></i><b>6</b> OPERAÇÕES CONDICIONAIS</a><ul>
+<li class="chapter" data-level="6.1" data-path="operações-condicionais.html"><a href="operações-condicionais.html#operadores-condicionais"><i class="fa fa-check"></i><b>6.1</b> Operadores condicionais</a></li>
+<li class="chapter" data-level="6.2" data-path="operações-condicionais.html"><a href="operações-condicionais.html#operadores-de-comparação"><i class="fa fa-check"></i><b>6.2</b> Operadores de comparação</a></li>
+<li class="chapter" data-level="6.3" data-path="operações-condicionais.html"><a href="operações-condicionais.html#operadores-lógicos"><i class="fa fa-check"></i><b>6.3</b> Operadores lógicos</a></li>
+<li class="chapter" data-level="6.4" data-path="operações-condicionais.html"><a href="operações-condicionais.html#operadores-condicionais-aninhados"><i class="fa fa-check"></i><b>6.4</b> Operadores condicionais aninhados</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://gmarcatti.com/" target="blank">Minha página pessoal</a></li>
 
@@ -195,6 +201,9 @@ Figura 4.2: Ambiente de trabalho do R acessado via RStudio.
 </p>
 </div>
 <p>O download do RStudio pode ser feito no site <a href="https://rstudio.com/products/rstudio/download/" class="uri">https://rstudio.com/products/rstudio/download/</a>. O RStudio não substitui o R, ele é apenas uma interface mais agradável e produtiva para acessar todos os procedimentos poderosos que o R oferece, então antes de instala-lo deve-se instalar o R.</p>
+</div>
+<div id="operações-básicas-e-execução-de-funções" class="section level2">
+<h2><span class="header-section-number">4.2</span> Operações básicas e execução de funções</h2>
 <p>A seguir é a apresentado mais algumas operações matemáticas básicas, a partir de agora com a omissão do prompt e adição de comentários nos resultados retornados pelo programa<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="iniciando-no-r.html#cb3-1"></a><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">3</span><span class="op">*</span><span class="dv">4</span> <span class="co"># prioridade da operação multiplicação</span></span>
 <span id="cb3-2"><a href="iniciando-no-r.html#cb3-2"></a><span class="co">## [1] 14</span></span>
@@ -212,9 +221,31 @@ Figura 4.2: Ambiente de trabalho do R acessado via RStudio.
 <span id="cb4-2"><a href="iniciando-no-r.html#cb4-2"></a><span class="co">## [1] 0.6931472</span></span>
 <span id="cb4-3"><a href="iniciando-no-r.html#cb4-3"></a><span class="kw">log</span>(<span class="dv">2</span>, <span class="dv">10</span>) <span class="co"># Logaritmo de 2 na base 10</span></span>
 <span id="cb4-4"><a href="iniciando-no-r.html#cb4-4"></a><span class="co">## [1] 0.30103</span></span></code></pre></div>
-<p>Se você deixar o primeiro argumento (obrigatório) em branco, vai receber uma mensagem de erro:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="iniciando-no-r.html#cb5-1"></a><span class="kw">log</span>( , <span class="dv">3</span>)</span>
-<span id="cb5-2"><a href="iniciando-no-r.html#cb5-2"></a><span class="co">## Error: argument &quot;x&quot; is missing, with no default</span></span></code></pre></div>
+<p>Para descobrir quais são os argumentos da função, bem como o que é retorna você pode pedir ajuda para o R. Para pedir ajuda ao R e ter acesso à documentação de determinada função, por exemplo, para a função log, digite uma das opções:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="iniciando-no-r.html#cb5-1"></a><span class="kw">help</span>(log)           </span>
+<span id="cb5-2"><a href="iniciando-no-r.html#cb5-2"></a>?log</span></code></pre></div>
+<p>Pesquisamos a documentação oficial do programa com muita frequência, praticamente o tempo todo, pelo menos para saber quais são os argumentos necessários para executar determinada função. As opções acima é para situações em que você já sabe o nome do comando, porém sempre pode utilizar o mecanismo de completar funções do RStudio ou do próprio console do R para identificar nomes de funções.</p>
+<p>Para pesquisar sobre temas em particular utilize os comandos abaixo. Porém na maioria das vezes é mais rápido e fácil fazer essa pesquisa mais abrangente no Google.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="iniciando-no-r.html#cb6-1"></a>??logarithms</span>
+<span id="cb6-2"><a href="iniciando-no-r.html#cb6-2"></a><span class="kw">help.search</span>(<span class="st">&quot;logarithms&quot;</span>)</span></code></pre></div>
+<p>Outra função útil de ajuda no R é a função <code>args</code>, que lista os argumentos necessários para executar a função de interesse, porém a maioria dos usuários prefere acessar a documentação completa da função, que além de listar, também descreve os argumentos e cada um dos elementos que compõe a função.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="iniciando-no-r.html#cb7-1"></a><span class="kw">args</span>(log)</span>
+<span id="cb7-2"><a href="iniciando-no-r.html#cb7-2"></a><span class="co">## function (x, base = exp(1)) </span></span>
+<span id="cb7-3"><a href="iniciando-no-r.html#cb7-3"></a><span class="co">##   NULL</span></span></code></pre></div>
+<p>Agora que você já sabe como pedir ajuda no R, vamos continuar com a execução de funções. Se você deixar o primeiro argumento (obrigatório) em branco, vai receber uma mensagem de erro:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="iniciando-no-r.html#cb8-1"></a><span class="kw">log</span>( , <span class="dv">3</span>)</span>
+<span id="cb8-2"><a href="iniciando-no-r.html#cb8-2"></a><span class="co">## Error: argument &quot;x&quot; is missing, with no default</span></span></code></pre></div>
+<p>Se o nome dos argumentos estiverem nomeados não é necessário ordena-los de acordo com a especifícação da função.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="iniciando-no-r.html#cb9-1"></a><span class="kw">log</span>(<span class="dt">x =</span> <span class="dv">2</span>, <span class="dt">base =</span> <span class="dv">10</span>) <span class="co"># ordem original</span></span>
+<span id="cb9-2"><a href="iniciando-no-r.html#cb9-2"></a><span class="co">## [1] 0.30103</span></span>
+<span id="cb9-3"><a href="iniciando-no-r.html#cb9-3"></a><span class="kw">log</span>(<span class="dt">base =</span> <span class="dv">10</span>, <span class="dt">x =</span> <span class="dv">2</span>) <span class="co"># ordem inversa</span></span>
+<span id="cb9-4"><a href="iniciando-no-r.html#cb9-4"></a><span class="co">## [1] 0.30103</span></span></code></pre></div>
+<p>Provavelmente não será necessário alterar a ordem de especificação dos argumentos, como exemplificado acima, inclusive essa alteração é desencorajada. Mas em algumas situações, atribuir argumentos pelo nome é essencial, como no exemplo a seguir, em que o 1<sup>o</sup> e o 3<sup>o</sup> argumentos devem ser atribuidos e o segundo deve ser mantido como o padrão. A função <code>rnorm</code><a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> é aplicada, ela serve para gerar números aleatórios conforme a função densidade de probabilidade normal. O argumento <code>n</code> (número de elementos) é igual a 2 e o desvio padrão (<code>sd</code>) é igual igual a 5 (diferente do padrão 1). Observe que o padrão para <code>mean</code> (média) é mantido, isto é, continua igual a zero. Se o nome do argumento <code>sd</code> não for estabelecido, a função iria executar da mesma forma, porém o número 5 iria ser atribuido para o argumento de <code>mean</code>.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="iniciando-no-r.html#cb10-1"></a><span class="kw">args</span>(rnorm)</span>
+<span id="cb10-2"><a href="iniciando-no-r.html#cb10-2"></a><span class="co">## function (n, mean = 0, sd = 1) </span></span>
+<span id="cb10-3"><a href="iniciando-no-r.html#cb10-3"></a><span class="co">## NULL</span></span>
+<span id="cb10-4"><a href="iniciando-no-r.html#cb10-4"></a><span class="kw">rnorm</span>(<span class="dv">2</span>, <span class="dt">sd =</span> <span class="dv">5</span>)</span>
+<span id="cb10-5"><a href="iniciando-no-r.html#cb10-5"></a><span class="co">## [1] -3.857648  1.359604</span></span></code></pre></div>
 <p>A seguir é apresentado uma lista de algumas funções básicas e operadores aritméticos:</p>
 <table>
 <thead>
@@ -262,65 +293,54 @@ Figura 4.2: Ambiente de trabalho do R acessado via RStudio.
 </tr>
 </tbody>
 </table>
-<p>Para pedir ajuda ao R e ter acesso à documentação de determinada função, por exemplo, para a função log, digite uma das opções:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="iniciando-no-r.html#cb6-1"></a><span class="kw">help</span>(log)           </span>
-<span id="cb6-2"><a href="iniciando-no-r.html#cb6-2"></a>?log</span></code></pre></div>
-<p>Pesquisamos a documentação oficial do programa com muita frequência, praticamente o tempo todo, pelo menos para saber quais são os argumentos necessários para executar determinada função. Uma das opções acima é para situações em que você já sabe o nome do comando, porém sempre você pode utilizar o mecanismo de completar funções do RStudio ou do próprio console do R para identificar nomes de funções.</p>
-<p>Para pesquisar sobre temas em particular utilize os comandos abaixo. Porém na maioria das vezes é mais interessante fazer essa pesquisa mais abrangente no Google.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="iniciando-no-r.html#cb7-1"></a>??logarithms</span>
-<span id="cb7-2"><a href="iniciando-no-r.html#cb7-2"></a><span class="kw">help.search</span>(<span class="st">&quot;logarithms&quot;</span>)</span></code></pre></div>
-<p>Outra função útil de ajuda no R é a função args, que lista os argumentos necessários para executar a função de interesse, porém a maioria dos usuários prefere acessar a documentação completa da função que além de listar também descreve os argumentos e cada um dos elementos que compõe a função.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="iniciando-no-r.html#cb8-1"></a><span class="kw">args</span>(log)</span>
-<span id="cb8-2"><a href="iniciando-no-r.html#cb8-2"></a><span class="co">## function (x, base = exp(1)) </span></span>
-<span id="cb8-3"><a href="iniciando-no-r.html#cb8-3"></a><span class="co">##   NULL</span></span></code></pre></div>
 </div>
-<div id="gerar-e-remover-objetos" class="section level2">
-<h2><span class="header-section-number">4.2</span> Gerar e remover objetos</h2>
+<div id="objetos-no-r-gerar-e-remover-objetos" class="section level2">
+<h2><span class="header-section-number">4.3</span> Objetos no R: gerar e remover objetos</h2>
 <p>As entidades nas quais R opera são tecnicamente conhecidas como objetos. Exemplos são vetores de valores numéricos (reais) ou complexos, vetores de valores lógicos e vetores de cadeias de caracteres.</p>
 <p>O R é uma linguagem orientada a objetos. Um objeto para o R significa tanto um banco de dados, como uma tabela, variáveis, vetores, matrizes, funções, etc., armazenados na memória ativa do computador. Para criar um objeto qualquer no R, você deverá sempre usar o operador de atribuição <code>&lt;-</code>, gerado pela digitação do sinal de menor e menos.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="iniciando-no-r.html#cb9-1"></a>x &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">9</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="iniciando-no-r.html#cb11-1"></a>x &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">9</span>)</span></code></pre></div>
 <p>Pronuncia-se o comando dizendo: o objeto recebe certo valor. Por exemplo, <code>x &lt;- sqrt(9)</code>, leia-se, “x recebe a raiz quadrada de 9”.O objeto <code>x</code>, armazenou a raiz quadrada de 9. Verifique, digitando <code>x</code>:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="iniciando-no-r.html#cb10-1"></a>x</span>
-<span id="cb10-2"><a href="iniciando-no-r.html#cb10-2"></a><span class="co">## 3</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="iniciando-no-r.html#cb12-1"></a>x</span>
+<span id="cb12-2"><a href="iniciando-no-r.html#cb12-2"></a><span class="co">## 3</span></span></code></pre></div>
 <p>Existem várias formas de fazer atribuições de objetos além do operador <code>&lt;-</code>. Outras três delas são apresentas abaixo.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="iniciando-no-r.html#cb11-1"></a><span class="kw">sqrt</span>(<span class="dv">9</span>) -&gt;<span class="st"> </span>x; x =<span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">9</span>); <span class="kw">assign</span>(<span class="st">&quot;x&quot;</span>, <span class="kw">sqrt</span>(<span class="dv">9</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="iniciando-no-r.html#cb13-1"></a><span class="kw">sqrt</span>(<span class="dv">9</span>) -&gt;<span class="st"> </span>x; x =<span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">9</span>); <span class="kw">assign</span>(<span class="st">&quot;x&quot;</span>, <span class="kw">sqrt</span>(<span class="dv">9</span>))</span></code></pre></div>
 <p>Porém convencionalmente os usuários do R adotam o <code>&lt;-</code>, então é altamente recomendado que este deve ser adotado, pois com o costume você se sentirá mais confortável com códigos de terceiros e o oposto também é verdadeiro.</p>
 <p>Ao se fazer uma atribuição deve-se atentar para o fato de que um objeto substitui o outro de mesmo nome, e nenhuma mensagem de advertência é emitida. Para avaliar o conteúdo do objeto, isto é, imprimir o conteúdo na tela, basta digitar o nome do objeto e pressionar a tecla Enter. Basicamente, esse comando chama internamente a função de impressão <code>print</code>.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="iniciando-no-r.html#cb12-1"></a>obj1 &lt;-<span class="st"> </span><span class="dv">25</span></span>
-<span id="cb12-2"><a href="iniciando-no-r.html#cb12-2"></a><span class="kw">print</span>(obj1)</span>
-<span id="cb12-3"><a href="iniciando-no-r.html#cb12-3"></a><span class="co">## [1] 25</span></span>
-<span id="cb12-4"><a href="iniciando-no-r.html#cb12-4"></a>obj1</span>
-<span id="cb12-5"><a href="iniciando-no-r.html#cb12-5"></a><span class="co">## [1] 25</span></span>
-<span id="cb12-6"><a href="iniciando-no-r.html#cb12-6"></a>obj1 &lt;-<span class="st"> </span><span class="dv">21</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
-<span id="cb12-7"><a href="iniciando-no-r.html#cb12-7"></a>obj1</span>
-<span id="cb12-8"><a href="iniciando-no-r.html#cb12-8"></a><span class="co">## [1] 22</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="iniciando-no-r.html#cb14-1"></a>obj1 &lt;-<span class="st"> </span><span class="dv">25</span></span>
+<span id="cb14-2"><a href="iniciando-no-r.html#cb14-2"></a><span class="kw">print</span>(obj1)</span>
+<span id="cb14-3"><a href="iniciando-no-r.html#cb14-3"></a><span class="co">## [1] 25</span></span>
+<span id="cb14-4"><a href="iniciando-no-r.html#cb14-4"></a>obj1</span>
+<span id="cb14-5"><a href="iniciando-no-r.html#cb14-5"></a><span class="co">## [1] 25</span></span>
+<span id="cb14-6"><a href="iniciando-no-r.html#cb14-6"></a>obj1 &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">9</span>)</span>
+<span id="cb14-7"><a href="iniciando-no-r.html#cb14-7"></a>obj1</span>
+<span id="cb14-8"><a href="iniciando-no-r.html#cb14-8"></a><span class="co">## [1] 3</span></span></code></pre></div>
 <p>Na maioria das vezes utilizamos a forma resumida do comando <code>print</code>, mas em algumas situações seu uso é obrigatório, como dentro de um processo repetitivo, que será apresentado mais adiante neste livro.</p>
 <p>Outra função útil de impressão de objetos é a função <code>cat</code> (concatenar e imprimir). Ela serve para concatenar (juntar) objetos e imprimi-los na tela ou até mesmo salva-los em um arquivo, isso mesmo, a impressão dos objetos pode ser direcionada para um arquivo texto. Essa função é muito utilizada para concatenar um texto com resultados derivados da execução de algoritmos, armazenados em objetos. A <code>cat</code> é mais flexível e “personalizável” do que a função <code>print</code>.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="iniciando-no-r.html#cb13-1"></a><span class="kw">cat</span>(<span class="st">&quot;O valor do objeto 1 (obj1) é&quot;</span>, obj1)</span>
-<span id="cb13-2"><a href="iniciando-no-r.html#cb13-2"></a><span class="co">## O valor do objeto 1 (obj1) é 22</span></span></code></pre></div>
-<p>O comando <code>print</code> combinado com a função paste pode gerar resultado semelhantes à função <code>cat</code>. A função <code>paste</code> serve para concatenar (juntar) vetores após converte-los em caracteres (texto).</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="iniciando-no-r.html#cb14-1"></a><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;O valor do objeto 1 (obj1) é&quot;</span>, obj1))</span>
-<span id="cb14-2"><a href="iniciando-no-r.html#cb14-2"></a><span class="co">## [1] &quot;O valor do objeto 1 (obj1) é 22&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="iniciando-no-r.html#cb15-1"></a><span class="kw">cat</span>(<span class="st">&quot;O valor do objeto 1 (obj1) é&quot;</span>, obj1)</span>
+<span id="cb15-2"><a href="iniciando-no-r.html#cb15-2"></a><span class="co">## O valor do objeto 1 (obj1) é 22</span></span></code></pre></div>
+<p>O comando <code>print</code> combinado com a função <code>paste</code> pode gerar resultado semelhantes à função <code>cat</code>. A função <code>paste</code> serve para concatenar (juntar) vetores após converte-los em caracteres (texto).</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="iniciando-no-r.html#cb16-1"></a><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;O valor do objeto 1 (obj1) é&quot;</span>, obj1))</span>
+<span id="cb16-2"><a href="iniciando-no-r.html#cb16-2"></a><span class="co">## [1] &quot;O valor do objeto 1 (obj1) é 22&quot;</span></span></code></pre></div>
 <p>O R reconhece letras maiúsculas e minúsculas como caracteres diferentes, assim como a ampla maioria das linguagens de programação, essa característica recebe o nome de <em>case sensitive</em>. Observe o comportamento dos objetos abaixo.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="iniciando-no-r.html#cb15-1"></a>a &lt;-<span class="st"> </span><span class="dv">1</span>; A &lt;-<span class="st"> </span><span class="dv">5</span></span>
-<span id="cb15-2"><a href="iniciando-no-r.html#cb15-2"></a>nome &lt;-<span class="st"> &quot;Eduardo&quot;</span></span>
-<span id="cb15-3"><a href="iniciando-no-r.html#cb15-3"></a>Nome &lt;-<span class="st"> &quot;outro nome&quot;</span></span>
-<span id="cb15-4"><a href="iniciando-no-r.html#cb15-4"></a>a; A; nome; Nome</span>
-<span id="cb15-5"><a href="iniciando-no-r.html#cb15-5"></a><span class="co">## [1] 1</span></span>
-<span id="cb15-6"><a href="iniciando-no-r.html#cb15-6"></a><span class="co">## [1] 5</span></span>
-<span id="cb15-7"><a href="iniciando-no-r.html#cb15-7"></a><span class="co">## [1] &quot;Eduardo&quot;</span></span>
-<span id="cb15-8"><a href="iniciando-no-r.html#cb15-8"></a><span class="co">## [1] &quot;outro nome&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="iniciando-no-r.html#cb17-1"></a>a &lt;-<span class="st"> </span><span class="dv">1</span>; A &lt;-<span class="st"> </span><span class="dv">5</span></span>
+<span id="cb17-2"><a href="iniciando-no-r.html#cb17-2"></a>nome &lt;-<span class="st"> &quot;Eduardo&quot;</span></span>
+<span id="cb17-3"><a href="iniciando-no-r.html#cb17-3"></a>Nome &lt;-<span class="st"> &quot;outro nome&quot;</span></span>
+<span id="cb17-4"><a href="iniciando-no-r.html#cb17-4"></a>a; A; nome; Nome</span>
+<span id="cb17-5"><a href="iniciando-no-r.html#cb17-5"></a><span class="co">## [1] 1</span></span>
+<span id="cb17-6"><a href="iniciando-no-r.html#cb17-6"></a><span class="co">## [1] 5</span></span>
+<span id="cb17-7"><a href="iniciando-no-r.html#cb17-7"></a><span class="co">## [1] &quot;Eduardo&quot;</span></span>
+<span id="cb17-8"><a href="iniciando-no-r.html#cb17-8"></a><span class="co">## [1] &quot;outro nome&quot;</span></span></code></pre></div>
 <p>Durante uma sessão do R, os objetos são criados e guardados por nomes. Para saber quais objetos estão guardados na memória pelo R basta avaliar a aba de Environment do RStudio ou utilizar um dos comandos:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="iniciando-no-r.html#cb16-1"></a><span class="kw">objects</span>()</span>
-<span id="cb16-2"><a href="iniciando-no-r.html#cb16-2"></a><span class="co">## [1] &quot;a&quot; &quot;A&quot; &quot;nome&quot; &quot;Nome&quot; &quot;obj1&quot; &quot;x&quot;   </span></span>
-<span id="cb16-3"><a href="iniciando-no-r.html#cb16-3"></a><span class="kw">ls</span>()</span>
-<span id="cb16-4"><a href="iniciando-no-r.html#cb16-4"></a><span class="co">## [1] &quot;a&quot; &quot;A&quot; &quot;nome&quot; &quot;Nome&quot; &quot;obj1&quot; &quot;x&quot;   </span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="iniciando-no-r.html#cb18-1"></a><span class="kw">objects</span>()</span>
+<span id="cb18-2"><a href="iniciando-no-r.html#cb18-2"></a><span class="co">## [1] &quot;a&quot; &quot;A&quot; &quot;nome&quot; &quot;Nome&quot; &quot;obj1&quot; &quot;x&quot;   </span></span>
+<span id="cb18-3"><a href="iniciando-no-r.html#cb18-3"></a><span class="kw">ls</span>()</span>
+<span id="cb18-4"><a href="iniciando-no-r.html#cb18-4"></a><span class="co">## [1] &quot;a&quot; &quot;A&quot; &quot;nome&quot; &quot;Nome&quot; &quot;obj1&quot; &quot;x&quot;   </span></span></code></pre></div>
 <p>Para eliminar um ou mais objetos basta utilizar a função <code>rm</code> de remover.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="iniciando-no-r.html#cb17-1"></a><span class="kw">rm</span>(x, obj1)</span>
-<span id="cb17-2"><a href="iniciando-no-r.html#cb17-2"></a><span class="kw">ls</span>()</span>
-<span id="cb17-3"><a href="iniciando-no-r.html#cb17-3"></a><span class="co">## [1] &quot;a&quot; &quot;A&quot; &quot;nome&quot; &quot;Nome&quot;</span></span></code></pre></div>
-<p>Para eliminar todos os objetos pode-se utilizar o comando o comando abaixo, porém a maioria dos usuários preferem utilizar a opção disponível no menu do programa para essa funcionalidade, em Misc – Remover todos os objetos, no R padrão e em Session – Clear Workspace, no RStudio.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="iniciando-no-r.html#cb18-1"></a><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>(<span class="dt">all =</span> <span class="ot">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="iniciando-no-r.html#cb19-1"></a><span class="kw">rm</span>(x, obj1)</span>
+<span id="cb19-2"><a href="iniciando-no-r.html#cb19-2"></a><span class="kw">ls</span>()</span>
+<span id="cb19-3"><a href="iniciando-no-r.html#cb19-3"></a><span class="co">## [1] &quot;a&quot; &quot;A&quot; &quot;nome&quot; &quot;Nome&quot;</span></span></code></pre></div>
+<p>Para eliminar todos os objetos pode-se utilizar o comando o comando abaixo, porém a maioria dos usuários preferem utilizar a opção disponível no menu do programa para essa funcionalidade, em Misc – Remover todos os objetos, no R padrão, e em Session – Clear Workspace, no RStudio.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="iniciando-no-r.html#cb20-1"></a><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>(<span class="dt">all =</span> <span class="ot">TRUE</span>))</span></code></pre></div>
 <p>Se o seu interesse é apenas limpar o console, pode-se utilizar o atalho ctrl+L, porém esse atalho não remove os objetos.</p>
 <p>É comum errar alguns comandos quando se está trabalhando com o R. Seja pela falta de familiaridade com o comando ou então por algum erro de digitação. Para evitar ter que escrever o comando todo de novo, utilize a seta do teclado de direção para cima para pesquisar todo histórico de comandos utilizados na sessão atual. Quando encontrar o comando desejado faça as devidas correções e execute novamente. Porém é altamente recomendado que o processo de criação de um procedimento seja feito utilizando o editor de texto, assim a preocupação de recuperar comandos é eliminada, uma vez todos os comandos estarão salvos no arquivo texto de edição. E no caso de um eventual erro, basta fazer a correção no arquivo texto e executar o procedimento novamente no console.</p>
 
@@ -331,6 +351,7 @@ Figura 4.2: Ambiente de trabalho do R acessado via RStudio.
 <ol start="1">
 <li id="fn1"><p>Além do prompt, outros símbolos podem ser apresentados, como <code>+</code> que indica que o comando anterior não foi finalizando, isso ocorre quando criamos blocos de comandos que ocupam mais de uma linha, como é o caso de funções. Também pode ocorrer quan-do equivocadamente esquecemos de fechar um parêntese e o co-mando ainda está aguardando, neste caso pode-se fechar o parên-tese na próxima linha, se possível, caso contrário pode-se usar a tecla Esc para cancelar o comando.<a href="iniciando-no-r.html#fnref1" class="footnote-back">↩︎</a></p></li>
 <li id="fn2"><p>Essas medidas serão particularmente úteis para facilitar operações de copiar-colar códigos da versão digital deste documento.<a href="iniciando-no-r.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>A função <code>rnorm</code> gera números pseudoaleatórios, e se a semente inicial de geração de números aleatórios não for especificada, o função irá retornar números diferentes em cada execução.<a href="iniciando-no-r.html#fnref3" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

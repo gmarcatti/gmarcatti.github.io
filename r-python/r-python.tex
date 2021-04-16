@@ -281,6 +281,9 @@ O RStudio apresenta caracteristicas apreciáveis, tais como, plataforma madura, 
 
 O download do RStudio pode ser feito no site \url{https://rstudio.com/products/rstudio/download/}. O RStudio não substitui o R, ele é apenas uma interface mais agradável e produtiva para acessar todos os procedimentos poderosos que o R oferece, então antes de instala-lo deve-se instalar o R.
 
+\hypertarget{operauxe7uxf5es-buxe1sicas-e-execuuxe7uxe3o-de-funuxe7uxf5es}{%
+\section{Operações básicas e execução de funções}\label{operauxe7uxf5es-buxe1sicas-e-execuuxe7uxe3o-de-funuxe7uxf5es}}
+
 A seguir é a apresentado mais algumas operações matemáticas básicas, a partir de agora com a omissão do prompt e adição de comentários nos resultados retornados pelo programa\footnote{Essas medidas serão particularmente úteis para facilitar operações de copiar-colar códigos da versão digital deste documento.}.
 
 \begin{Shaded}
@@ -313,12 +316,65 @@ Sendo que os argumentos opcionais podem ter um valor padrão pré-estabelecido o
 \end{Highlighting}
 \end{Shaded}
 
-Se você deixar o primeiro argumento (obrigatório) em branco, vai receber uma mensagem de erro:
+Para descobrir quais são os argumentos da função, bem como o que é retorna você pode pedir ajuda para o R. Para pedir ajuda ao R e ter acesso à documentação de determinada função, por exemplo, para a função log, digite uma das opções:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{help}\NormalTok{(log)           }
+\NormalTok{?log}
+\end{Highlighting}
+\end{Shaded}
+
+Pesquisamos a documentação oficial do programa com muita frequência, praticamente o tempo todo, pelo menos para saber quais são os argumentos necessários para executar determinada função. As opções acima é para situações em que você já sabe o nome do comando, porém sempre pode utilizar o mecanismo de completar funções do RStudio ou do próprio console do R para identificar nomes de funções.
+
+Para pesquisar sobre temas em particular utilize os comandos abaixo. Porém na maioria das vezes é mais rápido e fácil fazer essa pesquisa mais abrangente no Google.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{??logarithms}
+\KeywordTok{help.search}\NormalTok{(}\StringTok{"logarithms"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Outra função útil de ajuda no R é a função \texttt{args}, que lista os argumentos necessários para executar a função de interesse, porém a maioria dos usuários prefere acessar a documentação completa da função, que além de listar, também descreve os argumentos e cada um dos elementos que compõe a função.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{args}\NormalTok{(log)}
+\CommentTok{## function (x, base = exp(1)) }
+\CommentTok{##   NULL}
+\end{Highlighting}
+\end{Shaded}
+
+Agora que você já sabe como pedir ajuda no R, vamos continuar com a execução de funções. Se você deixar o primeiro argumento (obrigatório) em branco, vai receber uma mensagem de erro:
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{log}\NormalTok{( , }\DecValTok{3}\NormalTok{)}
 \CommentTok{## Error: argument "x" is missing, with no default}
+\end{Highlighting}
+\end{Shaded}
+
+Se o nome dos argumentos estiverem nomeados não é necessário ordena-los de acordo com a especifícação da função.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{log}\NormalTok{(}\DataTypeTok{x =} \DecValTok{2}\NormalTok{, }\DataTypeTok{base =} \DecValTok{10}\NormalTok{) }\CommentTok{# ordem original}
+\CommentTok{## [1] 0.30103}
+\KeywordTok{log}\NormalTok{(}\DataTypeTok{base =} \DecValTok{10}\NormalTok{, }\DataTypeTok{x =} \DecValTok{2}\NormalTok{) }\CommentTok{# ordem inversa}
+\CommentTok{## [1] 0.30103}
+\end{Highlighting}
+\end{Shaded}
+
+Provavelmente não será necessário alterar a ordem de especificação dos argumentos, como exemplificado acima, inclusive essa alteração é desencorajada. Mas em algumas situações, atribuir argumentos pelo nome é essencial, como no exemplo a seguir, em que o 1\textsuperscript{o} e o 3\textsuperscript{o} argumentos devem ser atribuidos e o segundo deve ser mantido como o padrão. A função \texttt{rnorm}\footnote{A função \texttt{rnorm} gera números pseudoaleatórios, e se a semente inicial de geração de números aleatórios não for especificada, o função irá retornar números diferentes em cada execução.} é aplicada, ela serve para gerar números aleatórios conforme a função densidade de probabilidade normal. O argumento \texttt{n} (número de elementos) é igual a 2 e o desvio padrão (\texttt{sd}) é igual igual a 5 (diferente do padrão 1). Observe que o padrão para \texttt{mean} (média) é mantido, isto é, continua igual a zero. Se o nome do argumento \texttt{sd} não for estabelecido, a função iria executar da mesma forma, porém o número 5 iria ser atribuido para o argumento de \texttt{mean}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{args}\NormalTok{(rnorm)}
+\CommentTok{## function (n, mean = 0, sd = 1) }
+\CommentTok{## NULL}
+\KeywordTok{rnorm}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DataTypeTok{sd =} \DecValTok{5}\NormalTok{)}
+\CommentTok{## [1] -3.857648  1.359604}
 \end{Highlighting}
 \end{Shaded}
 
@@ -341,38 +397,8 @@ asin() acos( ) atan( ) & funções trigonométricas inversas\tabularnewline
 \bottomrule
 \end{longtable}
 
-Para pedir ajuda ao R e ter acesso à documentação de determinada função, por exemplo, para a função log, digite uma das opções:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{help}\NormalTok{(log)           }
-\NormalTok{?log}
-\end{Highlighting}
-\end{Shaded}
-
-Pesquisamos a documentação oficial do programa com muita frequência, praticamente o tempo todo, pelo menos para saber quais são os argumentos necessários para executar determinada função. Uma das opções acima é para situações em que você já sabe o nome do comando, porém sempre você pode utilizar o mecanismo de completar funções do RStudio ou do próprio console do R para identificar nomes de funções.
-
-Para pesquisar sobre temas em particular utilize os comandos abaixo. Porém na maioria das vezes é mais interessante fazer essa pesquisa mais abrangente no Google.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{??logarithms}
-\KeywordTok{help.search}\NormalTok{(}\StringTok{"logarithms"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-Outra função útil de ajuda no R é a função args, que lista os argumentos necessários para executar a função de interesse, porém a maioria dos usuários prefere acessar a documentação completa da função que além de listar também descreve os argumentos e cada um dos elementos que compõe a função.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{args}\NormalTok{(log)}
-\CommentTok{## function (x, base = exp(1)) }
-\CommentTok{##   NULL}
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{gerar-e-remover-objetos}{%
-\section{Gerar e remover objetos}\label{gerar-e-remover-objetos}}
+\hypertarget{objetos-no-r-gerar-e-remover-objetos}{%
+\section{Objetos no R: gerar e remover objetos}\label{objetos-no-r-gerar-e-remover-objetos}}
 
 As entidades nas quais R opera são tecnicamente conhecidas como objetos. Exemplos são vetores de valores numéricos (reais) ou complexos, vetores de valores lógicos e vetores de cadeias de caracteres.
 
@@ -412,9 +438,9 @@ Ao se fazer uma atribuição deve-se atentar para o fato de que um objeto substi
 \CommentTok{## [1] 25}
 \NormalTok{obj1}
 \CommentTok{## [1] 25}
-\NormalTok{obj1 <-}\StringTok{ }\DecValTok{21} \OperatorTok{+}\StringTok{ }\DecValTok{1}
+\NormalTok{obj1 <-}\StringTok{ }\KeywordTok{sqrt}\NormalTok{(}\DecValTok{9}\NormalTok{)}
 \NormalTok{obj1}
-\CommentTok{## [1] 22}
+\CommentTok{## [1] 3}
 \end{Highlighting}
 \end{Shaded}
 
@@ -429,7 +455,7 @@ Outra função útil de impressão de objetos é a função \texttt{cat} (concat
 \end{Highlighting}
 \end{Shaded}
 
-O comando \texttt{print} combinado com a função paste pode gerar resultado semelhantes à função \texttt{cat}. A função \texttt{paste} serve para concatenar (juntar) vetores após converte-los em caracteres (texto).
+O comando \texttt{print} combinado com a função \texttt{paste} pode gerar resultado semelhantes à função \texttt{cat}. A função \texttt{paste} serve para concatenar (juntar) vetores após converte-los em caracteres (texto).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -474,7 +500,7 @@ Para eliminar um ou mais objetos basta utilizar a função \texttt{rm} de remove
 \end{Highlighting}
 \end{Shaded}
 
-Para eliminar todos os objetos pode-se utilizar o comando o comando abaixo, porém a maioria dos usuários preferem utilizar a opção disponível no menu do programa para essa funcionalidade, em Misc -- Remover todos os objetos, no R padrão e em Session -- Clear Workspace, no RStudio.
+Para eliminar todos os objetos pode-se utilizar o comando o comando abaixo, porém a maioria dos usuários preferem utilizar a opção disponível no menu do programa para essa funcionalidade, em Misc -- Remover todos os objetos, no R padrão, e em Session -- Clear Workspace, no RStudio.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -498,7 +524,7 @@ Uma das maiores potencialidades do R é que permite ao usuário definir suas pr�
 
 De uma visão mais prática as funções são úteis por uma série de fatores, podemos citar \textbf{estender/expandir as funcionalidades} de um sistema base, isto é, criar novos procedimentos para o sistema; serve para \textbf{encapsular parte do código} que executa a mesma funcionalidade ao longo do processo, e assim organizar melhor o código, além de tornar o processo mais seguro, uma vez que a execução da função ocorre em ambiente local (diferente do ambiente global da sessão), isso pode evitar efeitos indesejáveis, os processos do ambiente local não afeta o global e também não é afetado; permite \textbf{reutilizar códigos}, e assim evitar repetição desnecessária de códigos, isso facilita muito o processo de criação e manutenção do código, além de evitar o problema de copiar e colar: as funções são extremamente úteis para reduzir a duplicação de códigos \textsuperscript{BOX1}.
 
-\textbf{BOX1: Métrica do código repetido}
+\textbf{BOX1 - Métrica do código repetido:}
 Existem softwares, tais como CodeClimate e SonarQube, que avaliam a qualidade do código desenvolvido frente a diferentes perspectivas, uma delas é a quantidade de códigos repetidos. Códigos repetidos são nocivos para o programa, uma vez que o torna mais extenso e complexo. Em caso de necessidade de alteração no código repetido a alteração deverá ser feita em todos as repetições, sem exceções, e isso pode ser trabalhoso e com alta susceptibilidade à erros. O ideal seria encapsular este trecho de código repetido em uma função.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
@@ -532,7 +558,7 @@ nome <- function(argumentos) {
 
 \textbf{return:} é o último valor calculado, e pode vir acompanhado para função reservada return ou não. O retorno de uma função não é essencial, podemos ter interesse em apenas imprimir o resultado na tela. O retorno é útil se este resultado será utilizado posteriormente no decorrer no processo, assim o retorno poderá ser armazenado em um objeto após a execução da função.
 
-\textbf{BOX 2: Sintaxe, semântica, lógica}
+\textbf{BOX 2 - Sintaxe, semântica, lógica:}
 A \textbf{sintaxe} refere-se às regras que ditam a composição de textos com significado lógico para determinada linguagem programação. Os erros de sintaxe são erros no código e bloqueiam a execução de um processo. Exemplos seria digitar de forma errada a palavra reservada function ou esquecer de fechar um parêntese. O RStudio possui mecanismos para checar alguns erros sintaxe na edição do script, antes mesmo da execução. Os erros de sintaxe geralmente são fáceis de serem detectados. Além dos erros de sintaxe ainda podemos ter os erros de \textbf{semântica}, que envolvem códigos tecnicamente corretos, mas apresentam problemas com o significado. Esses erros geralmente só podem ser identificados no momento da execução do código. Um exemplo seria tentar ler um arquivo que não existe no computador. Há também os erros de \textbf{lógica}, esses erros são mais difíceis de serem detectados, a sintaxe e semântica estão corretas, mas mesmo assim o código não executa da maneira com que o programador imaginou. Os erros de lógica são críticos porque não podem ser detectados pelo editor ou interpretador, a identificação seria de responsabilidade inteiramente do programador. Exemplo seria usar uma operação errada no processo, como utilizar soma em vez multiplicação. O resultado seria gerado corretamente, porém é de nosso interesse a multiplicação e não a soma.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
@@ -600,6 +626,301 @@ A função computa o lucro de dois diferentes projetos, os resultados são somad
 Regras de espoco, ou simplesmente escopo, é um conjunto de regras destinado a controlar o acesso de variáveis durante a execução de um processo. Não existe um padrão universal de regras de escopo, mas em geral, não existe grandes variações de regras entre a maioria das linguagens de programação.
 
 No R temos dois escopos básicos de variáveis, o global e o local, o primeiro, em que as variáveis podem ser acessadas em qualquer momento dentro da função, independente se a variá-vel foi criada dentro da função ou não, já o segundo, as variá-veis externar só podem ser acessadas na função se passadas como parâmetros, além disso, as variáveis criadas dentro da função não afeta o ambiente externo (global).
+
+\hypertarget{operauxe7uxf5es-condicionais}{%
+\chapter{OPERAÇÕES CONDICIONAIS}\label{operauxe7uxf5es-condicionais}}
+
+Para você dizer em algum momento que sabe programar será necessário dominar dois tópicos básicos: operações condicionais e operações de repetição. Ambos são operações de controle de fluxo e são consideradas essenciais para programar qualquer procedimento, por mais simples que seja.
+\textbf{As operações condicionais estão relacionadas com tomada de decisão entre diferentes alternativas, isto é, escolha de uma opção entre duas ou mais possibilidades.} Para ser capaz de compreender as operações condicionais é necessário entender pelo menos 4 tópicos: os operadores condicionais, operadores de comparação, operadores lógicos e operadores condicionais aninhados.
+
+\hypertarget{operadores-condicionais}{%
+\section{Operadores condicionais}\label{operadores-condicionais}}
+
+O primeiro tópico a ser entendido de operações condicionais é sobre os \textbf{operadores condicionais}, que é a estrutura geral das operações de condição. A maioria das linguagens de programação apresentam um operador condicional básico, que geralmente é encontrado em três versões básicas, apresentadas na Figura \ref{fig:FigCond1}.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/Fig_Cond1} 
+
+}
+
+\caption{Operadores condicionais.}\label{fig:FigCond1}
+\end{figure}
+
+As decisões nos operadores condicionais são controladas pelas condições, as condições são construidas utilizando uma ou mais expressões que devem ser avaliadas em relação a sua veracidade. Se a condição for verdadeira, uma sequência de instruções (tarefas) deverão ser executadas, caso for falsa, isto é, caso contrário, uma sequência alternativa de instruções deverá ser executada.
+
+\hypertarget{operadores-de-comparauxe7uxe3o}{%
+\section{Operadores de comparação}\label{operadores-de-comparauxe7uxe3o}}
+
+As expressões de condições geralmente são construidas utilizando os \textbf{operadores de comparação} (Figura \ref{fig:FigCond2}) e combinadas utilizando os \textbf{operadores lógicos} no caso de mais de uma expressão.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/Fig_Cond2} 
+
+}
+
+\caption{Operadores de comparação.}\label{fig:FigCond2}
+\end{figure}
+
+Na sequência é apresentado o operador condicional \texttt{if}. Na Figura \ref{fig:FigCond3} é apresentado o fluxograma de ações referentes à decisão.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/Fig_Cond3} 
+
+}
+
+\caption{Decisão e ações em relação à avaliação de projetos para o exemplo if.}\label{fig:FigCond3}
+\end{figure}
+
+Observe que se a condição for falsa, isto é, se receitas forem menor ou igual aos custos, o código não executa instrução nenhuma, nem imprime na tela e nem computa o lucro (prejuízo no segundo exemplo).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Operador condicional if}
+\NormalTok{receitas <-}\StringTok{ }\DecValTok{7500}
+\NormalTok{custos <-}\StringTok{ }\DecValTok{5000}
+\ControlFlowTok{if}\NormalTok{(receitas }\OperatorTok{>}\StringTok{ }\NormalTok{custos)\{ }\CommentTok{# imprime o lucro na tela}
+\NormalTok{   lucro <-}\StringTok{ }\NormalTok{receitas }\OperatorTok{-}\StringTok{ }\NormalTok{custos}
+   \KeywordTok{cat}\NormalTok{(}\StringTok{"O lucro foi de R$"}\NormalTok{, lucro)}
+\NormalTok{\}}
+\CommentTok{## O lucro foi de R$ 2500}
+\NormalTok{receitas <-}\StringTok{ }\DecValTok{4500}
+\NormalTok{custos <-}\StringTok{ }\DecValTok{5000}
+\ControlFlowTok{if}\NormalTok{(receitas }\OperatorTok{>}\StringTok{ }\NormalTok{custos)\{ }\CommentTok{# nenhuma tarefa é executada}
+\NormalTok{   lucro <-}\StringTok{ }\NormalTok{receitas }\OperatorTok{-}\StringTok{ }\NormalTok{custos}
+   \KeywordTok{cat}\NormalTok{(}\StringTok{"O lucro foi de R$"}\NormalTok{, lucro)}
+\NormalTok{\}}
+\CommentTok{## }
+\end{Highlighting}
+\end{Shaded}
+
+O código será aperfeiçoado incluindo a instrução else (caso contrário) e as tarefas relacionadas a ela. Outro aperfeiçoamento será o encapsulamento do código em uma função, isso para evitar a repetição de código como apresentado acima. O fluxograma é apresentado na Figura \ref{fig:FigCond4} e o código é apresentado a seguir.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/Fig_Cond4} 
+
+}
+
+\caption{Decisão e ações em relação à avaliação de projetos para o exemplo if-else.}\label{fig:FigCond4}
+\end{figure}
+
+O fluxograma da Figura \ref{fig:FigCond4} apresenta uma sequência de instruções para o caso do projeto operar no prejuízo (Receitas não são maiores que custos), além disso o retorno da função também é representado no fluxograma.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Operador condicional if-else}
+\NormalTok{aval_econ <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(receitas, custos) \{}
+   \ControlFlowTok{if}\NormalTok{ (receitas }\OperatorTok{>}\StringTok{ }\NormalTok{custos) \{}
+\NormalTok{      lucro <-}\StringTok{ }\NormalTok{receitas }\OperatorTok{-}\StringTok{ }\NormalTok{custos}
+      \KeywordTok{cat}\NormalTok{(}\StringTok{"O lucro foi de R$"}\NormalTok{, lucro, }\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{   \} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{      lucro <-}\StringTok{ }\NormalTok{receitas }\OperatorTok{-}\StringTok{ }\NormalTok{custos}
+      \KeywordTok{cat}\NormalTok{(}\StringTok{"O prejuízo foi de R$"}\NormalTok{, }\KeywordTok{abs}\NormalTok{(lucro), }\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{   \}}
+   \KeywordTok{return}\NormalTok{(lucro)}
+\NormalTok{\}}
+\KeywordTok{aval_econ}\NormalTok{(}\DecValTok{7500}\NormalTok{, }\DecValTok{5000}\NormalTok{)}
+\CommentTok{## O lucro foi de R$ 2500 }
+\CommentTok{## [1] 2500}
+\KeywordTok{aval_econ}\NormalTok{(}\DecValTok{4500}\NormalTok{, }\DecValTok{5000}\NormalTok{)}
+\CommentTok{## O prejuizo foi de R$ 500 }
+\CommentTok{## [1] -500}
+\end{Highlighting}
+\end{Shaded}
+
+Observe que no bloco \texttt{else}, foi incluido a função abs no objeto de lucro, a função abs retornar o valor absoluto de um número, isto é, se o valor é negativo passa a ser positivo. Isso foi feito porque no texto explicativo já acompanha a palavra prejuízo, e assim já indicando ser um valor negativo.
+
+É possivel apresentar mais um aperfeiçoamento, observe que a avaliação econômica de um projeto ainda pode apresentar um terceiro cenário, além dos dois já apresentados, de lucro e prejuízo. Seria o cenário de nem lucro e nem prejuízo, isto é, elas por elas, receitas iguais aos custos. O fluxograma é apresentado na Figura \ref{fig:FigCond5}.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/Fig_Cond5} 
+
+}
+
+\caption{Decisão e ações em relação à avaliação de projetos para o exemplo if-else if-else.}\label{fig:FigCond5}
+\end{figure}
+
+Os operadores condicionais funcionam realmente como um processo de tomada de decisão, se a resposta para primeira pergunta (Receitas são maiores do que Custos?) for sim, as tarefas são executadas e o processo caminha para seu encerramento, isto é, para o retorno do resultado (valor de lucro). Observe que não será necessário fazer a segunda pergunta (Receitas são iguais aos Custos?) referente à segunda decisão.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Operador condicional if-else if-else}
+\NormalTok{aval_econ <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(receitas, custos) \{}
+   \ControlFlowTok{if}\NormalTok{ (receitas }\OperatorTok{>}\StringTok{ }\NormalTok{custos) \{}
+\NormalTok{      valor <-}\StringTok{ }\NormalTok{receitas }\OperatorTok{-}\StringTok{ }\NormalTok{custos}
+      \KeywordTok{cat}\NormalTok{(}\StringTok{"O lucro foi de R$"}\NormalTok{, valor, }\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{   \} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (receitas }\OperatorTok{==}\StringTok{ }\NormalTok{custos) \{}
+\NormalTok{      valor <-}\StringTok{ }\NormalTok{receitas }\OperatorTok{-}\StringTok{ }\NormalTok{custos}
+      \KeywordTok{cat}\NormalTok{(}\StringTok{"Não apresentou lucro e nem prejuízo }\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{   \} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{      valor <-}\StringTok{ }\NormalTok{receitas }\OperatorTok{-}\StringTok{ }\NormalTok{custos}
+      \KeywordTok{cat}\NormalTok{(}\StringTok{"O prejuizo foi de R$"}\NormalTok{, }\KeywordTok{abs}\NormalTok{(valor), }\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{   \}}
+   \KeywordTok{return}\NormalTok{(valor)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+A aplicação da função \texttt{aval\_econ} para três projetos distíntos é apresentada a seguir, e por fim, o somatório dos resultados obtidos é computado para identificar o lucro total. Observe que as avaliações de cada projeto são armazenadas em objetos para posterior utilização, isso só é possível devido ao retorno do resultado pela função. Apenas com a aplicação da função \texttt{print} não seria possível calculos posteriores.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{proj1 <-}\StringTok{ }\KeywordTok{aval_econ}\NormalTok{(}\DecValTok{7000}\NormalTok{, }\DecValTok{9000}\NormalTok{)}
+\NormalTok{O prejuizo foi de R}\OperatorTok{$}\StringTok{ }\DecValTok{2000} 
+\CommentTok{## proj1}
+\CommentTok{## [1] -2000}
+\NormalTok{proj2 <-}\StringTok{ }\KeywordTok{aval_econ}\NormalTok{(}\DecValTok{10000}\NormalTok{, }\DecValTok{6500}\NormalTok{)}
+\CommentTok{## O lucro foi de R$ 3500 }
+\NormalTok{proj2}
+\CommentTok{## [1] 3500}
+\NormalTok{proj3 <-}\StringTok{ }\KeywordTok{aval_econ}\NormalTok{(}\DecValTok{5000}\NormalTok{, }\DecValTok{5000}\NormalTok{)}
+\CommentTok{## Não apresentou lucro e nem prejuízo }
+\NormalTok{proj3}
+\CommentTok{## [1] 0}
+\NormalTok{lucro_total <-}\StringTok{ }\NormalTok{proj1 }\OperatorTok{+}\StringTok{ }\NormalTok{proj2 }\OperatorTok{+}\StringTok{ }\NormalTok{proj3}
+\NormalTok{lucro_total}
+\CommentTok{## [1] 1500}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{operadores-luxf3gicos}{%
+\section{Operadores lógicos}\label{operadores-luxf3gicos}}
+
+Os operadores lógicos principais são o \texttt{ou} e \texttt{e} (Figura \ref{fig:FigCond6}), representados pelos símbolos \texttt{\textbar{}} e \texttt{\&}, respectivamente. O operador \texttt{\&} pode ser considerado mais restritivo, uma vez que só retorna verdadeiro se todas as expressões de condição forem verdadeiras. Já o operador \texttt{\textbar{}} é considerado mais permissivo, pois basta uma expressão ser verdadeira para toda a condição retornar verdadeiro no final. A escolha do operador, obviamente vai depender do problema em questão. Ainda existe a negação lógica, representada pelo símbolo \texttt{!}, que inverte o resultado de uma expressão condicional, por exemplo, se o resultado for verdadeiro, é então convertido em falso e vice-versa. Também existe o operador \texttt{xor} (ou exclusivo), que retorna verdadeiro se ambos os valores de entrada forem diferentes entre si, e retorna falso se forem iguais.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/Fig_Cond6} 
+
+}
+
+\caption{Os operadores lógicos}\label{fig:FigCond6}
+\end{figure}
+
+O exemplo a seguir demonstra o uso dos operadores lógicos, o objetivo é identificar qual será a quantidade de área plantada no ano seguinte baseando-se na performance do ano atual. Se a relação receita / custo do projeto for menor um, isto é, obteção de prejuízo, não será feita expansão de plantio, deve-se plantar exatamente a quantidade de área plantada do ano atual; se a relação receita / custo for entre 1 e 1,5, será feita expansão de plantio de 20\%; se a relação for entre 1,5 e 2, a expansão será de 50\%; mas caso a relação for superior a 2, a expansão será de 100\% e a área de plantio será dobrada.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/Fig_Cond7} 
+
+}
+
+\caption{Decisão e ações em relação à quantidade de área de plantio para o exemplo if-else if-else, com auxílio de operadores lógicos.}\label{fig:FigCond7}
+\end{figure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{area_plantio <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(receitas, custos, area) \{}
+\NormalTok{   prop <-}\StringTok{ }\NormalTok{receitas }\OperatorTok{/}\StringTok{ }\NormalTok{custos }\CommentTok{# proporção receitas / custos}
+   \ControlFlowTok{if}\NormalTok{ (prop }\OperatorTok{<=}\StringTok{ }\DecValTok{1}\NormalTok{) \{}
+\NormalTok{      area_seg <-}\StringTok{ }\NormalTok{area }\CommentTok{# aumento de 0%}
+      \KeywordTok{cat}\NormalTok{(}\KeywordTok{paste}\NormalTok{(}\StringTok{"Proporção Receita/Custo:"}\NormalTok{, }\KeywordTok{round}\NormalTok{(prop, }\DecValTok{1}\NormalTok{), }
+                \StringTok{"; Área de plantio:"}\NormalTok{, area_seg, }\StringTok{"ha}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{))}
+\NormalTok{   \} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (prop }\OperatorTok{>}\StringTok{ }\DecValTok{1} \OperatorTok{&}\StringTok{ }\NormalTok{prop }\OperatorTok{<=}\StringTok{ }\FloatTok{1.5}\NormalTok{) \{}
+\NormalTok{      area_seg <-}\StringTok{ }\NormalTok{area }\OperatorTok{*}\StringTok{ }\FloatTok{1.2} \CommentTok{# aumento de 20%}
+      \KeywordTok{cat}\NormalTok{(}\KeywordTok{paste}\NormalTok{(}\StringTok{"Proporção Receita/Custo:"}\NormalTok{, }\KeywordTok{round}\NormalTok{(prop, }\DecValTok{1}\NormalTok{), }
+                \StringTok{"; Área de plantio:"}\NormalTok{, area_seg, }\StringTok{"ha}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{))}
+\NormalTok{   \} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (prop }\OperatorTok{>}\StringTok{ }\FloatTok{1.5} \OperatorTok{&}\StringTok{ }\NormalTok{prop }\OperatorTok{<=}\StringTok{ }\DecValTok{2}\NormalTok{) \{}
+\NormalTok{      area_seg <-}\StringTok{ }\NormalTok{area }\OperatorTok{*}\StringTok{ }\FloatTok{1.5} \CommentTok{# aumento de 50% }
+      \KeywordTok{cat}\NormalTok{(}\KeywordTok{paste}\NormalTok{(}\StringTok{"Proporção Receita/Custo:"}\NormalTok{, }\KeywordTok{round}\NormalTok{(prop, }\DecValTok{1}\NormalTok{), }
+                \StringTok{"; Área de plantio:"}\NormalTok{, area_seg, }\StringTok{"ha}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{))}
+\NormalTok{   \} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{      area_seg <-}\StringTok{ }\NormalTok{area }\OperatorTok{*}\StringTok{ }\DecValTok{2} \CommentTok{# aumento de 100%}
+      \KeywordTok{cat}\NormalTok{(}\KeywordTok{paste}\NormalTok{(}\StringTok{"Proporção Receita/Custo:"}\NormalTok{, }\KeywordTok{round}\NormalTok{(prop, }\DecValTok{1}\NormalTok{), }
+                \StringTok{"; Área de plantio:"}\NormalTok{, area_seg, }\StringTok{"ha}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{))}
+\NormalTok{   \}}
+   \KeywordTok{return}\NormalTok{(area_seg)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+A aplicação da função \texttt{area\_plantio} é apresentada a seguir.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{receitas <-}\StringTok{ }\DecValTok{5000} \CommentTok{# R$}
+\NormalTok{custos <-}\StringTok{ }\DecValTok{5500} \CommentTok{# R$}
+\NormalTok{area_atual <-}\StringTok{ }\DecValTok{200} \CommentTok{# ha}
+\KeywordTok{area_plantio}\NormalTok{(receitas, custos, area_atual)}
+\CommentTok{## Proporção Receita/Custo: 0.9 ; Área de plantio: 200 ha}
+\CommentTok{## [1] 200}
+\NormalTok{custos <-}\StringTok{ }\DecValTok{3600} \CommentTok{# R$}
+\KeywordTok{area_plantio}\NormalTok{(receitas, custos, area_atual)}
+\CommentTok{## Proporção Receita/Custo: 1.4 ; Área de plantio: 240 ha}
+\CommentTok{## [1] 240}
+\KeywordTok{area_plantio}\NormalTok{(receitas, }\DecValTok{2800}\NormalTok{, area_atual)}
+\CommentTok{## Proporção Receita/Custo: 1.8 ; Área de plantio: 300 ha}
+\CommentTok{## [1] 300}
+\KeywordTok{area_plantio}\NormalTok{(receitas, }\DecValTok{2400}\NormalTok{, area_atual)}
+\CommentTok{## Proporção Receita/Custo: 2.1 ; Área de plantio: 400 ha}
+\CommentTok{## [1] 400}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{operadores-condicionais-aninhados}{%
+\section{Operadores condicionais aninhados}\label{operadores-condicionais-aninhados}}
+
+Os operadores lógicos podem ser substituídos por *operadores condicionais aninhados** (ou encaixados). Os operadores condicionais aninhados, são basicamente, um operador condicional dentro do outro, e as vezes vale a pena recorrer para essas estruturas de condição por questões de simplificação. Com os condicionais aninhados o código pode ficar mais simples de implementar e entender.
+
+O próximo exemplo demostra o uso dos condicionais aninhados. O fluxograma em Figura \ref{fig:FigCond8} será implementado utilizando a linguagem de programação R.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/Fig_Cond8} 
+
+}
+
+\caption{Decisões em relação ao nível de infestação para controle de pragas.}\label{fig:FigCond8}
+\end{figure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{controle_pragas <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(nivel) \{}
+   \ControlFlowTok{if}\NormalTok{ (nivel }\OperatorTok{<=}\StringTok{ }\DecValTok{2}\NormalTok{) \{ }\CommentTok{# (1) esperar}
+      \KeywordTok{cat}\NormalTok{(}\StringTok{"Sem danos econômicos: NÃO TENTAR CONTROLAR.}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+      \KeywordTok{cat}\NormalTok{(}\StringTok{"Manter programação normal de controle de pragas.}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{   \} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (nivel }\OperatorTok{>}\StringTok{ }\DecValTok{2} \OperatorTok{&}\StringTok{ }\NormalTok{nivel }\OperatorTok{<=}\StringTok{ }\DecValTok{4}\NormalTok{) \{ }\CommentTok{# (2) intensificar amostragem}
+      \KeywordTok{cat}\NormalTok{(}\StringTok{"Sem danos econômicos: NÃO TENTAR CONTROLAR.}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+      \KeywordTok{cat}\NormalTok{(}\StringTok{"Mas intensificar a amostragem.}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+      \ControlFlowTok{if}\NormalTok{ (nivel }\OperatorTok{>}\StringTok{ }\DecValTok{2} \OperatorTok{&}\StringTok{ }\NormalTok{nivel }\OperatorTok{<=}\StringTok{ }\DecValTok{3}\NormalTok{) \{ }\CommentTok{# amostragem opção 1}
+         \KeywordTok{cat}\NormalTok{(}\StringTok{"Repetir a amostragem de 4 em 4 dias.}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{      \} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (nivel }\OperatorTok{>}\StringTok{ }\DecValTok{3} \OperatorTok{&}\StringTok{ }\NormalTok{nivel }\OperatorTok{<=}\StringTok{ }\FloatTok{3.5}\NormalTok{) \{ }\CommentTok{# amostragem opção 2}
+         \KeywordTok{cat}\NormalTok{(}\StringTok{"Repetir a amostragem de 2 em 2 dias.}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{      \} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (nivel }\OperatorTok{>}\StringTok{ }\FloatTok{3.5} \OperatorTok{&}\StringTok{ }\NormalTok{nivel }\OperatorTok{<=}\StringTok{ }\DecValTok{4}\NormalTok{) \{ }\CommentTok{# amostragem opção 3}
+         \KeywordTok{cat}\NormalTok{(}\StringTok{"Repetir a amostragem todos os dias.}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{      \}}
+\NormalTok{   \} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (nivel }\OperatorTok{>}\StringTok{ }\DecValTok{4} \OperatorTok{&}\StringTok{ }\NormalTok{nivel }\OperatorTok{<=}\StringTok{ }\DecValTok{20}\NormalTok{) \{ }\CommentTok{# (3) ação}
+      \KeywordTok{cat}\NormalTok{(}\StringTok{"Ação!!! TENTAR CONTROLAR.}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{   \} }\ControlFlowTok{else}\NormalTok{ \{ }\CommentTok{# (4) já era}
+      \KeywordTok{cat}\NormalTok{(}\StringTok{"Não adianta fazer nada: NÃO TENTAR CONTROLAR.}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+      \KeywordTok{cat}\NormalTok{(}\StringTok{"Os dados econômicos já são elevados demais.}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{   \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+A aplicação da função \texttt{controle\_pragas} é apresentada a seguir.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{controle_pragas}\NormalTok{(}\FloatTok{1.75}\NormalTok{)}
+\CommentTok{## Sem danos econômicos: NÃO TENTAR CONTROLAR.}
+\CommentTok{## Manter programação normal de controle de pragas.}
+\KeywordTok{controle_pragas}\NormalTok{(}\FloatTok{3.1}\NormalTok{)}
+\CommentTok{## Sem danos econômicos: NÃO TENTAR CONTROLAR.}
+\CommentTok{## Mas intensificar a amostragem.}
+\CommentTok{## Repetir a amostragem de 2 em 2 dias.}
+\KeywordTok{controle_pragas}\NormalTok{(}\FloatTok{4.6}\NormalTok{)}
+\CommentTok{## Ação!!! TENTAR CONTROLAR.}
+\KeywordTok{controle_pragas}\NormalTok{(}\FloatTok{21.2}\NormalTok{)}
+\CommentTok{## Não adianta fazer nada: NÃO TENTAR CONTROLAR.}
+\CommentTok{## Os dados econômicos já são elevados demais.}
+\end{Highlighting}
+\end{Shaded}
 
   \bibliography{book.bib,packages.bib}
 
