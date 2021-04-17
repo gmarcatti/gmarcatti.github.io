@@ -143,7 +143,8 @@
 \renewcommand{\contentsname}{SUMÁRIO}
 
 \hypertarget{prefuxe1cio}{%
-\chapter{PREFÁCIO}\label{prefuxe1cio}}
+\chapter*{PREFÁCIO}\label{prefuxe1cio}}
+\addcontentsline{toc}{chapter}{PREFÁCIO}
 
 Falar sobre o livro aqui.
 
@@ -239,7 +240,7 @@ Possibilidade de estar na fronteira do conhecimento: É muito comum que uma pesq
 \hypertarget{comandos-e-ambiente-de-trabalho}{%
 \section{Comandos e ambiente de trabalho}\label{comandos-e-ambiente-de-trabalho}}
 
-Comandos no R são expressões inseridas no prompt \texttt{\textgreater{}} e finalizadas com a tecla Enter, é executado um comando. O prompt já apresentando automaticamente e indica que o R está pronto para receber um comando\footnote{Além do prompt, outros símbolos podem ser apresentados, como \texttt{+} que indica que o comando anterior não foi finalizando, isso ocorre quando criamos blocos de comandos que ocupam mais de uma linha, como é o caso de funções. Também pode ocorrer quan-do equivocadamente esquecemos de fechar um parêntese e o co-mando ainda está aguardando, neste caso pode-se fechar o parên-tese na próxima linha, se possível, caso contrário pode-se usar a tecla Esc para cancelar o comando.}, se o prompt for digitado junto com o comando, uma mensagem de erro será emitida. Cada linha representa um comando, alternativamente pode-se inserir vários comandos em uma mesma linha, porém cada comando deve estar separado dos demais por ponto e vírgula \texttt{;}.
+Comandos no R são expressões inseridas no prompt \texttt{\textgreater{}} e finalizadas com a tecla Enter, é executado um comando. O prompt já apresentando automaticamente e indica que o R está pronto para receber um comando\footnote{Neste momento, uma descrição sucinta de vetor será feita. No capítulo sobre estrutura de dados, uma descrição mais completa será apresentada, também serão apresentadas outras estruturas.}, se o prompt for digitado junto com o comando, uma mensagem de erro será emitida. Cada linha representa um comando, alternativamente pode-se inserir vários comandos em uma mesma linha, porém cada comando deve estar separado dos demais por ponto e vírgula \texttt{;}.
 
 Para executar o primeiro comando é necessário fazer o download e instalação do software R no Desktop. O download pode ser feito no site \url{https://www.r-project.org/} e o usuário deve se atentar para escolher a alternativa de acordo com seu sistema operacional, uma vez que o R é multiplataforma, versões para Windows, Mac e diversas distribuições Linux são disponibilizadas.
 
@@ -731,7 +732,7 @@ O fluxograma da Figura \ref{fig:FigCond4} apresenta uma sequência de instruçõ
 \end{Highlighting}
 \end{Shaded}
 
-Observe que no bloco \texttt{else}, foi incluido a função abs no objeto de lucro, a função abs retornar o valor absoluto de um número, isto é, se o valor é negativo passa a ser positivo. Isso foi feito porque no texto explicativo já acompanha a palavra prejuízo, e assim já indicando ser um valor negativo.
+Observe que no bloco \texttt{else}, foi incluido a função \texttt{abs} no objeto de lucro, a função \texttt{abs} retornar o valor absoluto de um número, isto é, se o valor é negativo passa a ser positivo. Isso foi feito porque no texto explicativo já acompanha a palavra prejuízo, e assim já indicando ser um valor negativo.
 
 É possivel apresentar mais um aperfeiçoamento, observe que a avaliação econômica de um projeto ainda pode apresentar um terceiro cenário, além dos dois já apresentados, de lucro e prejuízo. Seria o cenário de nem lucro e nem prejuízo, isto é, elas por elas, receitas iguais aos custos. O fluxograma é apresentado na Figura \ref{fig:FigCond5}.
 
@@ -921,6 +922,156 @@ A aplicação da função \texttt{controle\_pragas} é apresentada a seguir.
 \CommentTok{## Os dados econômicos já são elevados demais.}
 \end{Highlighting}
 \end{Shaded}
+
+\hypertarget{operauxe7uxf5es-de-repetiuxe7uxe3o-loop}{%
+\chapter{OPERAÇÕES DE REPETIÇÃO (LOOP)}\label{operauxe7uxf5es-de-repetiuxe7uxe3o-loop}}
+
+As operações de repetição (\textbf{loop}) são a essência da computação em geral, pois foi justamente da necessidade de executar tarefas repetidas vezes (e de forma rápida) é que impulsionou o desenvolvimento e popularização dos computadores. Além disso, muitas dessas tarefas são maçantes e complexas, o que reforça a importância dessa forma de controle de fluxo.
+
+O \textbf{loop} permite executar trechos do algoritmo quantas vezes for necessária, a quantidade de vezes pode ser defina a priori pelo programador, mas geralmente é determinada de acordo com o problema em questão. Cada repetição pode ser chamada de iteração\textsuperscript{BOX3}.
+
+\textbf{BOX3 - Iteração versus interação:}
+Iteração é diferente de interação! Iteração é um processo repetitivo, já interação diz respeito à comunicação em dois sentidos, isto é, que interage, como algum tipo de interface gráfica de software que interage com o usuário.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+Geralmente, a quantidade de iterações é controlada com o auxílio de uma variável específica, que a cada iteração é incrementada, isto é, somar uma quantidade (geralmente unitária; igual a 1) ao valor atual dessa variável (\texttt{i\ \textless{}-\ i\ +\ 1}). Decremenos (\texttt{i\ \textless{}-\ i\ -\ 1}) também podem ser necessários, porém com menor frequência. Essa variável especial, que é incrementada ou decrementada, também pode ser entendida como um contador (contador de iterações).
+
+É possível executar processos repetitivos via programação sequencial, para isso, basta copiar (repetidamente) o trecho do algoritmo que requer repetição, porém essa estratégia pode ser impraticável conforme a quantidade de repetições. Além disso, com as cópias, o código aumenta de tamanho e complexidade, tornando o algoritmo difícil de ser entendido, corrigido, adaptado e mantido.
+
+\hypertarget{loop-visuxe3o-geral}{%
+\section{Loop: visão geral}\label{loop-visuxe3o-geral}}
+
+Existem dois tipos básicos de loop, os condicionais e os incondicionais. Os condicionais podem ser subdivididos em duas partes: em que a condição é avaliada inicialmente (\textbf{enquanto - while}) e em que é avaliada posteriormente (\textbf{repita - repeat}). Já os incondicionais, as instruções são repetidas até que toda uma sequência seja avaliada (para toda sequência - for). Uma visão geral é apresentada no Figura \ref{fig:FigRep1}.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/Fig_Rep1} 
+
+}
+
+\caption{Visão geral dos processos de repetição em loop.}\label{fig:FigRep1}
+\end{figure}
+
+A Figura acima apresenta as três formas de implementar um loop no R, utilizando as estruturas de controle: \texttt{while}, \texttt{repeat} e \texttt{for}. É importante dizer que é possível desenvolver qualquer algoritmo dominando apenas uma dessas formas, porém conforme o problema uma pode ser mais indicada (por ser mais lógico, natural, mais fácil de entender) em relação a outra.
+
+O loop condicional com pós-teste é encontrado em muitas linguagens de progamação com o nome \texttt{do-while}, como C/C++ e Java, no caso do R, essa estrutura de repetição é representada pelo loop \texttt{repeat}. Esse loop requer a implementação explicita do teste condicional (utilizando a estrutura de controle condicional \texttt{if}), além disso é necessário a utilização da estrutura de controle auxiliar \texttt{break}, afim de interromper o processo repetitivo do loop quando determinada condição for atendida. Devido a este fato, no \texttt{repeat} do R, o teste condicional para continuidade de repetição pode ser aplicado em qualquer momento do loop (início, meio ou fim). O \texttt{next} é uma estrutura de controle auxiliar, assim como \texttt{break}, porém ao invés de encerrar o loop definitivamente, o \texttt{next} encerra apenas a iteração atual.
+
+\hypertarget{repetiuxe7uxe3o-com-copiar-colar}{%
+\subsection{Repetição com copiar-colar}\label{repetiuxe7uxe3o-com-copiar-colar}}
+
+O exemplo a seguir tem como objetivo imprimir na tela o texto ``Bom dia R!'' repetidas vezes. Vamos supor que estamos de excelente humor e assim o interesse é imprimir na tela a mensagem de bom dia 4 vezes. Inicialmente vamos adotar uma solução ingênua, utlizando a estratégia de copiar-colar para realizar a tarefa. O número da repetição é adicionada inicialmente apenas para conferencia da quantidade.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{cat}\NormalTok{(}\StringTok{"1 - Bom dia R!}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\CommentTok{## 1 - Bom dia R!}
+\KeywordTok{cat}\NormalTok{(}\StringTok{"2 - Bom dia R!}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\CommentTok{## 2 - Bom dia R!}
+\KeywordTok{cat}\NormalTok{(}\StringTok{"3 - Bom dia R!}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\CommentTok{## 3 - Bom dia R!}
+\KeywordTok{cat}\NormalTok{(}\StringTok{"4 - Bom dia R!}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\CommentTok{## 4 - Bom dia R!}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{repetiuxe7uxe3o-com-o-loop-while}{%
+\subsection{\texorpdfstring{Repetição com o loop \texttt{while}}{Repetição com o loop while}}\label{repetiuxe7uxe3o-com-o-loop-while}}
+
+Já a próxima solução será baseado no loop \texttt{while}, irei começar por ele, pois talvez seja o mais intuitivo e fácil de entender. A essencia do while é: enquanto uma condição for verdadeira a tarefa deverá ser repetida.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{i <-}\StringTok{ }\DecValTok{1} \CommentTok{# contator}
+\NormalTok{N <-}\StringTok{ }\DecValTok{4} \CommentTok{# quantidade de vezes}
+\ControlFlowTok{while}\NormalTok{ (i }\OperatorTok{<=}\StringTok{ }\NormalTok{N) \{ }\CommentTok{# enquanto condição}
+    \KeywordTok{cat}\NormalTok{(i, }\StringTok{"- Bom dia R!}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{ ) }\CommentTok{# tarefa}
+\NormalTok{    i <-}\StringTok{ }\NormalTok{i }\OperatorTok{+}\StringTok{ }\DecValTok{1} \CommentTok{# incremento}
+\NormalTok{\}}
+\CommentTok{## 1 - Bom dia R!}
+\CommentTok{## 2 - Bom dia R!}
+\CommentTok{## 3 - Bom dia R!}
+\CommentTok{## 4 - Bom dia R!}
+\end{Highlighting}
+\end{Shaded}
+
+Para este exemplo especificamente, o loop \texttt{while} necessita da variável adicional de contador, que deve ser inicializada antes do loop e incrementada ao final de cada iteração, essa variável é responsável pelo controle da quantidade de vezes que a tarefa deve ser executada.
+
+\hypertarget{repetiuxe7uxe3o-com-o-loop-repeat}{%
+\subsection{\texorpdfstring{Repetição com o loop \texttt{repeat}}{Repetição com o loop repeat}}\label{repetiuxe7uxe3o-com-o-loop-repeat}}
+
+A solução com o loop \texttt{repeat} é apresentada a seguir.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{i <-}\StringTok{ }\DecValTok{1} \CommentTok{# contator}
+\NormalTok{N <-}\StringTok{ }\DecValTok{4} \CommentTok{# quantidade de vezes}
+\ControlFlowTok{repeat}\NormalTok{ \{ }\CommentTok{# repetir}
+    \KeywordTok{cat}\NormalTok{(i, }\StringTok{"- Bom dia R!}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{ ) }\CommentTok{# tarefa}
+\NormalTok{    i <-}\StringTok{ }\NormalTok{i }\OperatorTok{+}\StringTok{ }\DecValTok{1}
+    \ControlFlowTok{if}\NormalTok{ (i }\OperatorTok{>}\StringTok{ }\NormalTok{N) }\ControlFlowTok{break}
+\NormalTok{\}}
+\CommentTok{## 1 - Bom dia R!}
+\CommentTok{## 2 - Bom dia R!}
+\CommentTok{## 3 - Bom dia R!}
+\CommentTok{## 4 - Bom dia R!}
+\end{Highlighting}
+\end{Shaded}
+
+A diferença básica do \texttt{repeat} e o \texttt{while} é que a condição é avaliada no while a condição é avaliada no início do loop, já no \texttt{repeat} a condição geralmente é avaliada no final. Na prática, o loop \texttt{while} é geralmente mais utilizado do que o loop \texttt{repeat}, mas o \texttt{repeat} é particularmente útil quando a tarefa prevista deve ser executada pelo menos uma vez, e isso é garantido pelo \texttt{repeat}, já que a avaliação da condição só é feita no final da iteração.
+
+No nosso exemplo de imprimir a frase de bom dia, o loop \texttt{repeat} seria a solução socialmente mais adequada, pois independente do do nível de humor, pelo menos uma saudação de bom dia será feita. Para comprovar, teste o código do \texttt{repeat} com a quantidade de vezes \texttt{N} igual a 0. Um exemplo mais prático e útil seria uma função que aplica um filtro para correção de valores de pixel de uma imagem de satélite. A aplicação do filtro deve ser repetida enquanto houver pixels com valores problemáticos, e vale a pena destacar que se o usuário executou a função, claramente ele considera que a aplicação do filtro deve ser feita pelo menos uma vez. Essa solução poderia ser feita com o \texttt{while}, mas a solução com o \texttt{repeat} é mais lógica e natural e para alguns problemas pode ser mais econômico em termos de quantidade de código. A solução para este problema pode ser encontrada na seção de Exemplos Extras do livro.
+
+\hypertarget{repetiuxe7uxe3o-com-o-loop-for}{%
+\subsection{\texorpdfstring{Repetição com o loop \texttt{for}}{Repetição com o loop for}}\label{repetiuxe7uxe3o-com-o-loop-for}}
+
+Dentre os três tipos de loop, o \texttt{for} é o mais utilizado. A componente essencial do loop \texttt{for} é a sequência a ser utilizada. É importante destacar que a sequência do loop for não necessariamente são valores sequências, como 1, 2, 3, 4, 5, sequência no \texttt{for} seria uma coleção de elementos que podem ser acessados por sua posição (ou índice). A origem do termo sequência está relacionado com a maneira em que os elementos são armazenados na memória do computador.
+
+\hypertarget{vetor-em-um-loop-for}{%
+\subsubsection*{\texorpdfstring{Vetor em um loop \texttt{for}}{Vetor em um loop for}}\label{vetor-em-um-loop-for}}
+\addcontentsline{toc}{subsubsection}{Vetor em um loop \texttt{for}}
+
+No R uma sequência pode ser representada por um vetor\footnote{Neste momento, uma descrição sucinta de vetor será feita. No capítulo sobre estrutura de dados, uma descrição mais completa será apresentada, também serão apresentadas outras estruturas.}. Um vetor é uma coleção de elementos de apenas uma dimensão e composta de um único tipo de elemento, tal como números inteiros (interger), números reais (numeric), lógicos (logical), texto (character).
+
+No R não existe conceito de escalar, assim: \texttt{a\ \textless{}-\ 123.4} é um vetor de apenas um elemento (vetor unitário) e \texttt{x\ \textless{}-\ c(2,\ 5,\ 18,\ 3)} é um vetor de 4 elementos. A função \texttt{c()} serve para combinar/juntar elementos, após sua execução, retorna um vetor de comprimento/tamanho (\texttt{length}) correspondente à quantidade de elementos combinados.
+
+Existem diversas maneiras de gerar vetores no R, uma das principais é utilizando a função c(), também é possível gerar vetores de elementos sequenciais, isto é, uma coleção de elementos com valores realmente sequências. Por exemplo, o operador \texttt{:} pode ser utilizado para gerar sequências, e assim \texttt{1:30} gera um vetor \texttt{c(1,\ 2,\ ...,\ 29,\ 30)}. Também é possível construir sequências decrescentes 30:1 com o operador \texttt{:}. A função \texttt{seq} é a função do R mais geral para criar sequências, e os principais argumentos dessa função são: \texttt{from\ =\ valor\_inicial}, \texttt{to\ =\ valor\_final}, \texttt{by\ =\ incremento} e \texttt{length\ =\ comprimento\_da\_sequência}. O comando \texttt{seq(from\ =\ 1,\ to\ =\ 30,\ by\ =\ 1)} gera o mesmo resultado do operador \texttt{:} para \texttt{1:30}.
+
+\hypertarget{indexauxe7uxe3o-em-um-vetor-no-for}{%
+\subsubsection*{\texorpdfstring{Indexação em um vetor no \texttt{for}}{Indexação em um vetor no for}}\label{indexauxe7uxe3o-em-um-vetor-no-for}}
+\addcontentsline{toc}{subsubsection}{Indexação em um vetor no \texttt{for}}
+
+Uma característica relevante dos vetores é a possibilidade de acessar cada um de seus elementos via indexação, isto é, acessar o elemento de acordo com seu índice, que corresponde a posição do elemento no vetor. Por exemplo: No vetor \texttt{x\ \textless{}-\ c(2,\ 5,\ 18,\ 3)}, para acessar o terceiro elemento, basta utilizar a instrução \texttt{x{[}3{]}} (nome do vetor - abre colchete - índice/posição do elemento - fecha colchete), e o resultado será o retorno do valor numérico \texttt{18}, já o quarto e último elemento, \texttt{x{[}4{]}}, que irá retornar o valor \texttt{3}.
+
+Ao tentar acessar um índice inexistente no vetor \texttt{x}, como um quinto elemento (\texttt{x{[}5{]}}), um \texttt{NA} será retornado. \texttt{NA} é abreviação de \emph{Not Available} (dados não disponível) e corresponde a um código de valor ausênte/inexistente/perdido. O programador então deve destinar atenção extra, pois nenhuma mensagem de erro será emitida. Em algumas linguagens de programação o acesso inregular de um índice faz com que o processo seja interrompido e uma mensagem de erro é emitida, como no Python. Já em outras linguagens, é simplesmente retornado o valor que estava previamente armazenado na memória naquela posição, o que requer ainda mais atenção do programador no momento de acessar elementos em um vetor.
+
+Os códgios a seguir são utilizados para criar vetores, com exceção do primeiro, os demais são utilizados para criar sequências verdadeiras. Essas sequências são extremamente úteis no loop \texttt{for}, pois são utilizadas para acessar elementos de vetores pela posição via indexação. Observe que os vetores \texttt{vetor1}, \texttt{vetor2} e \texttt{vetor3} são exatamente iguais, apesar de serem obtidos de maneiras diferentes.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{vetor <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{3}\NormalTok{)}
+\NormalTok{vetor1 <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{)}
+\NormalTok{vetor2 <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\NormalTok{vetor3 <-}\StringTok{ }\DecValTok{1}\OperatorTok{:}\DecValTok{4}
+\end{Highlighting}
+\end{Shaded}
+
+A seguir é apresentado a solução para imprimir na tela a saudação de bom dia utilizando o loop \texttt{for}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{N <-}\StringTok{ }\DecValTok{4} \CommentTok{# quantidade de vezes}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{N) \{ }\CommentTok{# faça para toda sequência}
+    \KeywordTok{cat}\NormalTok{(i, }\StringTok{"- Bom dia R!}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{ ) }\CommentTok{# tarefa}
+\NormalTok{\}}
+\CommentTok{## 1 - Bom dia R!}
+\CommentTok{## 2 - Bom dia R!}
+\CommentTok{## 3 - Bom dia R!}
+\CommentTok{## 4 - Bom dia R!}
+\end{Highlighting}
+\end{Shaded}
+
+Obs: não contador\ldots{} incremento implícito.
 
   \bibliography{book.bib,packages.bib}
 

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 6 OPERAÇÕES DE REPETIÇÃO (LOOP) | Programação no R &amp; Python</title>
+  <meta name="description" content="Este livro apresenta os elementos essenciais para programação computacional utilizando as linguagens de programação R e Python" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 6 OPERAÇÕES DE REPETIÇÃO (LOOP) | Programação no R &amp; Python" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Este livro apresenta os elementos essenciais para programação computacional utilizando as linguagens de programação R e Python" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 6 OPERAÇÕES DE REPETIÇÃO (LOOP) | Programação no R &amp; Python" />
+  
+  <meta name="twitter:description" content="Este livro apresenta os elementos essenciais para programação computacional utilizando as linguagens de programação R e Python" />
+  
+
+<meta name="author" content="Gustavo Eduardo Marcatti" />
+<meta name="author" content="Departamento de Engenharia Florestal" />
+<meta name="author" content="Universidade Federal de São João del-Rei" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="operações-condicionais.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Programação no R & Python</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>PREFÁCIO</a></li>
+<li class="chapter" data-level="1" data-path="por-que-programar.html"><a href="por-que-programar.html"><i class="fa fa-check"></i><b>1</b> POR QUE PROGRAMAR?</a></li>
+<li class="chapter" data-level="2" data-path="por-que-o-r.html"><a href="por-que-o-r.html"><i class="fa fa-check"></i><b>2</b> POR QUE O R?</a></li>
+<li class="chapter" data-level="3" data-path="iniciando-no-r.html"><a href="iniciando-no-r.html"><i class="fa fa-check"></i><b>3</b> INICIANDO NO R</a><ul>
+<li class="chapter" data-level="3.1" data-path="iniciando-no-r.html"><a href="iniciando-no-r.html#comandos-e-ambiente-de-trabalho"><i class="fa fa-check"></i><b>3.1</b> Comandos e ambiente de trabalho</a></li>
+<li class="chapter" data-level="3.2" data-path="iniciando-no-r.html"><a href="iniciando-no-r.html#operações-básicas-e-execução-de-funções"><i class="fa fa-check"></i><b>3.2</b> Operações básicas e execução de funções</a></li>
+<li class="chapter" data-level="3.3" data-path="iniciando-no-r.html"><a href="iniciando-no-r.html#objetos-no-r-gerar-e-remover-objetos"><i class="fa fa-check"></i><b>3.3</b> Objetos no R: gerar e remover objetos</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="criação-de-funções.html"><a href="criação-de-funções.html"><i class="fa fa-check"></i><b>4</b> CRIAÇÃO DE FUNÇÕES</a><ul>
+<li class="chapter" data-level="4.1" data-path="criação-de-funções.html"><a href="criação-de-funções.html#motivação-para-criar-funções"><i class="fa fa-check"></i><b>4.1</b> Motivação para criar funções</a></li>
+<li class="chapter" data-level="4.2" data-path="criação-de-funções.html"><a href="criação-de-funções.html#elementos-básicos-de-uma-função"><i class="fa fa-check"></i><b>4.2</b> Elementos básicos de uma função</a></li>
+<li class="chapter" data-level="4.3" data-path="criação-de-funções.html"><a href="criação-de-funções.html#escopo"><i class="fa fa-check"></i><b>4.3</b> Escopo</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="operações-condicionais.html"><a href="operações-condicionais.html"><i class="fa fa-check"></i><b>5</b> OPERAÇÕES CONDICIONAIS</a><ul>
+<li class="chapter" data-level="5.1" data-path="operações-condicionais.html"><a href="operações-condicionais.html#operadores-condicionais"><i class="fa fa-check"></i><b>5.1</b> Operadores condicionais</a></li>
+<li class="chapter" data-level="5.2" data-path="operações-condicionais.html"><a href="operações-condicionais.html#operadores-de-comparação"><i class="fa fa-check"></i><b>5.2</b> Operadores de comparação</a></li>
+<li class="chapter" data-level="5.3" data-path="operações-condicionais.html"><a href="operações-condicionais.html#operadores-lógicos"><i class="fa fa-check"></i><b>5.3</b> Operadores lógicos</a></li>
+<li class="chapter" data-level="5.4" data-path="operações-condicionais.html"><a href="operações-condicionais.html#operadores-condicionais-aninhados"><i class="fa fa-check"></i><b>5.4</b> Operadores condicionais aninhados</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="operações-de-repetição-loop.html"><a href="operações-de-repetição-loop.html"><i class="fa fa-check"></i><b>6</b> OPERAÇÕES DE REPETIÇÃO (LOOP)</a><ul>
+<li class="chapter" data-level="6.1" data-path="operações-de-repetição-loop.html"><a href="operações-de-repetição-loop.html#loop-visão-geral"><i class="fa fa-check"></i><b>6.1</b> Loop: visão geral</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="operações-de-repetição-loop.html"><a href="operações-de-repetição-loop.html#repetição-com-copiar-colar"><i class="fa fa-check"></i><b>6.1.1</b> Repetição com copiar-colar</a></li>
+<li class="chapter" data-level="6.1.2" data-path="operações-de-repetição-loop.html"><a href="operações-de-repetição-loop.html#repetição-com-o-loop-while"><i class="fa fa-check"></i><b>6.1.2</b> Repetição com o loop <code>while</code></a></li>
+<li class="chapter" data-level="6.1.3" data-path="operações-de-repetição-loop.html"><a href="operações-de-repetição-loop.html#repetição-com-o-loop-repeat"><i class="fa fa-check"></i><b>6.1.3</b> Repetição com o loop <code>repeat</code></a></li>
+<li class="chapter" data-level="6.1.4" data-path="operações-de-repetição-loop.html"><a href="operações-de-repetição-loop.html#repetição-com-o-loop-for"><i class="fa fa-check"></i><b>6.1.4</b> Repetição com o loop <code>for</code></a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://gmarcatti.com/" target="blank">Minha página pessoal</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Programação no R &amp; Python</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="operações-de-repetição-loop" class="section level1">
+<h1><span class="header-section-number">Capítulo 6</span> OPERAÇÕES DE REPETIÇÃO (LOOP)</h1>
+<p>As operações de repetição (<strong>loop</strong>) são a essência da computação em geral, pois foi justamente da necessidade de executar tarefas repetidas vezes (e de forma rápida) é que impulsionou o desenvolvimento e popularização dos computadores. Além disso, muitas dessas tarefas são maçantes e complexas, o que reforça a importância dessa forma de controle de fluxo.</p>
+<p>O <strong>loop</strong> permite executar trechos do algoritmo quantas vezes for necessária, a quantidade de vezes pode ser defina a priori pelo programador, mas geralmente é determinada de acordo com o problema em questão. Cada repetição pode ser chamada de iteração<sup>BOX3</sup>.</p>
+<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #3c763d; background-color: #dff0d8; border-color: #d6e9c6;">
+<p><strong>BOX3 - Iteração versus interação:</strong>
+Iteração é diferente de interação! Iteração é um processo repetitivo, já interação diz respeito à comunicação em dois sentidos, isto é, que interage, como algum tipo de interface gráfica de software que interage com o usuário.</p>
+</div>
+<hr />
+<p>Geralmente, a quantidade de iterações é controlada com o auxílio de uma variável específica, que a cada iteração é incrementada, isto é, somar uma quantidade (geralmente unitária; igual a 1) ao valor atual dessa variável (<code>i &lt;- i + 1</code>). Decremenos (<code>i &lt;- i - 1</code>) também podem ser necessários, porém com menor frequência. Essa variável especial, que é incrementada ou decrementada, também pode ser entendida como um contador (contador de iterações).</p>
+<p>É possível executar processos repetitivos via programação sequencial, para isso, basta copiar (repetidamente) o trecho do algoritmo que requer repetição, porém essa estratégia pode ser impraticável conforme a quantidade de repetições. Além disso, com as cópias, o código aumenta de tamanho e complexidade, tornando o algoritmo difícil de ser entendido, corrigido, adaptado e mantido.</p>
+<div id="loop-visão-geral" class="section level2">
+<h2><span class="header-section-number">6.1</span> Loop: visão geral</h2>
+<p>Existem dois tipos básicos de loop, os condicionais e os incondicionais. Os condicionais podem ser subdivididos em duas partes: em que a condição é avaliada inicialmente (<strong>enquanto - while</strong>) e em que é avaliada posteriormente (<strong>repita - repeat</strong>). Já os incondicionais, as instruções são repetidas até que toda uma sequência seja avaliada (para toda sequência - for). Uma visão geral é apresentada no Figura <a href="operações-de-repetição-loop.html#fig:FigRep1">6.1</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:FigRep1"></span>
+<img src="images/Fig_Rep1.png" alt="Visão geral dos processos de repetição em loop." width="100%" />
+<p class="caption">
+Figura 6.1: Visão geral dos processos de repetição em loop.
+</p>
+</div>
+<p>A Figura acima apresenta as três formas de implementar um loop no R, utilizando as estruturas de controle: <code>while</code>, <code>repeat</code> e <code>for</code>. É importante dizer que é possível desenvolver qualquer algoritmo dominando apenas uma dessas formas, porém conforme o problema uma pode ser mais indicada (por ser mais lógico, natural, mais fácil de entender) em relação a outra.</p>
+<p>O loop condicional com pós-teste é encontrado em muitas linguagens de progamação com o nome <code>do-while</code>, como C/C++ e Java, no caso do R, essa estrutura de repetição é representada pelo loop <code>repeat</code>. Esse loop requer a implementação explicita do teste condicional (utilizando a estrutura de controle condicional <code>if</code>), além disso é necessário a utilização da estrutura de controle auxiliar <code>break</code>, afim de interromper o processo repetitivo do loop quando determinada condição for atendida. Devido a este fato, no <code>repeat</code> do R, o teste condicional para continuidade de repetição pode ser aplicado em qualquer momento do loop (início, meio ou fim). O <code>next</code> é uma estrutura de controle auxiliar, assim como <code>break</code>, porém ao invés de encerrar o loop definitivamente, o <code>next</code> encerra apenas a iteração atual.</p>
+<div id="repetição-com-copiar-colar" class="section level3">
+<h3><span class="header-section-number">6.1.1</span> Repetição com copiar-colar</h3>
+<p>O exemplo a seguir tem como objetivo imprimir na tela o texto “Bom dia R!” repetidas vezes. Vamos supor que estamos de excelente humor e assim o interesse é imprimir na tela a mensagem de bom dia 4 vezes. Inicialmente vamos adotar uma solução ingênua, utlizando a estratégia de copiar-colar para realizar a tarefa. O número da repetição é adicionada inicialmente apenas para conferencia da quantidade.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="operações-de-repetição-loop.html#cb32-1"></a><span class="kw">cat</span>(<span class="st">&quot;1 - Bom dia R!</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb32-2"><a href="operações-de-repetição-loop.html#cb32-2"></a><span class="co">## 1 - Bom dia R!</span></span>
+<span id="cb32-3"><a href="operações-de-repetição-loop.html#cb32-3"></a><span class="kw">cat</span>(<span class="st">&quot;2 - Bom dia R!</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb32-4"><a href="operações-de-repetição-loop.html#cb32-4"></a><span class="co">## 2 - Bom dia R!</span></span>
+<span id="cb32-5"><a href="operações-de-repetição-loop.html#cb32-5"></a><span class="kw">cat</span>(<span class="st">&quot;3 - Bom dia R!</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb32-6"><a href="operações-de-repetição-loop.html#cb32-6"></a><span class="co">## 3 - Bom dia R!</span></span>
+<span id="cb32-7"><a href="operações-de-repetição-loop.html#cb32-7"></a><span class="kw">cat</span>(<span class="st">&quot;4 - Bom dia R!</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb32-8"><a href="operações-de-repetição-loop.html#cb32-8"></a><span class="co">## 4 - Bom dia R!</span></span></code></pre></div>
+</div>
+<div id="repetição-com-o-loop-while" class="section level3">
+<h3><span class="header-section-number">6.1.2</span> Repetição com o loop <code>while</code></h3>
+<p>Já a próxima solução será baseado no loop <code>while</code>, irei começar por ele, pois talvez seja o mais intuitivo e fácil de entender. A essencia do while é: enquanto uma condição for verdadeira a tarefa deverá ser repetida.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="operações-de-repetição-loop.html#cb33-1"></a>i &lt;-<span class="st"> </span><span class="dv">1</span> <span class="co"># contator</span></span>
+<span id="cb33-2"><a href="operações-de-repetição-loop.html#cb33-2"></a>N &lt;-<span class="st"> </span><span class="dv">4</span> <span class="co"># quantidade de vezes</span></span>
+<span id="cb33-3"><a href="operações-de-repetição-loop.html#cb33-3"></a><span class="cf">while</span> (i <span class="op">&lt;=</span><span class="st"> </span>N) { <span class="co"># enquanto condição</span></span>
+<span id="cb33-4"><a href="operações-de-repetição-loop.html#cb33-4"></a>    <span class="kw">cat</span>(i, <span class="st">&quot;- Bom dia R!</span><span class="ch">\n</span><span class="st">&quot;</span> ) <span class="co"># tarefa</span></span>
+<span id="cb33-5"><a href="operações-de-repetição-loop.html#cb33-5"></a>    i &lt;-<span class="st"> </span>i <span class="op">+</span><span class="st"> </span><span class="dv">1</span> <span class="co"># incremento</span></span>
+<span id="cb33-6"><a href="operações-de-repetição-loop.html#cb33-6"></a>}</span>
+<span id="cb33-7"><a href="operações-de-repetição-loop.html#cb33-7"></a><span class="co">## 1 - Bom dia R!</span></span>
+<span id="cb33-8"><a href="operações-de-repetição-loop.html#cb33-8"></a><span class="co">## 2 - Bom dia R!</span></span>
+<span id="cb33-9"><a href="operações-de-repetição-loop.html#cb33-9"></a><span class="co">## 3 - Bom dia R!</span></span>
+<span id="cb33-10"><a href="operações-de-repetição-loop.html#cb33-10"></a><span class="co">## 4 - Bom dia R!</span></span></code></pre></div>
+<p>Para este exemplo especificamente, o loop <code>while</code> necessita da variável adicional de contador, que deve ser inicializada antes do loop e incrementada ao final de cada iteração, essa variável é responsável pelo controle da quantidade de vezes que a tarefa deve ser executada.</p>
+</div>
+<div id="repetição-com-o-loop-repeat" class="section level3">
+<h3><span class="header-section-number">6.1.3</span> Repetição com o loop <code>repeat</code></h3>
+<p>A solução com o loop <code>repeat</code> é apresentada a seguir.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="operações-de-repetição-loop.html#cb34-1"></a>i &lt;-<span class="st"> </span><span class="dv">1</span> <span class="co"># contator</span></span>
+<span id="cb34-2"><a href="operações-de-repetição-loop.html#cb34-2"></a>N &lt;-<span class="st"> </span><span class="dv">4</span> <span class="co"># quantidade de vezes</span></span>
+<span id="cb34-3"><a href="operações-de-repetição-loop.html#cb34-3"></a><span class="cf">repeat</span> { <span class="co"># repetir</span></span>
+<span id="cb34-4"><a href="operações-de-repetição-loop.html#cb34-4"></a>    <span class="kw">cat</span>(i, <span class="st">&quot;- Bom dia R!</span><span class="ch">\n</span><span class="st">&quot;</span> ) <span class="co"># tarefa</span></span>
+<span id="cb34-5"><a href="operações-de-repetição-loop.html#cb34-5"></a>    i &lt;-<span class="st"> </span>i <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb34-6"><a href="operações-de-repetição-loop.html#cb34-6"></a>    <span class="cf">if</span> (i <span class="op">&gt;</span><span class="st"> </span>N) <span class="cf">break</span></span>
+<span id="cb34-7"><a href="operações-de-repetição-loop.html#cb34-7"></a>}</span>
+<span id="cb34-8"><a href="operações-de-repetição-loop.html#cb34-8"></a><span class="co">## 1 - Bom dia R!</span></span>
+<span id="cb34-9"><a href="operações-de-repetição-loop.html#cb34-9"></a><span class="co">## 2 - Bom dia R!</span></span>
+<span id="cb34-10"><a href="operações-de-repetição-loop.html#cb34-10"></a><span class="co">## 3 - Bom dia R!</span></span>
+<span id="cb34-11"><a href="operações-de-repetição-loop.html#cb34-11"></a><span class="co">## 4 - Bom dia R!</span></span></code></pre></div>
+<p>A diferença básica do <code>repeat</code> e o <code>while</code> é que a condição é avaliada no while a condição é avaliada no início do loop, já no <code>repeat</code> a condição geralmente é avaliada no final. Na prática, o loop <code>while</code> é geralmente mais utilizado do que o loop <code>repeat</code>, mas o <code>repeat</code> é particularmente útil quando a tarefa prevista deve ser executada pelo menos uma vez, e isso é garantido pelo <code>repeat</code>, já que a avaliação da condição só é feita no final da iteração.</p>
+<p>No nosso exemplo de imprimir a frase de bom dia, o loop <code>repeat</code> seria a solução socialmente mais adequada, pois independente do do nível de humor, pelo menos uma saudação de bom dia será feita. Para comprovar, teste o código do <code>repeat</code> com a quantidade de vezes <code>N</code> igual a 0. Um exemplo mais prático e útil seria uma função que aplica um filtro para correção de valores de pixel de uma imagem de satélite. A aplicação do filtro deve ser repetida enquanto houver pixels com valores problemáticos, e vale a pena destacar que se o usuário executou a função, claramente ele considera que a aplicação do filtro deve ser feita pelo menos uma vez. Essa solução poderia ser feita com o <code>while</code>, mas a solução com o <code>repeat</code> é mais lógica e natural e para alguns problemas pode ser mais econômico em termos de quantidade de código. A solução para este problema pode ser encontrada na seção de Exemplos Extras do livro.</p>
+</div>
+<div id="repetição-com-o-loop-for" class="section level3">
+<h3><span class="header-section-number">6.1.4</span> Repetição com o loop <code>for</code></h3>
+<p>Dentre os três tipos de loop, o <code>for</code> é o mais utilizado. A componente essencial do loop <code>for</code> é a sequência a ser utilizada. É importante destacar que a sequência do loop for não necessariamente são valores sequências, como 1, 2, 3, 4, 5, sequência no <code>for</code> seria uma coleção de elementos que podem ser acessados por sua posição (ou índice). A origem do termo sequência está relacionado com a maneira em que os elementos são armazenados na memória do computador.</p>
+<div id="vetor-em-um-loop-for" class="section level4 unnumbered">
+<h4>Vetor em um loop <code>for</code></h4>
+<p>No R uma sequência pode ser representada por um vetor<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>. Um vetor é uma coleção de elementos de apenas uma dimensão e composta de um único tipo de elemento, tal como números inteiros (interger), números reais (numeric), lógicos (logical), texto (character).</p>
+<p>No R não existe conceito de escalar, assim: <code>a &lt;- 123.4</code> é um vetor de apenas um elemento (vetor unitário) e <code>x &lt;- c(2, 5, 18, 3)</code> é um vetor de 4 elementos. A função <code>c()</code> serve para combinar/juntar elementos, após sua execução, retorna um vetor de comprimento/tamanho (<code>length</code>) correspondente à quantidade de elementos combinados.</p>
+<p>Existem diversas maneiras de gerar vetores no R, uma das principais é utilizando a função c(), também é possível gerar vetores de elementos sequenciais, isto é, uma coleção de elementos com valores realmente sequências. Por exemplo, o operador <code>:</code> pode ser utilizado para gerar sequências, e assim <code>1:30</code> gera um vetor <code>c(1, 2, ..., 29, 30)</code>. Também é possível construir sequências decrescentes 30:1 com o operador <code>:</code>. A função <code>seq</code> é a função do R mais geral para criar sequências, e os principais argumentos dessa função são: <code>from = valor_inicial</code>, <code>to = valor_final</code>, <code>by = incremento</code> e <code>length = comprimento_da_sequência</code>. O comando <code>seq(from = 1, to = 30, by = 1)</code> gera o mesmo resultado do operador <code>:</code> para <code>1:30</code>.</p>
+</div>
+<div id="indexação-em-um-vetor-no-for" class="section level4 unnumbered">
+<h4>Indexação em um vetor no <code>for</code></h4>
+<p>Uma característica relevante dos vetores é a possibilidade de acessar cada um de seus elementos via indexação, isto é, acessar o elemento de acordo com seu índice, que corresponde a posição do elemento no vetor. Por exemplo: No vetor <code>x &lt;- c(2, 5, 18, 3)</code>, para acessar o terceiro elemento, basta utilizar a instrução <code>x[3]</code> (nome do vetor - abre colchete - índice/posição do elemento - fecha colchete), e o resultado será o retorno do valor numérico <code>18</code>, já o quarto e último elemento, <code>x[4]</code>, que irá retornar o valor <code>3</code>.</p>
+<p>Ao tentar acessar um índice inexistente no vetor <code>x</code>, como um quinto elemento (<code>x[5]</code>), um <code>NA</code> será retornado. <code>NA</code> é abreviação de <em>Not Available</em> (dados não disponível) e corresponde a um código de valor ausênte/inexistente/perdido. O programador então deve destinar atenção extra, pois nenhuma mensagem de erro será emitida. Em algumas linguagens de programação o acesso inregular de um índice faz com que o processo seja interrompido e uma mensagem de erro é emitida, como no Python. Já em outras linguagens, é simplesmente retornado o valor que estava previamente armazenado na memória naquela posição, o que requer ainda mais atenção do programador no momento de acessar elementos em um vetor.</p>
+<p>Os códgios a seguir são utilizados para criar vetores, com exceção do primeiro, os demais são utilizados para criar sequências verdadeiras. Essas sequências são extremamente úteis no loop <code>for</code>, pois são utilizadas para acessar elementos de vetores pela posição via indexação. Observe que os vetores <code>vetor1</code>, <code>vetor2</code> e <code>vetor3</code> são exatamente iguais, apesar de serem obtidos de maneiras diferentes.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="operações-de-repetição-loop.html#cb35-1"></a>vetor &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">18</span>, <span class="dv">3</span>)</span>
+<span id="cb35-2"><a href="operações-de-repetição-loop.html#cb35-2"></a>vetor1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb35-3"><a href="operações-de-repetição-loop.html#cb35-3"></a>vetor2 &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">1</span>)</span>
+<span id="cb35-4"><a href="operações-de-repetição-loop.html#cb35-4"></a>vetor3 &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">4</span></span></code></pre></div>
+<p>A seguir é apresentado a solução para imprimir na tela a saudação de bom dia utilizando o loop <code>for</code>.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="operações-de-repetição-loop.html#cb36-1"></a>N &lt;-<span class="st"> </span><span class="dv">4</span> <span class="co"># quantidade de vezes</span></span>
+<span id="cb36-2"><a href="operações-de-repetição-loop.html#cb36-2"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>N) { <span class="co"># faça para toda sequência</span></span>
+<span id="cb36-3"><a href="operações-de-repetição-loop.html#cb36-3"></a>    <span class="kw">cat</span>(i, <span class="st">&quot;- Bom dia R!</span><span class="ch">\n</span><span class="st">&quot;</span> ) <span class="co"># tarefa</span></span>
+<span id="cb36-4"><a href="operações-de-repetição-loop.html#cb36-4"></a>}</span>
+<span id="cb36-5"><a href="operações-de-repetição-loop.html#cb36-5"></a><span class="co">## 1 - Bom dia R!</span></span>
+<span id="cb36-6"><a href="operações-de-repetição-loop.html#cb36-6"></a><span class="co">## 2 - Bom dia R!</span></span>
+<span id="cb36-7"><a href="operações-de-repetição-loop.html#cb36-7"></a><span class="co">## 3 - Bom dia R!</span></span>
+<span id="cb36-8"><a href="operações-de-repetição-loop.html#cb36-8"></a><span class="co">## 4 - Bom dia R!</span></span></code></pre></div>
+<p>Obs: não contador… incremento implícito.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="footnotes">
+<hr />
+<ol start="4">
+<li id="fn4"><p>Neste momento, uma descrição sucinta de vetor será feita. No capítulo sobre estrutura de dados, uma descrição mais completa será apresentada, também serão apresentadas outras estruturas.<a href="operações-de-repetição-loop.html#fnref4" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="operações-condicionais.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["r-python.pdf", "r-python.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

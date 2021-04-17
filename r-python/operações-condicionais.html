@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 6 OPERAÇÕES CONDICIONAIS | Programação no R &amp; Python</title>
+  <title>Capítulo 5 OPERAÇÕES CONDICIONAIS | Programação no R &amp; Python</title>
   <meta name="description" content="Este livro apresenta os elementos essenciais para programação computacional utilizando as linguagens de programação R e Python" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 6 OPERAÇÕES CONDICIONAIS | Programação no R &amp; Python" />
+  <meta property="og:title" content="Capítulo 5 OPERAÇÕES CONDICIONAIS | Programação no R &amp; Python" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 6 OPERAÇÕES CONDICIONAIS | Programação no R &amp; Python" />
+  <meta name="twitter:title" content="Capítulo 5 OPERAÇÕES CONDICIONAIS | Programação no R &amp; Python" />
   
   <meta name="twitter:description" content="Este livro apresenta os elementos essenciais para programação computacional utilizando as linguagens de programação R e Python" />
   
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="criação-de-funções.html"/>
-
+<link rel="next" href="operações-de-repetição-loop.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -135,24 +135,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Programação no R & Python</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> PREFÁCIO</a></li>
-<li class="chapter" data-level="2" data-path="por-que-programar.html"><a href="por-que-programar.html"><i class="fa fa-check"></i><b>2</b> POR QUE PROGRAMAR?</a></li>
-<li class="chapter" data-level="3" data-path="por-que-o-r.html"><a href="por-que-o-r.html"><i class="fa fa-check"></i><b>3</b> POR QUE O R?</a></li>
-<li class="chapter" data-level="4" data-path="iniciando-no-r.html"><a href="iniciando-no-r.html"><i class="fa fa-check"></i><b>4</b> INICIANDO NO R</a><ul>
-<li class="chapter" data-level="4.1" data-path="iniciando-no-r.html"><a href="iniciando-no-r.html#comandos-e-ambiente-de-trabalho"><i class="fa fa-check"></i><b>4.1</b> Comandos e ambiente de trabalho</a></li>
-<li class="chapter" data-level="4.2" data-path="iniciando-no-r.html"><a href="iniciando-no-r.html#operações-básicas-e-execução-de-funções"><i class="fa fa-check"></i><b>4.2</b> Operações básicas e execução de funções</a></li>
-<li class="chapter" data-level="4.3" data-path="iniciando-no-r.html"><a href="iniciando-no-r.html#objetos-no-r-gerar-e-remover-objetos"><i class="fa fa-check"></i><b>4.3</b> Objetos no R: gerar e remover objetos</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>PREFÁCIO</a></li>
+<li class="chapter" data-level="1" data-path="por-que-programar.html"><a href="por-que-programar.html"><i class="fa fa-check"></i><b>1</b> POR QUE PROGRAMAR?</a></li>
+<li class="chapter" data-level="2" data-path="por-que-o-r.html"><a href="por-que-o-r.html"><i class="fa fa-check"></i><b>2</b> POR QUE O R?</a></li>
+<li class="chapter" data-level="3" data-path="iniciando-no-r.html"><a href="iniciando-no-r.html"><i class="fa fa-check"></i><b>3</b> INICIANDO NO R</a><ul>
+<li class="chapter" data-level="3.1" data-path="iniciando-no-r.html"><a href="iniciando-no-r.html#comandos-e-ambiente-de-trabalho"><i class="fa fa-check"></i><b>3.1</b> Comandos e ambiente de trabalho</a></li>
+<li class="chapter" data-level="3.2" data-path="iniciando-no-r.html"><a href="iniciando-no-r.html#operações-básicas-e-execução-de-funções"><i class="fa fa-check"></i><b>3.2</b> Operações básicas e execução de funções</a></li>
+<li class="chapter" data-level="3.3" data-path="iniciando-no-r.html"><a href="iniciando-no-r.html#objetos-no-r-gerar-e-remover-objetos"><i class="fa fa-check"></i><b>3.3</b> Objetos no R: gerar e remover objetos</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="criação-de-funções.html"><a href="criação-de-funções.html"><i class="fa fa-check"></i><b>5</b> CRIAÇÃO DE FUNÇÕES</a><ul>
-<li class="chapter" data-level="5.1" data-path="criação-de-funções.html"><a href="criação-de-funções.html#motivação-para-criar-funções"><i class="fa fa-check"></i><b>5.1</b> Motivação para criar funções</a></li>
-<li class="chapter" data-level="5.2" data-path="criação-de-funções.html"><a href="criação-de-funções.html#elementos-básicos-de-uma-função"><i class="fa fa-check"></i><b>5.2</b> Elementos básicos de uma função</a></li>
-<li class="chapter" data-level="5.3" data-path="criação-de-funções.html"><a href="criação-de-funções.html#escopo"><i class="fa fa-check"></i><b>5.3</b> Escopo</a></li>
+<li class="chapter" data-level="4" data-path="criação-de-funções.html"><a href="criação-de-funções.html"><i class="fa fa-check"></i><b>4</b> CRIAÇÃO DE FUNÇÕES</a><ul>
+<li class="chapter" data-level="4.1" data-path="criação-de-funções.html"><a href="criação-de-funções.html#motivação-para-criar-funções"><i class="fa fa-check"></i><b>4.1</b> Motivação para criar funções</a></li>
+<li class="chapter" data-level="4.2" data-path="criação-de-funções.html"><a href="criação-de-funções.html#elementos-básicos-de-uma-função"><i class="fa fa-check"></i><b>4.2</b> Elementos básicos de uma função</a></li>
+<li class="chapter" data-level="4.3" data-path="criação-de-funções.html"><a href="criação-de-funções.html#escopo"><i class="fa fa-check"></i><b>4.3</b> Escopo</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="operações-condicionais.html"><a href="operações-condicionais.html"><i class="fa fa-check"></i><b>6</b> OPERAÇÕES CONDICIONAIS</a><ul>
-<li class="chapter" data-level="6.1" data-path="operações-condicionais.html"><a href="operações-condicionais.html#operadores-condicionais"><i class="fa fa-check"></i><b>6.1</b> Operadores condicionais</a></li>
-<li class="chapter" data-level="6.2" data-path="operações-condicionais.html"><a href="operações-condicionais.html#operadores-de-comparação"><i class="fa fa-check"></i><b>6.2</b> Operadores de comparação</a></li>
-<li class="chapter" data-level="6.3" data-path="operações-condicionais.html"><a href="operações-condicionais.html#operadores-lógicos"><i class="fa fa-check"></i><b>6.3</b> Operadores lógicos</a></li>
-<li class="chapter" data-level="6.4" data-path="operações-condicionais.html"><a href="operações-condicionais.html#operadores-condicionais-aninhados"><i class="fa fa-check"></i><b>6.4</b> Operadores condicionais aninhados</a></li>
+<li class="chapter" data-level="5" data-path="operações-condicionais.html"><a href="operações-condicionais.html"><i class="fa fa-check"></i><b>5</b> OPERAÇÕES CONDICIONAIS</a><ul>
+<li class="chapter" data-level="5.1" data-path="operações-condicionais.html"><a href="operações-condicionais.html#operadores-condicionais"><i class="fa fa-check"></i><b>5.1</b> Operadores condicionais</a></li>
+<li class="chapter" data-level="5.2" data-path="operações-condicionais.html"><a href="operações-condicionais.html#operadores-de-comparação"><i class="fa fa-check"></i><b>5.2</b> Operadores de comparação</a></li>
+<li class="chapter" data-level="5.3" data-path="operações-condicionais.html"><a href="operações-condicionais.html#operadores-lógicos"><i class="fa fa-check"></i><b>5.3</b> Operadores lógicos</a></li>
+<li class="chapter" data-level="5.4" data-path="operações-condicionais.html"><a href="operações-condicionais.html#operadores-condicionais-aninhados"><i class="fa fa-check"></i><b>5.4</b> Operadores condicionais aninhados</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="operações-de-repetição-loop.html"><a href="operações-de-repetição-loop.html"><i class="fa fa-check"></i><b>6</b> OPERAÇÕES DE REPETIÇÃO (LOOP)</a><ul>
+<li class="chapter" data-level="6.1" data-path="operações-de-repetição-loop.html"><a href="operações-de-repetição-loop.html#loop-visão-geral"><i class="fa fa-check"></i><b>6.1</b> Loop: visão geral</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="operações-de-repetição-loop.html"><a href="operações-de-repetição-loop.html#repetição-com-copiar-colar"><i class="fa fa-check"></i><b>6.1.1</b> Repetição com copiar-colar</a></li>
+<li class="chapter" data-level="6.1.2" data-path="operações-de-repetição-loop.html"><a href="operações-de-repetição-loop.html#repetição-com-o-loop-while"><i class="fa fa-check"></i><b>6.1.2</b> Repetição com o loop <code>while</code></a></li>
+<li class="chapter" data-level="6.1.3" data-path="operações-de-repetição-loop.html"><a href="operações-de-repetição-loop.html#repetição-com-o-loop-repeat"><i class="fa fa-check"></i><b>6.1.3</b> Repetição com o loop <code>repeat</code></a></li>
+<li class="chapter" data-level="6.1.4" data-path="operações-de-repetição-loop.html"><a href="operações-de-repetição-loop.html#repetição-com-o-loop-for"><i class="fa fa-check"></i><b>6.1.4</b> Repetição com o loop <code>for</code></a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://gmarcatti.com/" target="blank">Minha página pessoal</a></li>
@@ -175,34 +183,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="operações-condicionais" class="section level1">
-<h1><span class="header-section-number">Capítulo 6</span> OPERAÇÕES CONDICIONAIS</h1>
+<h1><span class="header-section-number">Capítulo 5</span> OPERAÇÕES CONDICIONAIS</h1>
 <p>Para você dizer em algum momento que sabe programar será necessário dominar dois tópicos básicos: operações condicionais e operações de repetição. Ambos são operações de controle de fluxo e são consideradas essenciais para programar qualquer procedimento, por mais simples que seja.
 <strong>As operações condicionais estão relacionadas com tomada de decisão entre diferentes alternativas, isto é, escolha de uma opção entre duas ou mais possibilidades.</strong> Para ser capaz de compreender as operações condicionais é necessário entender pelo menos 4 tópicos: os operadores condicionais, operadores de comparação, operadores lógicos e operadores condicionais aninhados.</p>
 <div id="operadores-condicionais" class="section level2">
-<h2><span class="header-section-number">6.1</span> Operadores condicionais</h2>
-<p>O primeiro tópico a ser entendido de operações condicionais é sobre os <strong>operadores condicionais</strong>, que é a estrutura geral das operações de condição. A maioria das linguagens de programação apresentam um operador condicional básico, que geralmente é encontrado em três versões básicas, apresentadas na Figura <a href="operações-condicionais.html#fig:FigCond1">6.1</a>.</p>
+<h2><span class="header-section-number">5.1</span> Operadores condicionais</h2>
+<p>O primeiro tópico a ser entendido de operações condicionais é sobre os <strong>operadores condicionais</strong>, que é a estrutura geral das operações de condição. A maioria das linguagens de programação apresentam um operador condicional básico, que geralmente é encontrado em três versões básicas, apresentadas na Figura <a href="operações-condicionais.html#fig:FigCond1">5.1</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:FigCond1"></span>
 <img src="images/Fig_Cond1.png" alt="Operadores condicionais." width="100%" />
 <p class="caption">
-Figura 6.1: Operadores condicionais.
+Figura 5.1: Operadores condicionais.
 </p>
 </div>
 <p>As decisões nos operadores condicionais são controladas pelas condições, as condições são construidas utilizando uma ou mais expressões que devem ser avaliadas em relação a sua veracidade. Se a condição for verdadeira, uma sequência de instruções (tarefas) deverão ser executadas, caso for falsa, isto é, caso contrário, uma sequência alternativa de instruções deverá ser executada.</p>
 </div>
 <div id="operadores-de-comparação" class="section level2">
-<h2><span class="header-section-number">6.2</span> Operadores de comparação</h2>
-<p>As expressões de condições geralmente são construidas utilizando os <strong>operadores de comparação</strong> (Figura <a href="operações-condicionais.html#fig:FigCond2">6.2</a>) e combinadas utilizando os <strong>operadores lógicos</strong> no caso de mais de uma expressão.</p>
+<h2><span class="header-section-number">5.2</span> Operadores de comparação</h2>
+<p>As expressões de condições geralmente são construidas utilizando os <strong>operadores de comparação</strong> (Figura <a href="operações-condicionais.html#fig:FigCond2">5.2</a>) e combinadas utilizando os <strong>operadores lógicos</strong> no caso de mais de uma expressão.</p>
 <div class="figure" style="text-align: center"><span id="fig:FigCond2"></span>
 <img src="images/Fig_Cond2.png" alt="Operadores de comparação." width="100%" />
 <p class="caption">
-Figura 6.2: Operadores de comparação.
+Figura 5.2: Operadores de comparação.
 </p>
 </div>
-<p>Na sequência é apresentado o operador condicional <code>if</code>. Na Figura <a href="operações-condicionais.html#fig:FigCond3">6.3</a> é apresentado o fluxograma de ações referentes à decisão.</p>
+<p>Na sequência é apresentado o operador condicional <code>if</code>. Na Figura <a href="operações-condicionais.html#fig:FigCond3">5.3</a> é apresentado o fluxograma de ações referentes à decisão.</p>
 <div class="figure" style="text-align: center"><span id="fig:FigCond3"></span>
 <img src="images/Fig_Cond3.png" alt="Decisão e ações em relação à avaliação de projetos para o exemplo if." width="100%" />
 <p class="caption">
-Figura 6.3: Decisão e ações em relação à avaliação de projetos para o exemplo if.
+Figura 5.3: Decisão e ações em relação à avaliação de projetos para o exemplo if.
 </p>
 </div>
 <p>Observe que se a condição for falsa, isto é, se receitas forem menor ou igual aos custos, o código não executa instrução nenhuma, nem imprime na tela e nem computa o lucro (prejuízo no segundo exemplo).</p>
@@ -221,14 +229,14 @@ Figura 6.3: Decisão e ações em relação à avaliação de projetos para o ex
 <span id="cb24-13"><a href="operações-condicionais.html#cb24-13"></a>   <span class="kw">cat</span>(<span class="st">&quot;O lucro foi de R$&quot;</span>, lucro)</span>
 <span id="cb24-14"><a href="operações-condicionais.html#cb24-14"></a>}</span>
 <span id="cb24-15"><a href="operações-condicionais.html#cb24-15"></a><span class="co">## </span></span></code></pre></div>
-<p>O código será aperfeiçoado incluindo a instrução else (caso contrário) e as tarefas relacionadas a ela. Outro aperfeiçoamento será o encapsulamento do código em uma função, isso para evitar a repetição de código como apresentado acima. O fluxograma é apresentado na Figura <a href="operações-condicionais.html#fig:FigCond4">6.4</a> e o código é apresentado a seguir.</p>
+<p>O código será aperfeiçoado incluindo a instrução else (caso contrário) e as tarefas relacionadas a ela. Outro aperfeiçoamento será o encapsulamento do código em uma função, isso para evitar a repetição de código como apresentado acima. O fluxograma é apresentado na Figura <a href="operações-condicionais.html#fig:FigCond4">5.4</a> e o código é apresentado a seguir.</p>
 <div class="figure" style="text-align: center"><span id="fig:FigCond4"></span>
 <img src="images/Fig_Cond4.png" alt="Decisão e ações em relação à avaliação de projetos para o exemplo if-else." width="100%" />
 <p class="caption">
-Figura 6.4: Decisão e ações em relação à avaliação de projetos para o exemplo if-else.
+Figura 5.4: Decisão e ações em relação à avaliação de projetos para o exemplo if-else.
 </p>
 </div>
-<p>O fluxograma da Figura <a href="operações-condicionais.html#fig:FigCond4">6.4</a> apresenta uma sequência de instruções para o caso do projeto operar no prejuízo (Receitas não são maiores que custos), além disso o retorno da função também é representado no fluxograma.</p>
+<p>O fluxograma da Figura <a href="operações-condicionais.html#fig:FigCond4">5.4</a> apresenta uma sequência de instruções para o caso do projeto operar no prejuízo (Receitas não são maiores que custos), além disso o retorno da função também é representado no fluxograma.</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="operações-condicionais.html#cb25-1"></a><span class="co"># Operador condicional if-else</span></span>
 <span id="cb25-2"><a href="operações-condicionais.html#cb25-2"></a>aval_econ &lt;-<span class="st"> </span><span class="cf">function</span>(receitas, custos) {</span>
 <span id="cb25-3"><a href="operações-condicionais.html#cb25-3"></a>   <span class="cf">if</span> (receitas <span class="op">&gt;</span><span class="st"> </span>custos) {</span>
@@ -246,12 +254,12 @@ Figura 6.4: Decisão e ações em relação à avaliação de projetos para o ex
 <span id="cb25-15"><a href="operações-condicionais.html#cb25-15"></a><span class="kw">aval_econ</span>(<span class="dv">4500</span>, <span class="dv">5000</span>)</span>
 <span id="cb25-16"><a href="operações-condicionais.html#cb25-16"></a><span class="co">## O prejuizo foi de R$ 500 </span></span>
 <span id="cb25-17"><a href="operações-condicionais.html#cb25-17"></a><span class="co">## [1] -500</span></span></code></pre></div>
-<p>Observe que no bloco <code>else</code>, foi incluido a função abs no objeto de lucro, a função abs retornar o valor absoluto de um número, isto é, se o valor é negativo passa a ser positivo. Isso foi feito porque no texto explicativo já acompanha a palavra prejuízo, e assim já indicando ser um valor negativo.</p>
-<p>É possivel apresentar mais um aperfeiçoamento, observe que a avaliação econômica de um projeto ainda pode apresentar um terceiro cenário, além dos dois já apresentados, de lucro e prejuízo. Seria o cenário de nem lucro e nem prejuízo, isto é, elas por elas, receitas iguais aos custos. O fluxograma é apresentado na Figura <a href="operações-condicionais.html#fig:FigCond5">6.5</a>.</p>
+<p>Observe que no bloco <code>else</code>, foi incluido a função <code>abs</code> no objeto de lucro, a função <code>abs</code> retornar o valor absoluto de um número, isto é, se o valor é negativo passa a ser positivo. Isso foi feito porque no texto explicativo já acompanha a palavra prejuízo, e assim já indicando ser um valor negativo.</p>
+<p>É possivel apresentar mais um aperfeiçoamento, observe que a avaliação econômica de um projeto ainda pode apresentar um terceiro cenário, além dos dois já apresentados, de lucro e prejuízo. Seria o cenário de nem lucro e nem prejuízo, isto é, elas por elas, receitas iguais aos custos. O fluxograma é apresentado na Figura <a href="operações-condicionais.html#fig:FigCond5">5.5</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:FigCond5"></span>
 <img src="images/Fig_Cond5.png" alt="Decisão e ações em relação à avaliação de projetos para o exemplo if-else if-else." width="100%" />
 <p class="caption">
-Figura 6.5: Decisão e ações em relação à avaliação de projetos para o exemplo if-else if-else.
+Figura 5.5: Decisão e ações em relação à avaliação de projetos para o exemplo if-else if-else.
 </p>
 </div>
 <p>Os operadores condicionais funcionam realmente como um processo de tomada de decisão, se a resposta para primeira pergunta (Receitas são maiores do que Custos?) for sim, as tarefas são executadas e o processo caminha para seu encerramento, isto é, para o retorno do resultado (valor de lucro). Observe que não será necessário fazer a segunda pergunta (Receitas são iguais aos Custos?) referente à segunda decisão.</p>
@@ -287,19 +295,19 @@ Figura 6.5: Decisão e ações em relação à avaliação de projetos para o ex
 <span id="cb27-15"><a href="operações-condicionais.html#cb27-15"></a><span class="co">## [1] 1500</span></span></code></pre></div>
 </div>
 <div id="operadores-lógicos" class="section level2">
-<h2><span class="header-section-number">6.3</span> Operadores lógicos</h2>
-<p>Os operadores lógicos principais são o <code>ou</code> e <code>e</code> (Figura <a href="operações-condicionais.html#fig:FigCond6">6.6</a>), representados pelos símbolos <code>|</code> e <code>&amp;</code>, respectivamente. O operador <code>&amp;</code> pode ser considerado mais restritivo, uma vez que só retorna verdadeiro se todas as expressões de condição forem verdadeiras. Já o operador <code>|</code> é considerado mais permissivo, pois basta uma expressão ser verdadeira para toda a condição retornar verdadeiro no final. A escolha do operador, obviamente vai depender do problema em questão. Ainda existe a negação lógica, representada pelo símbolo <code>!</code>, que inverte o resultado de uma expressão condicional, por exemplo, se o resultado for verdadeiro, é então convertido em falso e vice-versa. Também existe o operador <code>xor</code> (ou exclusivo), que retorna verdadeiro se ambos os valores de entrada forem diferentes entre si, e retorna falso se forem iguais.</p>
+<h2><span class="header-section-number">5.3</span> Operadores lógicos</h2>
+<p>Os operadores lógicos principais são o <code>ou</code> e <code>e</code> (Figura <a href="operações-condicionais.html#fig:FigCond6">5.6</a>), representados pelos símbolos <code>|</code> e <code>&amp;</code>, respectivamente. O operador <code>&amp;</code> pode ser considerado mais restritivo, uma vez que só retorna verdadeiro se todas as expressões de condição forem verdadeiras. Já o operador <code>|</code> é considerado mais permissivo, pois basta uma expressão ser verdadeira para toda a condição retornar verdadeiro no final. A escolha do operador, obviamente vai depender do problema em questão. Ainda existe a negação lógica, representada pelo símbolo <code>!</code>, que inverte o resultado de uma expressão condicional, por exemplo, se o resultado for verdadeiro, é então convertido em falso e vice-versa. Também existe o operador <code>xor</code> (ou exclusivo), que retorna verdadeiro se ambos os valores de entrada forem diferentes entre si, e retorna falso se forem iguais.</p>
 <div class="figure" style="text-align: center"><span id="fig:FigCond6"></span>
 <img src="images/Fig_Cond6.png" alt="Os operadores lógicos" width="100%" />
 <p class="caption">
-Figura 6.6: Os operadores lógicos
+Figura 5.6: Os operadores lógicos
 </p>
 </div>
 <p>O exemplo a seguir demonstra o uso dos operadores lógicos, o objetivo é identificar qual será a quantidade de área plantada no ano seguinte baseando-se na performance do ano atual. Se a relação receita / custo do projeto for menor um, isto é, obteção de prejuízo, não será feita expansão de plantio, deve-se plantar exatamente a quantidade de área plantada do ano atual; se a relação receita / custo for entre 1 e 1,5, será feita expansão de plantio de 20%; se a relação for entre 1,5 e 2, a expansão será de 50%; mas caso a relação for superior a 2, a expansão será de 100% e a área de plantio será dobrada.</p>
 <div class="figure" style="text-align: center"><span id="fig:FigCond7"></span>
 <img src="images/Fig_Cond7.png" alt="Decisão e ações em relação à quantidade de área de plantio para o exemplo if-else if-else, com auxílio de operadores lógicos." width="100%" />
 <p class="caption">
-Figura 6.7: Decisão e ações em relação à quantidade de área de plantio para o exemplo if-else if-else, com auxílio de operadores lógicos.
+Figura 5.7: Decisão e ações em relação à quantidade de área de plantio para o exemplo if-else if-else, com auxílio de operadores lógicos.
 </p>
 </div>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="operações-condicionais.html#cb28-1"></a>area_plantio &lt;-<span class="st"> </span><span class="cf">function</span>(receitas, custos, area) {</span>
@@ -342,13 +350,13 @@ Figura 6.7: Decisão e ações em relação à quantidade de área de plantio pa
 <span id="cb29-16"><a href="operações-condicionais.html#cb29-16"></a><span class="co">## [1] 400</span></span></code></pre></div>
 </div>
 <div id="operadores-condicionais-aninhados" class="section level2">
-<h2><span class="header-section-number">6.4</span> Operadores condicionais aninhados</h2>
+<h2><span class="header-section-number">5.4</span> Operadores condicionais aninhados</h2>
 <p>Os operadores lógicos podem ser substituídos por *operadores condicionais aninhados** (ou encaixados). Os operadores condicionais aninhados, são basicamente, um operador condicional dentro do outro, e as vezes vale a pena recorrer para essas estruturas de condição por questões de simplificação. Com os condicionais aninhados o código pode ficar mais simples de implementar e entender.</p>
-<p>O próximo exemplo demostra o uso dos condicionais aninhados. O fluxograma em Figura <a href="operações-condicionais.html#fig:FigCond8">6.8</a> será implementado utilizando a linguagem de programação R.</p>
+<p>O próximo exemplo demostra o uso dos condicionais aninhados. O fluxograma em Figura <a href="operações-condicionais.html#fig:FigCond8">5.8</a> será implementado utilizando a linguagem de programação R.</p>
 <div class="figure" style="text-align: center"><span id="fig:FigCond8"></span>
 <img src="images/Fig_Cond8.png" alt="Decisões em relação ao nível de infestação para controle de pragas." width="100%" />
 <p class="caption">
-Figura 6.8: Decisões em relação ao nível de infestação para controle de pragas.
+Figura 5.8: Decisões em relação ao nível de infestação para controle de pragas.
 </p>
 </div>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="operações-condicionais.html#cb30-1"></a>controle_pragas &lt;-<span class="st"> </span><span class="cf">function</span>(nivel) {</span>
@@ -388,21 +396,13 @@ Figura 6.8: Decisões em relação ao nível de infestação para controle de pr
 
 </div>
 </div>
-
-
-
-
-
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-<a href="criação-de-funções.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="criação-de-funções.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="operações-de-repetição-loop.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

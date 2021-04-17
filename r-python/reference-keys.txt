@@ -8,7 +8,7 @@ fig:FigCond5
 fig:FigCond6
 fig:FigCond7
 fig:FigCond8
-prefácio
+fig:FigRep1
 por-que-programar
 por-que-o-r
 iniciando-no-r
@@ -24,3 +24,9 @@ operadores-condicionais
 operadores-de-comparação
 operadores-lógicos
 operadores-condicionais-aninhados
+operações-de-repetição-loop
+loop-visão-geral
+repetição-com-copiar-colar
+repetição-com-o-loop-while
+repetição-com-o-loop-repeat
+repetição-com-o-loop-for
