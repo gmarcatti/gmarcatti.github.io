@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Asap:wght@600&family=Jost&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="../css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="../css/style_page.css">
+    <title>Gustavo Marcatti</title>
+    <link rel="icon" href="../img/icone_site.png" type="image/x-icon">
+</head>
+
+<body>
+    <nav>
+        <a href="../index.html"> <img src="../img/icone_site.png" alt="icone do site">Gustavo Marcatti</a>
+        <ul>
+            <li><a href="../index.html">Início</a></li>
+            <li><a href="cursos.html" class="botao_menu">Cursos</a></li>
+            <li><a href="construcao.html">Projetos</a></li>
+            <li><a href="construcao.html">Trabalhos</a></li>
+            <li><a href="../index.html#contato">Contato</a></li>
+        </ul>
+    </nav>
+
+
+    <header id="header_img">
+        <img src="../img/logo_r.png" alt="logo Python" />
+        <h1>Inventário Florestal no R</h1>
+    </header>
+
+
+    <section id="apresentar">
+        <div>
+
+            <p><strong> Olá, seja bem vindo ao curso de Inventário Florestal no R! </strong>
+
+                O inventário trata da quantificação acerca de um povoamento florestal. Geralmente estamos interessados no estoque de madeira, mas o inventário florestal pode ser muito mais amplo do que isto, em que informações como a uniformidade do povoamento, diversidade de espécies, teor de lignina em um tronco e qualidade de um fuste podem ser necessárias.
+                
+                O inventário permeia praticamente todas as áreas de atuação de um Engenheiro Florestal, por exemplo: pode servir de base para escolha de um tratamento silvicultural, estimar a quantidade de horas/máquina necessárias para a colheita, estimar o rendimento na produção de carvão, identificar se determinada estratégia é adequada para restauração florestal e até mesmo para elaborar o planejamento das atividades necessárias para a produção e/ou conservação florestal.
+                
+                As informações obtidas no inventário são utilizadas para o planejamento de todo o empreendimento florestal, lembre-se: só é possível gerenciar aquilo que conhecemos! (Deming, W. E.) E o inventário é uma excelente maneira para buscar tal conhecimento.
+                
+                Neste curso serão apresentados alguns elementos teóricos e práticos acerca do Inventário Florestal, com foco no processamento dos dados utilizando o software R.
+                
+                Se achar o curso útil inscreva-se no meu canal do <a href="https://www.youtube.com/channel/UCB-RAtyWlZ1cQzn-gm5BSqg" target="_blank" class="link_texto">YouTube aqui</a>, por favor!
+                
+                Bons estudos!
+                Prof. Gustavo Eduardo Marcatti
+            </p>
+        </div>
+    </section>
+
+    <section class="card_semana">
+
+        <!-- Semana 01 -->
+
+        <h3 class="rotulo_sub">Semana 01</h3>
+
+        <p>Neste tópico será feita a apresentação do plano de ensino de forma geral. Temas relevantes sobre o inventário florestal serão abordados, como alguns conceitos essenciais; importância; relação entre as disciplinas de dendrometria, inventário e manejo (de plantadas e de nativas); tipos de inventário: censo vs amostragem, temporário vs contínuo. Uma introdução sobre o mapeamento no inventário será feita.</p>
+
+        <p><strong>Introdução</strong> </p>
+
+        <section class="video">
+            <iframe width="420" height="236" src="https://www.youtube.com/embed/guRCJ4uRn5c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </section>
+
+        <p><strong>Mapeamento</strong> </p>
+        
+        <section class="video">
+            <iframe width="420" height="236" src="https://www.youtube.com/embed/8S-ERtcS0UM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </section>
+
+        <p><strong>Meterial de Estudo</strong> </p>
+
+        <section class="lista">
+            <div>
+                <span>1</span> Quadro da aula <a href="../doc/curso_inventario/Semana01.pdf" target="_blank" class="link_texto">clique aqui</a>!
+            </div>
+
+        </section>
+
+        <!-- Semana 02 -->
+
+        <h3 class="rotulo_sub">Semana 02</h3>
+
+        <p>Conceitos essenciais e visão geral da teoria da amostragem. Amostragem, população, inferência, estatísticas, parâmetros, amostra, unidades amostrais, elemento.  Distribuição das unidades amostrais na população: completamente aleatória, aleatória com restrições, espacialmente balanceada, sistemática não alinhada e não centrada, sistemática desencontrada, sistemática alinhada. Apresentação dos principais estimadores. </p>
+
+        <p><strong>Teoria da Amostragem</strong> </p>
+
+        <section class="video">
+            <iframe width="420" height="236" src="https://www.youtube.com/embed/rQZX2APs64E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </section>
+
+        <p><strong>Meterial de Estudo</strong> </p>
+
+        <section class="lista">
+            <div>
+                <span>1</span> Quadro da aula <a href="../doc/curso_inventario/Semana02.pdf" target="_blank" class="link_texto">clique aqui</a>!
+            </div>
+
+        </section>
+
+        <!-- Semana 03 -->
+
+        <h3 class="rotulo_sub">Semana 03</h3>
+
+        <p>Função densidade de probabilidade normal e t de student. Medidas de (1) tendência central, quantidade, medida - média; (2) variabilidade, confiabilidade - variância, desvio padrão, erro padrão da média, erro no inventário, intervalo de confiança. Erro de amostragem e de não amostragem. Precisão vs Exatidão. </p>
+
+        <p><strong>Estatísticas do Inventário Florestal</strong> </p>
+
+        <section class="video">
+            <iframe width="420" height="236" src="https://www.youtube.com/embed/lyPZTjtIzH4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </section>
+
+        <p><strong>Meterial de Estudo</strong> </p>
+
+        <section class="lista">
+            <div>
+                <span>1</span> Quadro da aula <a href="../doc/curso_inventario/Semana03.pdf" target="_blank" class="link_texto">clique aqui</a>!
+            </div>
+
+        </section>
+
+        <!-- Semana 04 -->
+
+        <h3 class="rotulo_sub">Semana 04</h3>
+
+        <p>Estimativa de volume por árvore, com ajuste de modelo de volume em função de DAP e altura (dados derivados de cubagem de árvores). Estimativa de altura das árvores não medidas, com ajuste de modelo hipsométrico (altura em função de DAP). Aplicar modelos para obtenção de alturas e volumes estimados. Relacionar dados do inventário com dados de cadastro. Obtenção de volume de madeira por parcela, talhão e total. Procedimentos executados utilizando planilha eletrônica Excel. </p>
+
+        <p><strong>Processos básicos no Excel</strong> </p>
+
+        <section class="video">
+            <iframe width="420" height="236" src="https://www.youtube.com/embed/lyPZTjtIzH4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </section>
+
+        <p><strong>Meterial de Estudo</strong> </p>
+
+        <section class="lista">
+            <div>
+                <span>1</span> Quadro da aula <a href="../doc/curso_inventario/Semana04.pdf" target="_blank" class="link_texto">clique aqui</a>!
+            </div>
+
+            <div>
+                <span>2</span> Dados da aula <a href="../dados/DadosExemplo.xlsx" target="_blank" class="link_texto">clique aqui</a>!
+            </div>
+
+        </section>
+
+        <!-- Semana 05 -->
+
+        <h3 class="rotulo_sub">Semana 05</h3>
+
+        <p>Estimativa de volume por árvore, com ajuste de modelo de volume em função de DAP e altura (dados derivados de cubagem de árvores). Estimativa de altura das árvores não medidas, com ajuste de modelo hipsométrico (altura em função de DAP). Aplicar modelos para obtenção de alturas e volumes estimados. Relacionar dados do inventário com dados de cadastro. Obtenção de volume de madeira por parcela, talhão e total. Procedimentos executados utilizando linguagem de programação R. </p>
+
+        <p><strong>Processos básicos no R - parte 1</strong> </p>
+
+        <section class="video">
+            <iframe width="420" height="236" src="https://www.youtube.com/embed/PeHeDMUNY-4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </section>
+
+        <p><strong>Processos básicos no R - parte 2</strong> </p>
+
+        <section class="video">
+            <iframe width="420" height="236" src="https://www.youtube.com/embed/qiKc7or3j1Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </section>
+
+        <p><strong>Meterial de Estudo</strong> </p>
+
+        <section class="lista">
+            <div>
+                <span>1</span> Quadro da aula <a href="../doc/curso_inventario/Semana05.pdf" target="_blank" class="link_texto">clique aqui</a>!
+            </div>
+
+            <div>
+                <span>2</span> Dados da aula <a href="../dados/DadosExemplo.xlsx" target="_blank" class="link_texto">clique aqui</a>!
+            </div>
+        </section>
+
+        <!-- Semana 06 -->
+
+        <h3 class="rotulo_sub">Semana 06</h3>
+
+        <p>Estimativa de volume por árvore, com ajuste de modelo de volume em função de DAP e altura (dados derivados de cubagem de árvores). Estimativa de altura das árvores não medidas, com ajuste de modelo hipsométrico (altura em função de DAP) para cada estrato via regressão linear e regressão linear de efeito misto. Aplicar modelos para obtenção de alturas e volumes estimados. Relacionar dados do inventário com dados de cadastro. Obtenção de volume de madeira por parcela, talhão e total. Procedimentos executados utilizando linguagem de programação R. </p>
+
+        <p><strong>Processos avançados no R</strong> </p>
+
+        <section class="video">
+            <iframe width="420" height="236" src="https://www.youtube.com/embed/krYvQ1dBeJY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </section>
+
+
+        <p><strong>Meterial de Estudo</strong> </p>
+
+        <section class="lista">
+            <div>
+                <span>1</span> Dados da aula <a href="../dados/DadosExemplo.xlsx" target="_blank" class="link_texto">clique aqui</a>!
+            </div>
+        </section>
+
+        <!-- Semana 07 -->
+
+        <h3 class="rotulo_sub">Semana 07</h3>
+
+        <p>Delineamento de amostragem (métodos de amostragem) - trata da determinação do Tipo (área variável ou fixa); Forma (Circular, quadrada, retangular, hexagonal, faixas ou transectos, linha, pontual); Tamanho (variado, exemplos: 20x25: 500 m², raio 12 m: 452 m); Quantidade (via intensidade ou variabilidade + erro máximo permitido); Distribuição (completamente aleatória, aleatória com restrições, balanceada, sistemática não alinhada e não centrada, sistemática desencontrada, sistemática alinhada); das unidades amostrais (parcelas) da amostra. Unidades amostrais com área variável via Princípio de Bitterlich. Ideia geral do princípio. Cronologia: (1) Idealização do princípio e proposição da Barra de Bitterlich; (2) Aperfeiçoamento com o Relascópio de Espelho; (3) Aperfeiçoamento com o Telerascópio. Determinação do fator de área basal K. Exemplo prático no Excel. Vantagens e Desvantagens das unidades amostrais com área variável. </p>
+
+        <p><strong>Métodos de amostragem: visão geral e Princípio de Bitterlich</strong> </p>
+
+        <section class="video">
+            <iframe width="420" height="236" src="https://www.youtube.com/embed/LT9y5SjpPm8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </section>
+
+        <p><strong>Meterial de Estudo</strong> </p>
+
+        <section class="lista">
+            <div>
+                <span>1</span> Quadro da aula <a href="../doc/curso_inventario/Semana07.pdf" target="_blank" class="link_texto">clique aqui</a>!
+            </div>
+        </section>
+
+        <!-- Semana 08 -->
+
+        <h3 class="rotulo_sub">Semana 08</h3>
+
+        <p>Definição de tipo, forma, tamanho, quantidade e distribuição das unidades amostrais (parcelas) no delineamento de amostragem (métodos de amostragem). Etapas para executar o procedimento para distribuição de unidades de amostra na área de interesse em um software de geoprocessamento (QGIS). Apresentação das etapas desde a delimitação da área de interesse (área a ser inventariada) até a importação dos pontos amostrais em um receptor GNSS (exemplo Garmin) para posterior alocação em campo. </p>
+
+        <p><strong>Métodos de amostragem: aplicação</strong> </p>
+
+        <section class="video">
+            <iframe width="420" height="236" src="https://www.youtube.com/embed/GmdjK7gwBWw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </section>
+
+        <p><strong>Meterial de Estudo</strong> </p>
+
+        <section class="lista">
+            <div>
+                <span>1</span> Quadro da aula <a href="../doc/curso_inventario/Semana08.pdf" target="_blank" class="link_texto">clique aqui</a>!
+            </div>
+        </section>
+
+        <!-- Semana 09 -->
+
+        <h3 class="rotulo_sub">Semana 09</h3>
+
+        <p>Dados de suporte para estratificação: sem suporte, variável auxiliar (ex: variáveis fisiográficas, edáficas e climáticas, densidade populacional, altura dominante, material genético, índices de vegetação, etc) e variável de interesse (estoque de madeira). Métodos para delimitar os estratos: manual, semiautomático, automático. Etapas para automação da estratificação: dados, algoritmo de agrupamento (k-médias), pré e pós processamento. Alocação de unidades de amostras: (1) quantidade por estrato: proporcional (área e variabilidade) e ótima; (2) distribuição: aleatória (casual), ..., regular (estratificada). Processamento dos dados: média e erro padrão da média estratificada; erro na amostragem estratificada. </p>
+
+        <p><strong>Amostragem Estratificada: gerar os estratos</strong> </p>
+
+        <section class="video">
+            <iframe width="420" height="236" src="https://www.youtube.com/embed/GmdjK7gwBWw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </section>
+
+        <p><strong>Amostragem Estratificada: alocar unidades de amostra e processamento dos dados</strong> </p>
+
+        <section class="video">
+            <iframe width="420" height="236" src="https://www.youtube.com/embed/tgk9eZ8YHfQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </section>
+
+        <p><strong>Meterial de Estudo</strong> </p>
+
+        <section class="lista">
+            <div>
+                <span>1</span> Quadro da aula <a href="../doc/curso_inventario/Semana09.pdf" target="_blank" class="link_texto">clique aqui</a>!
+            </div>
+        </section>
+
+
+
+
+
+    </section>
+
+
+    <footer>
+        <p>Desenvolvido por Gustavo Marcatti</p>
+    </footer>
+
+
+</body>
+
+</html>
